@@ -1,0 +1,9 @@
+export const SET_PRODUCT_TOPPING = "overlay/SET_PRODUCT_TOPPING";
+
+export const SET_PRODUCT_OPTION = "overlay/SET_PRODUCT_OPTION";
+
+export const REMOVE_ALL_PRODUCT_TOPPINGS = "overlay/REMOVE_ALLPRODUCT_TOPPINGS";
+
+export const RESET_PRODUCT_OPTION = "overlay/RESET_PRODUCT_OPTION";
+
+export const CLEAR_OVERLAY = "overlay/CLEAR_OVERLAY";

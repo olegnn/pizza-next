@@ -74,10 +74,3 @@ export default memo(function Cart({
     </>
   );
 });
-
-/*        
-  <List>
-    {[...products.values()].map((product) =>
-      <Item key={product.id} id={product.id} toppings={product.toppings} quantity={product.quantity} />
-    )}
-  </List> */

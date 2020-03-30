@@ -44,14 +44,3 @@ export default memo(function ProductList({
     </StyledGrid>
   );
 });
-
-/*                <img src={images[0].source} alt={name} />
-                <GridListTileBar
-                    title={name}
-                    subtitle={category}
-                    actionIcon={
-                        <IconButton aria-label={`Customize`} className={""}>
-                        { /*<SettingsIcon onClick={handleClick(id)} />  }
-                        </IconButton>
-                    }
-                />*/

@@ -21,12 +21,13 @@ import gql from "graphql-tag";
 import CurrencySwitcherContainer from "./CurrencySwitcherContainer";
 import { formatPrice } from "../src/formatters";
 import { addPrices } from "../src/utils";
+import { Typography, CircularProgress } from "@material-ui/core";
 import { useQuery } from "@apollo/react-hooks";
 
 const DELIVERY_STATE_QUERY = gql`
   query State {
     state {
-      delivery {
+      deliveryPrice {
         currency
         amount
       }
@@ -34,55 +35,55 @@ const DELIVERY_STATE_QUERY = gql`
   }
 `;
 
-const CartWithDataLoader = withDataLoader(Cart, {
-  mapQueryToProps: path(["data", "state"])
-});
-
-const DELIVERY = [
-  {
-    amount: 5,
-    currency: "USD"
-  },
-  {
-    amount: 4,
-    currency: "EUR"
-  }
-];
-
-const QUERY = { loading: false };
-
-export default injectIntl(function CartContainer({ delivery, intl, ...props }) {
+export default injectIntl(function CartContainer({ delivery, intl, showActions, ...props }) {
   const products = useSelector(cartProductsSelector);
   const router = useRouter();
   const dispatch = useDispatch();
+  const deliveryStateQuery = useQuery(DELIVERY_STATE_QUERY);
 
   const clearCart = useCallback(() => void dispatch(removeAllProducts()));
   const total = useSelector(cartTotalSelector);
   const handleCheckout = useCallback(
     () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
   );
-  const totalPlusDelivery = total.amount
-    ? `Total: ${formatPrice(
-        intl,
-        addPrices(total, DELIVERY.find(propEq("currency", total.currency)))
-      )} (+${formatPrice(
-        intl,
-        DELIVERY.find(propEq("currency", total.currency))
-      )} for delivery)`
-    : `Total: ${formatPrice(intl, total)}`;
 
-  return (
-    <CartWithDataLoader
-      total={totalPlusDelivery}
-      query={QUERY}
-      {...props}
-      products={products}
-      Item={CartItemContainer}
-      actions={
-        <CartActionGroup show={total.amount} onClear={clearCart} onCheckout={handleCheckout} checkoutUrl="/checkout"/>
-      }
-    >
-      <CurrencySwitcherContainer />
-    </CartWithDataLoader>
-  );
+  if (deliveryStateQuery.loading) {
+    return <CircularProgress />
+  } else if (deliveryStateQuery.error) {
+    return <Typography> {deliveryStateQuery.error} </Typography>
+  } else {
+    const totalPlusDelivery = total.amount
+      ? `Total: ${formatPrice(
+          intl,
+          addPrices(
+            total,
+            deliveryStateQuery.data.state.deliveryPrice.find(propEq("currency", total.currency))
+          )
+        )} (+${formatPrice(
+          intl,
+          deliveryStateQuery.data.state.deliveryPrice.find(propEq("currency", total.currency))
+        )} for delivery)`
+      : `Total: ${formatPrice(intl, total)}`;
+
+    return (
+      <Cart
+        total={totalPlusDelivery}
+        {...props}
+        products={products}
+        Item={CartItemContainer}
+        actions={
+          showActions && (
+            <CartActionGroup
+              show={total.amount}
+              onClear={clearCart}
+              onCheckout={handleCheckout}
+              checkoutUrl="/checkout"
+            />
+          )
+        }
+      >
+        <CurrencySwitcherContainer />
+      </Cart>
+    );
+  }
 });

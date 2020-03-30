@@ -23,10 +23,6 @@ const StyledAppBar = styled(MAppBar)`
   padding-left: ${({ leftMargin }) => leftMargin}px;
 
 `;
-/*  ${({ leftMargin, rightMargin }) => `
-    margin-left: ${leftMargin};
-    margin-right: ${rightMargin};
-  `}*/
 
 const MenuButton = styled(Button)`
   margin-right: 30rem;

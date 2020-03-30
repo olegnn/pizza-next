@@ -1,4 +1,3 @@
-///import { Checkbox } from "@material-ui/core";
 import { Checkbox } from "@material-ui/core";
 import { ExpansionPanel } from "@material-ui/core";
 import {
@@ -28,7 +27,6 @@ import { formatPrice } from "../../src/formatters";
 const StyledToppingIcon = styled.img`
   max-height: 30px;
   max-width: 30px;
-  margin: 5px;
 `;
 
 const StyledProductIcon = styled(ProductIcon)`
@@ -46,7 +44,7 @@ const StyledListItem = styled(ListItem)`
 
 const StyledListItemIconStart = styled(ListItemIcon)`
   margin-right: -40px;
-  padding-right: -40px;
+  margin-left: -15px;
 `;
 
 const StyledListItemIcon = styled(ListItemIcon)`
@@ -60,9 +58,11 @@ const StyledListItemText = styled(ListItemText)`
 
 const PriceC = styled(Typography)`
   padding-left: 10px;
+  margin-right: 0px;
 `;
 
 const QuantityInput = styled(TextField)`
+  min-width: 10px;
 `;
 
 export default memo(function CartItem({
@@ -129,78 +129,4 @@ export default memo(function CartItem({
       <PriceC variant="h6"> = {price}</PriceC>
     </StyledListItem>
   );
-  //elseformatPrice(intl, price)
-
-  /*return (
-      <ListItem button>
-        <ExpansionPanel>
-          <ExpansionPanelSummary>
-            {/*<FormControlLabel
-          aria-label="Acknowledge"
-          onClick={event => event.stopPropagation()}
-          onFocus={event => event.stopPropagation()}
-          control={<Checkbox />}
-          label={name}
-        />}
-            <Grid container spacing={3}>
-              <Grid item xs={2} spacing={1}>
-                <Typography>{name}</Typography>
-                <TextField
-                  id="standard-number"
-                  label="Quantity"
-                  type="number"
-                  value={quantity}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </Grid>
-              <Grid item xs={4} spacing={1}>
-                {[...toppings.values()].map((/*{ quantity, icon } v) => (
-                  <>
-                    <StyledToppingIcon src="/icons/icons8-bacon-96.png" />
-                    <Typography>x {3}</Typography>
-                  </>
-                ))}
-              </Grid>
-            </Grid>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography color="textSecondary">
-              The click event of the nested action will propagate up and expand
-              the panel unless you explicitly stop it.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      </ListItem>
-    );*/
-  /*
-    return <ListItem button key={name}>
-        <ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-        <ListItemText primary={name} />
-    </ListItem>;*/
 });
-
-/*
-        <Grid container spacing={3}>
-          <Grid item xs={2} spacing={1}>
-            <Typography>{name}</Typography>
-            <TextField
-              id="standard-number"
-              label="Quantity"
-              type="number"
-              value={quantity}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-          </Grid>
-          <Grid item xs={4} spacing={1}>
-            {[...toppings.values()].map((/*{ quantity, icon } v) => (
-              <>
-                <StyledToppingIcon src="/icons/icons8-bacon-96.png" />
-                <Typography>x {3}</Typography>
-              </>
-            ))}
-          </Grid>
-        </Grid>*/

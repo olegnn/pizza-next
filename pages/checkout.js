@@ -187,7 +187,7 @@ export default injectIntl(({ intl }) => {
       <StyledCheckout>
         <form onSubmit={handleSubmit}>
           <Typography variant="h3"> Checkout </Typography>
-          <CartContainer hideActions />
+          <CartContainer />
           <div>
             <StyledTextField
               fullWidth
@@ -271,6 +271,7 @@ export default injectIntl(({ intl }) => {
           <Button
             type="submit"
             color="primary"
+            outlined
             disabled={!total.amount || !validations.reduce(and, true)}
           >
             Submit order

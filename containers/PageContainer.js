@@ -26,7 +26,7 @@ import {
 import CartContainer from "./CartContainer";
 import DrawerContainer from "./DrawerContainer";
 
-const drawerWidth = 200;
+const leftDrawerWidth = 200;
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
@@ -34,15 +34,52 @@ const StyledContainer = styled(Container)`
   flex-direction: column;
   justify-content: space-between;
   vertical-align: middle;
-  margin-left: ${props => props.leftOpen ? '205px': '0px'};
+  padding-left: ${props => (props.leftOpen ? leftDrawerWidth + 5: 0)}px;
 `;
-
-// calc(${} + 5px);
 
 const StyledMenuIcon = styled.img`
   max-height: 30px;
   max-width: 30px;
 `;
+
+const MENU_ITEMS = [
+          {
+            name: "Menu",
+            icon: null,
+            // onClick: closeLeftDrawer,
+            path: "/"
+          },
+          {
+            name: "Pizza",
+            icon: <StyledMenuIcon src="/icons/icons8-pizza-96.png" />,
+            // onClick: closeLeftDrawer,
+            path: "/pizza"
+          },
+          {
+            name: "Soups",
+            icon: <StyledMenuIcon src="/icons/icons8-soup-plate-96.png" />,
+            // onClick: closeLeftDrawer,
+            path: "/soups"
+          },
+          {
+            name: "Drinks",
+            icon: <StyledMenuIcon src="/icons/icons8-soda-bottle-96.png" />,
+            // onClick: closeLeftDrawer,
+            path: "/drinks"
+          },
+          {
+            name: "Desserts",
+            icon: <StyledMenuIcon src="/icons/icons8-pancake-96.png" />,
+            // onClick: closeLeftDrawer,
+            path: "/desserts"
+          },
+          {
+            name: "Checkout",
+            icon: <StyledMenuIcon src="/icons/icons8-checkout-96.png" />,
+            // onClick: closeLeftDrawer,
+            path: "/checkout"
+          }
+        ];
 
 export default function PageContainer({ children }) {
   const router = useRouter();
@@ -54,69 +91,28 @@ export default function PageContainer({ children }) {
     () => void dispatch(toggleDrawer(DRAWERS.LEFT))
   );
   const isLeftDrawerOpen = useSelector(isLeftDrawerOpenSelector);
-  const closeLeftDrawer = useCallback(
-    () => console.log(isLeftDrawerOpen) || isLeftDrawerOpen && void dispatch(toggleDrawer(DRAWERS.LEFT)),
-    [isLeftDrawerOpen]
-  );
-  
+  const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
 
   return (
     <>
       <AppBar
-        leftMargin={isLeftDrawerOpen ? drawerWidth: 0}
+        leftMargin={isLeftDrawerOpen ? leftDrawerWidth : 0}
+        rightMargin={isRightDrawerOpen ? leftDrawerWidth: 0}
         onToggleRight={handleToggleRightDrawer}
         onToggleLeft={handleToggleLeftDrawer}
         header="Pizza store"
       />
       <Menu
         open={isLeftDrawerOpen}
-        items={[
-          {
-            name: "Menu",
-            icon: null,
-            onClick: closeLeftDrawer,
-            path: "/"
-          },
-          {
-            name: "Pizza",
-            icon: <StyledMenuIcon src="/icons/icons8-pizza-96.png" />,
-            onClick: closeLeftDrawer,
-            path: "/pizza"
-          },
-          {
-            name: "Soups",
-            icon: <StyledMenuIcon src="/icons/icons8-soup-plate-96.png" />,
-            onClick: closeLeftDrawer,
-            path: "/soups"
-          },
-          {
-            name: "Drinks",
-            icon: <StyledMenuIcon src="/icons/icons8-soda-bottle-96.png" />,
-            onClick: closeLeftDrawer,
-            path: "/drinks"
-          },
-          {
-            name: "Desserts",
-            icon: <StyledMenuIcon src="/icons/icons8-pancake-96.png" />,
-            onClick: closeLeftDrawer,
-            path: "/desserts"
-          },
-          {
-            name: "Checkout",
-            icon: <StyledMenuIcon src="/icons/icons8-checkout-96.png" />,
-            onClick: closeLeftDrawer,
-            path: "/checkout"
-          }
-        ].map(v => ({
-          ...v,
-          onClick: () => void 0,
-          selected: router.pathname === v.path
+        items={MENU_ITEMS.map(item => ({
+          ...item,
+          selected: router.pathname === item.path
         }))}
-        width={drawerWidth}
+        width={leftDrawerWidth}
       />
       <StyledContainer leftOpen={isLeftDrawerOpen}>{children}</StyledContainer>
       <DrawerContainer>
-        <CartContainer />
+        <CartContainer showActions />
       </DrawerContainer>
     </>
   );

@@ -6,6 +6,7 @@ import { store, persistor } from "../src/store";
 import apolloClient from "../src/apolloClient";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { PersistGate } from "redux-persist/integration/react";
+import { IntlProvider } from "react-intl";
 import { CssBaseline } from "@material-ui/core";
 
 const theme = {
@@ -18,16 +19,18 @@ export default class extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <ApolloProvider client={apolloClient}>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <Component {...pageProps} />
-            </ThemeProvider>
-          </PersistGate>
-        </Provider>
-      </ApolloProvider>
+      <IntlProvider locale="en">
+        <ApolloProvider client={apolloClient}>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+              </ThemeProvider>
+            </PersistGate>
+          </Provider>
+        </ApolloProvider>
+      </IntlProvider>
     );
   }
 }

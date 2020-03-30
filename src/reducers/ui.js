@@ -6,7 +6,7 @@ import { UI } from "../types";
 const initialState = UI();
 
 const handlers = createHandlers({
-  [UI_ACTIONS.TOGGLE_CART]: state => state.update("cartOpen", not),
+  [UI_ACTIONS.TOGGLE_DRAWER]: state => state.update("drawerOpen", not),
   [UI_ACTIONS.SELECT_PRODUCT]: (state, { id }) =>
     state.update("selectedProduct", id)
 });

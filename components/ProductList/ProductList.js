@@ -11,6 +11,12 @@ import { IconButton } from "@material-ui/core";
 import { GridListTileBar } from "@material-ui/core";
 import { GridListTile, GridList } from "@material-ui/core";
 import { memo } from "react";
+import styled from "styled-components";
+
+const StyledGrid = styled(Grid)`
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
 
 export default memo(function ProductList({
   products,
@@ -19,7 +25,7 @@ export default memo(function ProductList({
   Item
 }) {
   return (
-    <Grid
+    <StyledGrid
       container
       direction="row"
       alignItems="start"
@@ -35,7 +41,7 @@ export default memo(function ProductList({
           />
         </Grid>
       ))}
-    </Grid>
+    </StyledGrid>
   );
 });
 

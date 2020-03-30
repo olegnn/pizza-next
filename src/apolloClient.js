@@ -1,12 +1,16 @@
-import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import fetch from "isomorphic-fetch";
+
+import { hasWindow } from "./utils";
 
 const cache = new InMemoryCache();
 
 const link = new HttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: hasWindow()
+    ? `http://${window.location.hostname}:4466`
+    : "http://localhost:4466",
   fetch
 });
 

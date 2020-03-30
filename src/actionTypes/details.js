@@ -1,3 +1,3 @@
-export const CHANGE = 'details/CHANGE';
+export const SET = "details/SET";
 
-export const CLEAR = 'details/CLEAR';
+export const CLEAR = "details/CLEAR";

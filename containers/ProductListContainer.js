@@ -1,25 +1,27 @@
-import withDataLoader from "../hocs/withDataLoader";
-import ProductList from "../components/ProductList/ProductList";
-import gql from "graphql-tag";
-import { useDispatch, useSelector } from "react-redux";
-import { useCallback } from "react";
-import { addProduct } from "../src/actions/cart";
-import { Record } from "immutable";
-import ProductContainer from "./ProductContainer";
-import withPopper from "../hocs/withPopper";
 import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import { Record } from "immutable";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import ProductList from "../components/ProductList/ProductList";
+import withDataLoader from "../hocs/withDataLoader";
+import withPopper from "../hocs/withPopper";
+import { addProduct } from "../src/actions/cart";
+import ProductContainer from "./ProductContainer";
 
 const GET_PRODUCT_LIST = gql`
   query Products($category: Category) {
-    products: getProducts(category: $category) {
+    products(where: { category: $category }) {
       id
       name
       maxQuantity
       category
       popularity
       description
-      options {
+      configurations {
         id
+        seqId
         attr
         weight
         capacity
@@ -32,14 +34,9 @@ const GET_PRODUCT_LIST = gql`
         size
         source
       }
-      # toppings {
-      #    id
-      #    name
-      #    image {
-      #        size
-      #        source
-      #    }
-      # }
+      toppings {
+        id
+      }
     }
   }
 `;

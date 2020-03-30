@@ -15,8 +15,8 @@ import styled from "styled-components";
 import BadgeCartContainer from "../containers/BadgeCartContainer";
 import CartItemContainer from "../containers/CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
-import { toggleCart } from "../src/actionTypes/ui";
-import { cartTotalSelector, isCartOpenSelector } from "../src/selectors";
+import { toggleDrawer } from "../src/actionTypes/ui";
+import { cartTotalSelector, isDrawerOpenSelector } from "../src/selectors";
 import Cart from "./Cart/Cart";
 
 const StyledAppBar = styled(MAppBar)`

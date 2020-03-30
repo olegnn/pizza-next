@@ -1,26 +1,30 @@
-import withDataLoader from "../hocs/withDataLoader";
 import CartItem from "../components/Cart/CartItem";
-import gql from "graphql-tag";
+import withDataLoader from "../hocs/withDataLoader";
 import { changeProductQuantity } from "../src/actions/cart";
-import { useQuery } from "@apollo/react-hooks";
-import { useDispatch, useSelector } from "react-redux";
-import { useCallback } from "react";
 import { cartProductsSelector, productPriceSelector } from "../src/selectors";
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const GET_PRODUCT_QUERY = gql`
-  query Product($id: String!) {
-    product: getProduct(id: $id) {
+  query Product($id: ID!) {
+    product(where: { id: $id }) {
       id
       name
+      category
       description
       maxQuantity
-      availableOptions: options {
-        id
+      availableConfigurations: configurations {
+        seqId
         attr
       }
-      availableTopings: toppings {
+      availableToppings: toppings {
         id
         name
+        image {
+          source
+        }
       }
     }
   }

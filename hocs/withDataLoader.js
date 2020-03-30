@@ -21,7 +21,6 @@ export default function withDataLoader(
     } else if (error) {
       return <p>{error.message}</p>;
     } else {
-      console.log(mapQueryToProps(query));
       return <Component {...mapQueryToProps(query)} {...props} />;
     }
   };

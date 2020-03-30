@@ -5,29 +5,20 @@ import { ListItem } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
-import styled from "styled-components";
-import { cartProductsSelector } from "../../src/selectors";
-import { useSelector } from "react-redux";
-import {
-  ChevronRight as ChevronRightIcon,
-  ChevronLeft as ChevronLeftIcon
-} from "@material-ui/icons";
-import { memo } from "react";
-import { Typography } from "@material-ui/core";
 import { ButtonGroup } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-
-const StyledDrawer = styled(Drawer)`
-  min-width: 600px;
-`;
-
-const StyledList = styled(List)`
-  min-width: 600px;
-`;
-
-const StyledButton = styled(Button)`
-  margin: 5px;
-`;
+import { Typography } from "@material-ui/core";
+import {
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon
+} from "@material-ui/icons";
+import { map, pipe, toPairs, propEq } from "ramda";
+import { memo } from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { injectIntl } from "react-intl";
+import { formatPrice } from "../../src/formatters";
+import { addPrices } from '../../src/utils';
 
 const StyledButtonGroup = styled(ButtonGroup)`
   width: 100%;
@@ -41,53 +32,83 @@ const StyledTotal = styled(Typography)`
   margin: 10px;
 `;
 
-export default memo(function Cart({
-  open,
-  total,
-  onToggleCart,
-  onClearCart,
-  onCheckout,
-  Item
-}) {
-  const products = useSelector(cartProductsSelector);
+const StyledButton = styled(Button)`
+  margin: 5px;
+`;
 
-  return (
-    <StyledDrawer
-      className=""
-      variant="persistent"
-      anchor="right"
-      open={open}
-      classes={{
-        paper: ""
-      }}
-    >
-      <IconButton onClick={onToggleCart}>
-        <ChevronRightIcon />
-      </IconButton>
-      <StyledList>
-        {[...products.entries()].map(([productKey, product]) => (
-          <Item
-            key={productKey}
-            productKey={productKey}
-            id={product.id}
-            toppings={product.toppings}
-            quantity={product.quantity}
-            selectedOption={product.selectedOption}
-          />
-        ))}
-      </StyledList>
-      <StyledTotal variant="h6">Total: {total} </StyledTotal>
-      {/*<StyledButtonGroup size="large" variant="contained">*/}
-      <StyledButton variant="contained" onClick={onCheckout} color="primary">
-        Checkout
-      </StyledButton>
-      <StyledButton variant="contained" onClick={onClearCart} color="secondary">
-        Clear
-      </StyledButton>
-      {/*</StyledButtonGroup>*/}
-    </StyledDrawer>
-  );
-});
+const StyledChild = styled.div`
+  margin: 10px;
+`;
+
+export default injectIntl(
+  memo(function Cart({
+    open,
+    total,
+    delivery,
+    products,
+    onClearCart,
+    onCheckout,
+    Item,
+    intl,
+    children,
+    disabled,
+    hideActions
+  }) {
+    const deliveryCost = delivery.find(propEq("currency", total.currency));
+    const actions =
+      hideActions || !total.amount ? null : (
+        <>
+          <StyledButton
+            variant="contained"
+            onClick={onCheckout}
+            color="primary"
+          >
+            Checkout
+          </StyledButton>
+          <StyledButton
+            variant="contained"
+            onClick={onClearCart}
+            color="secondary"
+          >
+            Clear
+          </StyledButton>
+        </>
+      );
+    return (
+      <>
+        <List>
+          {[...products.entries()].map(([productKey, product]) => (
+            <Item
+              key={productKey}
+              productKey={productKey}
+              id={product.id}
+              toppings={product.toppings}
+              quantity={product.quantity}
+              disabled
+              selectedConfiguration={product.selectedConfiguration}
+            />
+          ))}
+        </List>
+        <StyledChild>{children}</StyledChild>
+        <StyledTotal variant="h6">
+          Total:{" "}
+          {formatPrice(
+            intl,
+            total.amount ? addPrices(total, deliveryCost) : total
+          )}
+          {total.amount ? (
+            <>
+              {" "}
+              (+
+              {formatPrice(intl, deliveryCost)} for delivery)
+            </>
+          ) : null}
+        </StyledTotal>
+        {actions}
+      </>
+    );
+  })
+);
 
 /*        
   <List>

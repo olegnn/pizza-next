@@ -1,27 +1,36 @@
-///import { Typography } from "@material-ui/core";
+///import { Checkbox } from "@material-ui/core";
 import { Checkbox } from "@material-ui/core";
 import { ExpansionPanel } from "@material-ui/core";
 import {
-  ExpansionPanelSummary,
-  ExpansionPanelDetails
+  ExpansionPanelDetails,
+  ExpansionPanelSummary
 } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
-import {
-  Mail as MailIcon,
-  Inbox as InboxIcon,
-  ChevronRight as ChevronRightIcon,
-  ChevronLeft as ChevronLeftIcon
-} from "@material-ui/icons";
-import styled from "styled-components";
-import { memo } from "react";
 import { Typography } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
+import {
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
+  Inbox as InboxIcon,
+  Mail as MailIcon
+} from "@material-ui/icons";
+import { memo } from "react";
+import styled from "styled-components";
+
+import { ProductIcon } from "../ProductIcon";
+import { injectIntl } from "react-intl";
+import { formatPrice } from "../../src/formatters";
 
 const StyledToppingIcon = styled.img`
+  max-height: 30px;
+  max-width: 30px;
+`;
+
+const StyledProductIcon = styled(ProductIcon)`
   max-height: 30px;
   max-width: 30px;
 `;
@@ -52,63 +61,81 @@ const PriceC = styled(Typography)`
   padding-left: 10px;
 `;
 
-export default memo(function CartItem({
-  product: { id, name, description, availableOptions, maxQuantity } = {},
-  selectedOption,
-  price,
-  toppings,
-  quantity,
-  onChangeQuantity
-}) {
-  console.log("render");
-  // if (false)
-  return (
-    <StyledListItem>
-      <StyledListItemIconStart>
-        <StyledToppingIcon src="/icons/icons8-pizza-96.png" />
-      </StyledListItemIconStart>
-      <StyledListItemText>
-        <FormControlLabel
-          labelPlacement="start"
-          label={
-            <StyledItemName>
-              {name} (
-              {availableOptions.find(({ id }) => id === selectedOption).attr})
-            </StyledItemName>
-          }
-          control={
-            <TextField
-              id="standard-number"
-              type="number"
-              size="small"
-              value={quantity}
-              inputProps={{
-                max: maxQuantity,
-                min: 0
-              }}
-              onChange={event => onChangeQuantity(event, maxQuantity)}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-          }
-        />
-        {/*<ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
-      </StyledListItemText>
-      {[...toppings.values()].map((/*{ quantity, icon }*/ v, i) => (
-        <>
-          <StyledListItemIcon>
-            <StyledToppingIcon src={`/icons/icons8-${icons[i]}-96.png`} />
-          </StyledListItemIcon>
-          <Typography> x {v} </Typography>
-        </>
-      ))}
-      <PriceC variant="h6">= {price}</PriceC>
-    </StyledListItem>
-  );
-  //else
+export default injectIntl(
+  memo(function CartItem({
+    product: {
+      id,
+      name,
+      category,
+      description,
+      availableConfigurations,
+      availableToppings,
+      maxQuantity
+    } = {},
+    selectedConfiguration,
+    price,
+    toppings,
+    quantity,
+    onChangeQuantity,
+    disabled,
+    intl
+  }) {
+    const configuration = availableConfigurations.find(
+      ({ seqId }) => +seqId === +selectedConfiguration.seqId
+    );
+    return (
+      <StyledListItem>
+        <StyledListItemIconStart>
+          <StyledProductIcon category={category} />
+        </StyledListItemIconStart>
+        <StyledListItemText>
+          <FormControlLabel
+            labelPlacement="start"
+            label={
+              <StyledItemName>
+                {name} ({configuration && configuration.attr})
+              </StyledItemName>
+            }
+            control={
+              <TextField
+                id="standard-number"
+                type="number"
+                size="small"
+                value={quantity}
+                inputProps={{
+                  max: maxQuantity,
+                  min: 0
+                }}
+                onChange={event => onChangeQuantity(event, maxQuantity)}
+                InputLabelProps={{
+                  shrink: true
+                }}
+              />
+            }
+          />
+          {/*<ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
+        </StyledListItemText>
+        {[...toppings.entries()].map(
+          (/*{ quantity, icon }*/ [i, v]) =>
+            console.log(i) || (
+              <>
+                <StyledListItemIcon>
+                  <StyledToppingIcon
+                    src={
+                      availableToppings.find(({ id }) => id === i).image.source
+                    }
+                  />
+                </StyledListItemIcon>
+                <Typography> x {v} </Typography>
+              </>
+            )
+        )}
+        <PriceC variant="h6"> = {formatPrice(intl, price)}</PriceC>
+      </StyledListItem>
+    );
+    //else
 
-  /*return (
+    /*return (
       <ListItem button>
         <ExpansionPanel>
           <ExpansionPanelSummary>
@@ -151,12 +178,13 @@ export default memo(function CartItem({
         </ExpansionPanel>
       </ListItem>
     );*/
-  /*
+    /*
     return <ListItem button key={name}>
         <ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
         <ListItemText primary={name} />
     </ListItem>;*/
-});
+  })
+);
 
 /*
         <Grid container spacing={3}>

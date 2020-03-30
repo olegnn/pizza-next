@@ -6,7 +6,10 @@ export const calcProductPrice = curry(
   memoize(
     (product, prices, currency) =>
       product.quantity *
-        prices.getIn([createProductPriceKey(product), currency]) +
+        (console.log(
+          createProductPriceKey(product),
+          prices.getIn([createProductPriceKey(product), currency])
+        ) || prices.getIn([createProductPriceKey(product), currency])) +
       (product.toppings
         .entrySeq()
         .reduce(

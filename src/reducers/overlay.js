@@ -16,13 +16,13 @@ const handlers = createHandlers({
     );
   },
 
-  [OVERLAY_ACTIONS.SET_PRODUCT_OPTION]: (state, { productId, optionId }) =>
+  [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (state, { productId, id, seqId }) =>
     state.update(productId, new ProductConfiguration(), config =>
-      config.set("selectedOption", optionId)
+      config.set("selectedConfiguration", { id, seqId })
     ),
 
-  [OVERLAY_ACTIONS.RESET_PRODUCT_OPTION]: (state, { productId }) =>
-    handlers[OVERLAY_ACTIONS.SET_PRODUCT_OPTION](state, {
+  [OVERLAY_ACTIONS.RESET_PRODUCT_CONFIGURATION]: (state, { productId }) =>
+    handlers[OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION](state, {
       productId,
       optionId: 0
     }),

@@ -18,7 +18,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { injectIntl } from "react-intl";
 import { formatPrice } from "../../src/formatters";
-import { addPrices } from '../../src/utils';
+import { addPrices } from "../../src/utils";
 
 const StyledButtonGroup = styled(ButtonGroup)`
   width: 100%;
@@ -40,75 +40,54 @@ const StyledChild = styled.div`
   margin: 10px;
 `;
 
-export default injectIntl(
-  memo(function Cart({
-    open,
-    total,
-    delivery,
-    products,
-    onClearCart,
-    onCheckout,
-    Item,
-    intl,
-    children,
-    disabled,
-    hideActions
-  }) {
-    const deliveryCost = delivery.find(propEq("currency", total.currency));
-    const actions =
-      hideActions || !total.amount ? null : (
-        <>
-          <StyledButton
-            variant="contained"
-            onClick={onCheckout}
-            color="primary"
-          >
-            Checkout
-          </StyledButton>
-          <StyledButton
-            variant="contained"
-            onClick={onClearCart}
-            color="secondary"
-          >
-            Clear
-          </StyledButton>
-        </>
-      );
-    return (
+export default memo(function Cart({
+  open,
+  total,
+  products,
+  onClearCart,
+  onCheckout,
+  Item,
+  intl,
+  children,
+  disabled,
+  hideActions
+}) {
+  const actions =
+    hideActions ? null : (
       <>
-        <List>
-          {[...products.entries()].map(([productKey, product]) => (
-            <Item
-              key={productKey}
-              productKey={productKey}
-              id={product.id}
-              toppings={product.toppings}
-              quantity={product.quantity}
-              disabled
-              selectedConfiguration={product.selectedConfiguration}
-            />
-          ))}
-        </List>
-        <StyledChild>{children}</StyledChild>
-        <StyledTotal variant="h6">
-          Total:{" "}
-          {formatPrice(
-            intl,
-            total.amount ? addPrices(total, deliveryCost) : total
-          )}
-          {total.amount ? (
-            <>
-              {" "}
-              (+
-              {formatPrice(intl, deliveryCost)} for delivery)
-            </>
-          ) : null}
-        </StyledTotal>
-        {actions}
+        <StyledButton variant="contained" onClick={onCheckout} color="primary">
+          Checkout
+        </StyledButton>
+        <StyledButton
+          variant="contained"
+          onClick={onClearCart}
+          color="secondary"
+        >
+          Clear
+        </StyledButton>
       </>
     );
-  })
-);
+  return (
+    <>
+      <List>
+        {[...products.entries()].map(([productKey, product]) => (
+          <Item
+            key={productKey}
+            productKey={productKey}
+            id={product.id}
+            toppings={product.toppings}
+            quantity={product.quantity}
+            disabled
+            selectedConfiguration={product.selectedConfiguration}
+          />
+        ))}
+      </List>
+      <StyledChild>{children}</StyledChild>
+      <StyledTotal variant="h6">{total}</StyledTotal>
+      {actions}
+    </>
+  );
+});
 
 /*        
   <List>

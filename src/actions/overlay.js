@@ -12,11 +12,10 @@ export const changeToppingAmount = (productId, id, amount, prices) => ({
   }
 });
 
-export const setProductConfiguration = (productId, { id, seqId }) => ({
+export const setProductConfiguration = (productId, seqId) => ({
   type: OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION,
   payload: {
     productId,
-    id,
     seqId
   }
 });

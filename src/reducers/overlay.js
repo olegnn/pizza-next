@@ -16,24 +16,22 @@ const handlers = createHandlers({
     );
   },
 
-  [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (state, { productId, id, seqId }) =>
+  [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (
+    state,
+    { productId, seqId }
+  ) =>
     state.update(productId, new ProductConfiguration(), config =>
-      config.set("selectedConfiguration", { id, seqId })
+      config.set("selectedConfiguration", seqId)
     ),
 
   [OVERLAY_ACTIONS.RESET_PRODUCT_CONFIGURATION]: (state, { productId }) =>
     handlers[OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION](state, {
       productId,
-      optionId: 0
+      seqId: 0
     }),
 
-  /*[OVERLAY_ACTIONS.REMOVE_TOPPING]: (state, { productId, topping }) =>
-    amount > 0
-      ? state.update(productId, new Map(), v => v.set(topping, amount))
-      : state.delete(productId),*/
-
   [OVERLAY_ACTIONS.REMOVE_ALL_PRODUCT_TOPPINGS]: (state, { productId }) =>
-    state.delete(productId)
+    state.update(productId, value => value && value.set("toppings", new Map()))
 });
 
 export default createReducer(initialState, handlers);

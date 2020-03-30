@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from "react";
+import { injectIntl } from "react-intl";
 import {
   overlaySelector,
   selectedProductSelector,
@@ -12,8 +13,9 @@ import { Map } from "immutable";
 import { setProductConfiguration } from "../src/actions/overlay";
 import { pick, propEq } from "ramda";
 import { addPrices } from "../src/utils";
+import { formatPrice } from "../src/formatters";
 
-export default function ProductContainer(props) {
+export default injectIntl(function ProductContainer({ intl, ...props }) {
   const dispatch = useDispatch();
   const configuration = useSelector(overlaySelector);
   const currency = useSelector(cartCurrencySelector);
@@ -30,7 +32,7 @@ export default function ProductContainer(props) {
             quantity,
             selectedConfiguration: prodConfiguration
               ? prodConfiguration.selectedConfiguration
-              : pick(["id", "seqId"], props.configurations[0])
+              : 0
           },
           Number.isSafeInteger(props.maxQuantity) && props.maxQuantity > 0
             ? props.maxQuantity
@@ -42,35 +44,33 @@ export default function ProductContainer(props) {
   );
   const handleSelectConfiguration = useCallback(
     event =>
-      void dispatch(
-        setProductConfiguration(
-          productId,
-          props.configurations.find(
-            ({ seqId }) => seqId === +event.target.value
-          )
-        )
-      ),
+      void dispatch(setProductConfiguration(productId, +event.target.value)),
     [productId]
   );
   const getAdditionalCost = useSelector(productAdditionalCostSelector);
 
-  const selectedConfiguration =
+  const choosenProductConfiguration =
     (prodConfiguration &&
       props.configurations.find(
-        ({ seqId }) => seqId === prodConfiguration.selectedConfiguration.seqId
+        ({ seqId }) => seqId === prodConfiguration.selectedConfiguration
       )) ||
     props.configurations[0];
+
+  const price = formatPrice(
+    intl,
+    addPrices(
+      choosenProductConfiguration.prices.find(propEq("currency", currency)),
+      getAdditionalCost(props.id)
+    )
+  );
 
   return (
     <Product
       {...props}
-      price={addPrices(
-        selectedConfiguration.prices.find(propEq("currency", currency)),
-        getAdditionalCost(props.id)
-      )}
-      selectedConfiguration={selectedConfiguration}
+      price={price}
+      selectedConfiguration={prodConfiguration && prodConfiguration.selectedConfiguration || 0}
       onAddProduct={handleAddProduct}
       onSelectConfiguration={handleSelectConfiguration}
     />
   );
-}
+});

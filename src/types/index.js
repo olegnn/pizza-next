@@ -14,7 +14,15 @@ export const Product = Record(
 );
 
 export const Details = Record(
-  { name: "", email: "", phone: "", payment: "", address1: "", address2: "" },
+  {
+    name: "",
+    email: "",
+    phone: "",
+    payment: "cash",
+    address1: "",
+    address2: "",
+    time: new Date().toISOString().match(/\d\d\:\d\d/)[0]
+  },
   "Details"
 );
 

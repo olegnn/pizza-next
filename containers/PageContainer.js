@@ -30,7 +30,7 @@ const StyledContainer = styled(Container)`
   flex-direction: column;
   justify-content: space-between;
   vertical-align: middle;
-  padding-left: 0px;
+  padding-left: 5px;
 `;
 // calc(${drawerWidth} + 5px);
 const StyledMenuIcon = styled.img`

@@ -13,12 +13,12 @@ const initialState = new Map();
 
 const setProductConfigurationPrices = (state, productId, configurations) =>
   configurations.reduce(
-    (state, { id, seqId, prices }) =>
+    (state, { seqId, prices }) =>
       state.set(
         createProductPriceKey(
           new Product({
             id: productId,
-            selectedConfiguration: { id, seqId }
+            selectedConfiguration: seqId
           })
         ),
         fromPairs(prices.map(({ currency, amount }) => [currency, amount]))

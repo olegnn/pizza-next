@@ -61,81 +61,76 @@ const PriceC = styled(Typography)`
   padding-left: 10px;
 `;
 
-export default injectIntl(
-  memo(function CartItem({
-    product: {
-      id,
-      name,
-      category,
-      description,
-      availableConfigurations,
-      availableToppings,
-      maxQuantity
-    } = {},
-    selectedConfiguration,
-    price,
-    toppings,
-    quantity,
-    onChangeQuantity,
-    disabled,
-    intl
-  }) {
-    const configuration = availableConfigurations.find(
-      ({ seqId }) => +seqId === +selectedConfiguration.seqId
-    );
-    return (
-      <StyledListItem>
-        <StyledListItemIconStart>
-          <StyledProductIcon category={category} />
-        </StyledListItemIconStart>
-        <StyledListItemText>
-          <FormControlLabel
-            labelPlacement="start"
-            label={
-              <StyledItemName>
-                {name} ({configuration && configuration.attr})
-              </StyledItemName>
-            }
-            control={
-              <TextField
-                id="standard-number"
-                type="number"
-                size="small"
-                value={quantity}
-                inputProps={{
-                  max: maxQuantity,
-                  min: 0
-                }}
-                onChange={event => onChangeQuantity(event, maxQuantity)}
-                InputLabelProps={{
-                  shrink: true
-                }}
-              />
-            }
-          />
-          {/*<ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
-        </StyledListItemText>
-        {[...toppings.entries()].map(
-          (/*{ quantity, icon }*/ [i, v]) =>
-            console.log(i) || (
-              <>
-                <StyledListItemIcon>
-                  <StyledToppingIcon
-                    src={
-                      availableToppings.find(({ id }) => id === i).image.source
-                    }
-                  />
-                </StyledListItemIcon>
-                <Typography> x {v} </Typography>
-              </>
-            )
-        )}
-        <PriceC variant="h6"> = {formatPrice(intl, price)}</PriceC>
-      </StyledListItem>
-    );
-    //else
+export default memo(function CartItem({
+  product: {
+    id,
+    name,
+    category,
+    description,
+    configurations: availableConfigurations,
+    toppings: availableToppings,
+    maxQuantity
+  } = {},
+  selectedConfiguration,
+  price,
+  toppings,
+  quantity,
+  onChangeQuantity,
+  disabled,
+  intl
+}) {
+  console.log("render");
+  const configuration = availableConfigurations.find(
+    ({ seqId }) => +seqId === +selectedConfiguration
+  );
+  console.log(configuration, selectedConfiguration);
+  return (
+    <StyledListItem>
+      <StyledListItemIconStart>
+        <StyledProductIcon category={category} />
+      </StyledListItemIconStart>
+      <StyledListItemText>
+        <FormControlLabel
+          labelPlacement="start"
+          label={
+            <StyledItemName>
+              {name} ({configuration && configuration.attr})
+            </StyledItemName>
+          }
+          control={
+            <TextField
+              id="standard-number"
+              type="number"
+              size="small"
+              value={quantity}
+              inputProps={{
+                max: maxQuantity,
+                min: 0
+              }}
+              onChange={event => onChangeQuantity(event, maxQuantity)}
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+          }
+        />
+      </StyledListItemText>
+      {[...toppings.entries()].map((/*{ quantity, icon }*/ [i, v]) => (
+        <>
+          <StyledListItemIcon key={i}>
+            <StyledToppingIcon
+              src={availableToppings.find(({ id }) => id === i).image.source}
+            />
+          </StyledListItemIcon>
+          <Typography> x {v} </Typography>
+        </>
+      ))}
+      <PriceC variant="h6"> = {price}</PriceC>
+    </StyledListItem>
+  );
+  //elseformatPrice(intl, price)
 
-    /*return (
+  /*return (
       <ListItem button>
         <ExpansionPanel>
           <ExpansionPanelSummary>
@@ -178,13 +173,12 @@ export default injectIntl(
         </ExpansionPanel>
       </ListItem>
     );*/
-    /*
+  /*
     return <ListItem button key={name}>
         <ListItemIcon>{id % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
         <ListItemText primary={name} />
     </ListItem>;*/
-  })
-);
+});
 
 /*
         <Grid container spacing={3}>

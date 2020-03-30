@@ -9,8 +9,8 @@ const cache = new InMemoryCache();
 
 const link = new HttpLink({
   uri: hasWindow()
-    ? `http://${window.location.hostname}:4466`
-    : "http://localhost:4466",
+    ? `http://${window.location.hostname}:4000`
+    : "http://localhost:4000",
   fetch
 });
 

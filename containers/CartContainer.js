@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { injectIntl } from "react-intl";
 
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
@@ -16,6 +17,8 @@ import withDataLoader from "../hocs/withDataLoader";
 import { path } from "ramda";
 import gql from "graphql-tag";
 import CurrencySwitcherContainer from "./CurrencySwitcherContainer";
+import { formatPrice } from "../src/formatters";
+import { addPrices } from "../src/utils";
 import { useQuery } from "@apollo/react-hooks";
 /*
 const DELIVERY_STATE_QUERY = gql`
@@ -33,7 +36,20 @@ const CartWithDataLoader = withDataLoader(Cart, {
   mapQueryToProps: path(["data", "state"])
 });
 
-export default function CartContainer(props) {
+const DELIVERY = [
+  {
+    amount: 5,
+    currency: "USD"
+  },
+  {
+    amount: 4,
+    currency: "EUR"
+  }
+];
+
+const QUERY = { loading: false };
+
+export default injectIntl(function CartContainer({ delivery, intl, ...props }) {
   const products = useSelector(cartProductsSelector);
   const router = useRouter();
 
@@ -49,23 +65,19 @@ export default function CartContainer(props) {
       void router.push("/checkout"),
     [router]
   );
-  //{/*query={deliveryQuery}*/}
+  const totalPlusDelivery = total.amount
+    ? `Total: ${formatPrice(
+        intl,
+        addPrices(total, DELIVERY[0])
+      )} (+${formatPrice(intl, DELIVERY[0])} for delivery)`
+    : `Total: ${formatPrice(intl, total)}`;
 
   return (
     <CartWithDataLoader
-      delivery={[
-        {
-          amount: 5,
-          currency: "USD"
-        },
-        {
-          amount: 4,
-          currency: "EUR"
-        }
-      ]}
-      query={{ loading: false }}
+      total={totalPlusDelivery}
+      hideActions={!total.amount}
+      query={QUERY}
       {...props}
-      total={total}
       products={products}
       Item={CartItemContainer}
       onClearCart={clearCart}
@@ -74,4 +86,4 @@ export default function CartContainer(props) {
       <CurrencySwitcherContainer />
     </CartWithDataLoader>
   );
-}
+});

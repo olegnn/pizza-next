@@ -17,16 +17,16 @@ export const createHandlers = pipe(map(curryN(2)), object =>
 );
 
 export const productToKey = ({ id, toppings, selectedConfiguration }) =>
-  `${id}@${toppings ? toppings.entrySeq().join("=") : ""}@${
-    selectedConfiguration ? selectedConfiguration.seqId : 0
-  }`;
+  `${id}@${
+    toppings ? toppings.entrySeq().join("=") : ""
+  }@${selectedConfiguration || 0}`;
 
 export const productToKeyPrefix = ({ id }) => `${id}@`;
 
 export const toNaturalNum = num => Math.max(+num | 0, 0);
 
 export const createProductPriceKey = ({ id, selectedConfiguration }) =>
-  `${id}@${selectedConfiguration ? selectedConfiguration.seqId : 0}`;
+  `${id}@${selectedConfiguration || 0}`;
 
 export const addPrices = (aPrice, bPrice) => {
   if (aPrice.currency !== bPrice.currency) {

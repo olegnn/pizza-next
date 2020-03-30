@@ -1,5 +1,5 @@
 import { OrderedMap } from "immutable";
-import { add, curry, __, pipe, always, dec } from "ramda";
+import { add, curry, __, pipe, always, dec, propEq } from "ramda";
 import * as CART_ACTIONS from "../../actionTypes/cart";
 import {
   createReducer,
@@ -8,7 +8,7 @@ import {
   toNaturalNum,
   productToKeyPrefix
 } from "../../utils";
-import { sumQuantity } from "../../selectors/product";
+import { getProductQuantityById } from "../../selectors/product";
 
 const initialState = new OrderedMap();
 
@@ -23,10 +23,8 @@ const handlers = createHandlers({
         : product.update("quantity", toNaturalNum)
     );
     if (maxQuantity != null) {
-      const keyPrefix = productToKeyPrefix(product);
-      const productQuantity = sumQuantity(
-        updatedState.filter((_, k) => k.startsWith(keyPrefix))
-      );
+      const productQuantity = getProductQuantityById(updatedState, product.id);
+
       if (productQuantity > maxQuantity) {
         return state;
       }
@@ -39,20 +37,26 @@ const handlers = createHandlers({
   ) => {
     if (typeof quantity !== "number") return state;
     else {
-      let deleteProduct = false;
-      state = state.update(productKey, product => {
+      let deleteProduct = false,
+        productId = null;
+      const updatedState = state.update(productKey, product => {
         quantity = toNaturalNum(quantity);
         if (product) {
-          if (maxQuantity != null) {
-            quantity = Math.min(maxQuantity, quantity);
-          }
+          productId = product.id;
           product = product.set("quantity", quantity);
           deleteProduct = product.quantity < 1;
           return product;
         }
       });
+      if (maxQuantity != null && productId != null) {
+        const productQuantity = getProductQuantityById(updatedState, productId);
 
-      return deleteProduct ? state.delete(productKey) : state;
+        if (productQuantity > maxQuantity) {
+          return state;
+        }
+      }
+
+      return deleteProduct ? updatedState.delete(productKey) : updatedState;
     }
   },
   [CART_ACTIONS.REMOVE_PRODUCT]: (state, { productKey, quantity }) => {

@@ -7,7 +7,7 @@ import { Typography } from "@material-ui/core";
 import { FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
 import { Input } from "@material-ui/core";
-import { always, path } from "ramda";
+import { always, path, and } from "ramda";
 import { useMemo, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -36,17 +36,17 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
-const formMembers = [
+const FORM_MEMBERS = [
   ["name", /^\s*(?:[a-z]+\s?){1,4}$/i],
   ["phone", /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/],
   [
     "email",
     /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i
   ],
-  "address1",
-  "address2",
-  "payment",
-  "time"
+  ["address1"],
+  ["address2"],
+  ["payment"],
+  ["time"]
 ];
 
 const CREATE_ORDER_MUTATION = gql`
@@ -78,7 +78,11 @@ const CREATE_ORDER_MUTATION = gql`
   }
 `;
 
-const initialTouched = Array.from(formMembers, () => false);
+const returnTrue = always(true);
+
+const { test } = RegExp.prototype;
+
+const ALL_TOUCHED = Array.from(FORM_MEMBERS, returnTrue);
 
 const StyledCheckout = styled.div`
   display: flex;
@@ -87,71 +91,73 @@ const StyledCheckout = styled.div`
 `;
 
 export default injectIntl(({ intl }) => {
-  const details = useSelector(detailsSelector);
   const dispatch = useDispatch();
+  const details = useSelector(detailsSelector);
   const total = useSelector(cartTotalSelector);
   const [createOrder, orderQuery] = useMutation(CREATE_ORDER_MUTATION);
-  const [touched, setTouched] = useState(initialTouched);
+  const [touched, setTouched] = useState(
+    Array.from(FORM_MEMBERS, ([member]) => !!details.get(member))
+  );
   const products = useSelector(cartProductsSelector);
 
   const handlers = useMemo(
     () =>
-      formMembers.map((member, index) => {
-        let name, validator;
-        if (Array.isArray(member)) {
-          name = member[0];
-          validator = value => member[1].test(value);
-        } else {
-          name = member;
-          validator = always(true);
-        }
+      FORM_MEMBERS.map(([name, reg], index) => {
         return [
           event =>
             setTouched(touched.map((v, i) => v || i === index)) ||
             void dispatch(setDetails(name, event.target.value)),
-          validator
+          reg ? test.bind(reg) : returnTrue,
+          name
         ];
       }),
     touched
   );
 
-  const validations = [];
+  const validations = handlers.map(([_, validator, member]) =>
+    validator(details.get(member))
+  );
 
-  const handleSubmit = useCallback(event => {
-    event.preventDefault();
-    setTouched(Array.from(initialTouched, () => true));
-    if (true) {
-      createOrder({
-        variables: {
-          name: details.name,
-          products: details.products,
-          email: details.email,
-          phone: details.phone,
-          time: details.time,
-          address1: details.address1,
-          address2: details.address2,
-          payment: details.payment,
-          products: {
-            create: [...products.values()].map(product => ({
-              product: { connect: { id: product.id } },
-              quantity: product.quantity,
-              configuration: {
-                connect: { id: product.selectedConfiguration.id }
-              },
-              toppings: {
-                create: [...product.toppings.entries()].map(
-                  ([id, quantity]) => ({
-                    topping: { connect: { id } },
-                    quantity
-                  })
-                )
-              }
-            }))
+  const handleSubmit = useCallback(
+    event => {
+      event.preventDefault();
+
+      setTouched(ALL_TOUCHED);
+
+      if (validations.reduce(and, true)) {
+        createOrder({
+          variables: {
+            name: details.name,
+            products: details.products,
+            email: details.email,
+            phone: details.phone,
+            time: details.time,
+            address1: details.address1,
+            address2: details.address2,
+            payment: details.payment,
+            products: {
+              create: [...products.values()].map(product => ({
+                product: { connect: { id: product.id } },
+                quantity: product.quantity,
+                configuration: {
+                  connect: { id: product.selectedConfiguration.id }
+                },
+                toppings: {
+                  create: [...product.toppings.entries()].map(
+                    ([id, quantity]) => ({
+                      topping: { connect: { id } },
+                      quantity
+                    })
+                  )
+                }
+              }))
+            }
           }
-        }
-      });
-    }
-  });
+        });
+      }
+    },
+    [validations, products, details]
+  );
 
   const orderId = path(["data", "createOrder", "id"], orderQuery);
   useEffect(() => orderId && void dispatch(removeAllProducts()), [orderId]);
@@ -160,6 +166,13 @@ export default injectIntl(({ intl }) => {
 
   if (orderQuery.loading) {
     content = <CircularProgress />;
+  } else if (orderQuery.error) {
+    const error = orderQuery.error.message;
+    content = (
+      <Typography variant="h6">
+        An unexpected error occured: {error}. Please, try again.
+      </Typography>
+    );
   } else if (orderQuery.data) {
     const order = orderQuery.data.createOrder;
     content = (
@@ -182,7 +195,7 @@ export default injectIntl(({ intl }) => {
               type="name"
               name="name"
               onChange={handlers[0][0]}
-              error={touched[0] && !handlers[0][1](details.name)}
+              error={touched[0] && !validations[0]}
               value={details.name}
             />
             <StyledTextField
@@ -193,7 +206,7 @@ export default injectIntl(({ intl }) => {
               name="phone"
               onChange={handlers[1][0]}
               value={details.phone}
-              error={touched[1] && !handlers[1][1](details.phone)}
+              error={touched[1] && !validations[1]}
             />
             <StyledTextField
               fullWidth
@@ -202,7 +215,7 @@ export default injectIntl(({ intl }) => {
               name="email"
               value={details.email}
               onChange={handlers[2][0]}
-              error={touched[2] && !handlers[2][1](details.email)}
+              error={touched[2] && !validations[2]}
             />
           </div>
           <div>
@@ -215,7 +228,7 @@ export default injectIntl(({ intl }) => {
               name="address1"
               value={details.address1}
               onChange={handlers[3][0]}
-              error={touched[3] && !handlers[3][1](details.address1)}
+              error={touched[3] && !validations[3]}
             />
           </div>
           <div>
@@ -228,7 +241,7 @@ export default injectIntl(({ intl }) => {
               name="address2"
               value={details.address2}
               onChange={handlers[4][0]}
-              error={touched[4] && !handlers[4][1](details.address2)}
+              error={touched[4] && !validations[4]}
             />
           </div>
           <RadioGroup
@@ -238,7 +251,7 @@ export default injectIntl(({ intl }) => {
             name="payment"
             value={details.payment}
             onChange={handlers[5][0]}
-            error={touched[5] && !handlers[5][1](details.payment)}
+            error={touched[5] && !validations[5]}
           >
             <FormControlLabel value="cash" control={<Radio />} label="Cash" />
             <FormControlLabel value="card" control={<Radio />} label="Card" />
@@ -250,10 +263,15 @@ export default injectIntl(({ intl }) => {
               type="time"
               name="time"
               onChange={handlers[6][0]}
-              error={touched[6] && !handlers[6][1](details.time)}
+              error={touched[6] && !validations[6]}
+              value={details.time}
             />
           </div>
-          <Button type="submit" color="primary" disabled={!total.amount}>
+          <Button
+            type="submit"
+            color="primary"
+            disabled={!total.amount || !validations.reduce(and, true)}
+          >
             Submit order
           </Button>
         </form>

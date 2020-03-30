@@ -60,21 +60,17 @@ export const productAdditionalCostSelector = createObjectSelector(
     const prodConf = overlay.get(id);
     let amount;
 
-    if (!prodConf) amount = 0;
-    else
+    if (!prodConf) { amount = 0; }
+    else {
       amount = prodConf.toppings
         .entrySeq()
         .reduce(
           (acc, [id, v]) =>
-            console.log(
-              id,
-              v,
-              prices.getIn([createProductPriceKey({ id }), currency])
-            ) ||
             acc + prices.getIn([createProductPriceKey({ id }), currency]) * v,
           0
         );
-
+    }
+    
     return {
       currency,
       amount

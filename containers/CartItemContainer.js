@@ -1,11 +1,14 @@
-import CartItem from "../components/Cart/CartItem";
-import withDataLoader from "../hocs/withDataLoader";
-import { changeProductQuantity } from "../src/actions/cart";
-import { cartProductsSelector, productPriceSelector } from "../src/selectors";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { injectIntl } from "react-intl";
+
+import CartItem from "../components/Cart/CartItem";
+import withDataLoader from "../hocs/withDataLoader";
+import { changeProductQuantity } from "../src/actions/cart";
+import { cartProductsSelector, productPriceSelector } from "../src/selectors";
+import { formatPrice } from "../src/formatters";
 
 const GET_PRODUCT_QUERY = gql`
   query Product($id: ID!) {
@@ -15,11 +18,11 @@ const GET_PRODUCT_QUERY = gql`
       category
       description
       maxQuantity
-      availableConfigurations: configurations {
+      configurations {
         seqId
         attr
       }
-      availableToppings: toppings {
+      toppings {
         id
         name
         image {
@@ -32,7 +35,12 @@ const GET_PRODUCT_QUERY = gql`
 
 const CartItemWithDataLoader = withDataLoader(CartItem);
 
-export default function CartItemContainer({ productKey, id, ...props }) {
+export default injectIntl(function CartItemContainer({
+  intl,
+  productKey,
+  id,
+  ...props
+}) {
   const productQuery = useQuery(GET_PRODUCT_QUERY, {
     variables: { id }
   });
@@ -44,14 +52,17 @@ export default function CartItemContainer({ productKey, id, ...props }) {
       ),
     [id]
   );
-  const price = useSelector(productPriceSelector)(productKey);
+  const price = formatPrice(
+    intl,
+    useSelector(productPriceSelector)(productKey)
+  );
 
   return (
     <CartItemWithDataLoader
+      query={productQuery}
       price={price}
       onChangeQuantity={handleChangeQuantity}
-      query={productQuery}
       {...props}
     />
   );
-}
+});

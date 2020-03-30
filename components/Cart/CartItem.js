@@ -63,8 +63,6 @@ const PriceC = styled(Typography)`
 `;
 
 const QuantityInput = styled(TextField)`
-  min-width: 30px;
-  margin-right: 20px;
 `;
 
 export default memo(function CartItem({

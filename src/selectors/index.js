@@ -1,7 +1,7 @@
 import { createObjectSelector } from "fun-memoize";
 import { prop, pipe, transduce, add, map, __ } from "ramda";
 import { calcProductPrice, sumQuantity } from "./product";
-import { createProductPriceKey } from "../utils";
+import { toPriceKey } from "../utils";
 
 export const overlaySelector = prop("overlay");
 
@@ -26,7 +26,15 @@ export const selectedProductSelector = pipe(
   prop("selectedProduct")
 );
 
-export const isDrawerOpenSelector = pipe(uiSelector, prop("drawerOpen"));
+export const isRightDrawerOpenSelector = pipe(
+  uiSelector,
+  prop("rightDrawerOpen")
+);
+
+export const isLeftDrawerOpenSelector = pipe(
+  uiSelector,
+  prop('leftDrawerOpen')
+);
 
 export const productInCartCountSelector = createObjectSelector(
   cartProductsSelector,
@@ -60,17 +68,18 @@ export const productAdditionalCostSelector = createObjectSelector(
     const prodConf = overlay.get(id);
     let amount;
 
-    if (!prodConf) { amount = 0; }
-    else {
+    if (!prodConf) {
+      amount = 0;
+    } else {
       amount = prodConf.toppings
         .entrySeq()
         .reduce(
           (acc, [id, v]) =>
-            acc + prices.getIn([createProductPriceKey({ id }), currency]) * v,
+            acc + prices.getIn([toPriceKey({ id }), currency]) * v,
           0
         );
     }
-    
+
     return {
       currency,
       amount

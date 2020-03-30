@@ -2,14 +2,16 @@ import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { injectIntl } from "react-intl";
+import { propEq } from "ramda";
+import CartActionGroup from '../components/Cart/CartActionGroup';
 
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
-import { toggleDrawer } from "../src/actions/ui";
+import { toggleDrawer, DRAWERS } from "../src/actions/ui";
 import {
   cartProductsSelector,
   cartTotalSelector,
-  isDrawerOpenSelector
+  isRightDrawerOpenSelector
 } from "../src/selectors";
 import CartItemContainer from "./CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
@@ -20,7 +22,7 @@ import CurrencySwitcherContainer from "./CurrencySwitcherContainer";
 import { formatPrice } from "../src/formatters";
 import { addPrices } from "../src/utils";
 import { useQuery } from "@apollo/react-hooks";
-/*
+
 const DELIVERY_STATE_QUERY = gql`
   query State {
     state {
@@ -30,7 +32,7 @@ const DELIVERY_STATE_QUERY = gql`
       }
     }
   }
-`;*/
+`;
 
 const CartWithDataLoader = withDataLoader(Cart, {
   mapQueryToProps: path(["data", "state"])
@@ -52,36 +54,33 @@ const QUERY = { loading: false };
 export default injectIntl(function CartContainer({ delivery, intl, ...props }) {
   const products = useSelector(cartProductsSelector);
   const router = useRouter();
-
   const dispatch = useDispatch();
-  //const deliveryQuery = useQuery(DELIVERY_STATE_QUERY);
 
   const clearCart = useCallback(() => void dispatch(removeAllProducts()));
   const total = useSelector(cartTotalSelector);
   const handleCheckout = useCallback(
-    e =>
-      void e.preventDefault() ||
-      void dispatch(toggleDrawer()) ||
-      void router.push("/checkout"),
-    [router]
+    () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
   );
   const totalPlusDelivery = total.amount
     ? `Total: ${formatPrice(
         intl,
-        addPrices(total, DELIVERY[0])
-      )} (+${formatPrice(intl, DELIVERY[0])} for delivery)`
+        addPrices(total, DELIVERY.find(propEq("currency", total.currency)))
+      )} (+${formatPrice(
+        intl,
+        DELIVERY.find(propEq("currency", total.currency))
+      )} for delivery)`
     : `Total: ${formatPrice(intl, total)}`;
 
   return (
     <CartWithDataLoader
       total={totalPlusDelivery}
-      hideActions={!total.amount}
       query={QUERY}
       {...props}
       products={products}
       Item={CartItemContainer}
-      onClearCart={clearCart}
-      onCheckout={handleCheckout}
+      actions={
+        <CartActionGroup show={total.amount} onClear={clearCart} onCheckout={handleCheckout} checkoutUrl="/checkout"/>
+      }
     >
       <CurrencySwitcherContainer />
     </CartWithDataLoader>

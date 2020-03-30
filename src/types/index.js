@@ -1,6 +1,5 @@
 import { Map, Record } from "immutable";
-
-// export const Option = Record({ attr: null, weight: null, capacity: null });
+import { getCurrentTimeString } from '../utils';
 
 export const Product = Record(
   {
@@ -21,12 +20,15 @@ export const Details = Record(
     payment: "cash",
     address1: "",
     address2: "",
-    time: new Date().toISOString().match(/\d\d\:\d\d/)[0]
+    time: getCurrentTimeString()
   },
   "Details"
 );
 
-export const UI = Record({ drawerOpen: false, selectedProduct: null }, "UI");
+export const UI = Record(
+  { leftDrawerOpen: false, rightDrawerOpen: false, selectedProduct: null },
+  "UI"
+);
 
 export const ProductConfiguration = Record(
   { toppings: new Map(), selectedConfiguration: 0 },

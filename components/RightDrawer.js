@@ -18,10 +18,16 @@ import styled from "styled-components";
 
 const StyledDrawer = styled(Drawer)`
   min-width: ${props => props.width};
+  @media only screen and (max-width: 600px) {
+    min-width: 100vw;
+  }
 `;
 
 const StyledDrawerHeader = styled.div`
   min-width: ${props => props.width};
+  @media only screen and (max-width: 600px) {
+    min-width: 100vw;
+  }
 `;
 
 export default function RightDrawer({ open, children, onClickToggle, width }) {

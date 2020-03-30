@@ -1,4 +1,4 @@
-import { Drawer } from "@material-ui/core";
+import { Drawer, Divider } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
@@ -23,11 +23,12 @@ const StyledHead = styledJss(styled.div``)(props => ({
 
 export default memo(function Menu({ items, ...props }) {
   return (
-    <StyledDrawer {...props} variant="permanent">
+    <StyledDrawer {...props} variant="persistent">
       <StyledHead />
+      <Divider />
       <List>
         {items.map(({ name, icon, onClick, selected, path }) => (
-          <Link href={path}>
+          <Link href={path} onClick={onClick}>
             <StyledItem selected={selected} key={name} button>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText>{name}</ListItemText>

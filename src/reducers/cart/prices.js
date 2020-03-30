@@ -1,7 +1,7 @@
 import {
   createReducer,
   createHandlers,
-  createProductPriceKey
+  toPriceKey
 } from "../../utils";
 import { Map } from "immutable";
 import { fromPairs, always } from "ramda";
@@ -15,10 +15,10 @@ const setProductConfigurationPrices = (state, productId, configurations) =>
   configurations.reduce(
     (state, { seqId, prices }) =>
       state.set(
-        createProductPriceKey(
+        toPriceKey(
           new Product({
             id: productId,
-            selectedConfiguration: seqId
+            selectedConfiguration: { seqId }
           })
         ),
         fromPairs(prices.map(({ currency, amount }) => [currency, amount]))
@@ -33,7 +33,6 @@ const handlers = createHandlers({
     setProductConfigurationPrices(state, id, [{ seqId: 0, prices }]),
   [CART_ACTIONS.SET_PRICES]: (state, { id, configurations }) =>
     setProductConfigurationPrices(state, id, configurations),
-  [CART_ACTIONS.REMOVE_ALL_PRODUCTS]: always(initialState)
 });
 
 export default createReducer(initialState, handlers);

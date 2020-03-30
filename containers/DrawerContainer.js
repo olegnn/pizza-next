@@ -4,24 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
-import { toggleDrawer } from "../src/actions/ui";
+import { toggleDrawer, DRAWERS } from "../src/actions/ui";
 import {
   cartProductsSelector,
   cartTotalSelector,
-  isDrawerOpenSelector
+  isRightDrawerOpenSelector
 } from "../src/selectors";
 import CartItemContainer from "./CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
 
 export default function DrawerContainer({ children, ...props }) {
   const dispatch = useDispatch();
-  const isDrawerOpen = useSelector(isDrawerOpenSelector);
-  const handleToggle = useCallback(() => void dispatch(toggleDrawer()));
+  const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
+  const handleToggle = useCallback(
+    () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
+  );
 
   return (
     <RightDrawer
       width="600px"
-      open={isDrawerOpen}
+      open={isRightDrawerOpen}
       onClickToggle={handleToggle}
       {...props}
     >

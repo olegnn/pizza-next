@@ -1,21 +1,18 @@
 import memoize from "fun-memoize";
 import { curry, transduce, map, prop, add, propEq } from "ramda";
-import { createProductPriceKey } from "../utils";
+import { toPriceKey } from "../utils";
 
 export const calcProductPrice = curry(
   memoize(
     (product, prices, currency) =>
       product.quantity *
-        (console.log(
-          createProductPriceKey(product),
-          prices.getIn([createProductPriceKey(product), currency])
-        ) || prices.getIn([createProductPriceKey(product), currency])) +
+      prices.getIn([toPriceKey(product), currency]) +
       (product.toppings
         .entrySeq()
         .reduce(
           (acc, [id, amount]) =>
             acc +
-            prices.getIn([createProductPriceKey({ id }), currency]) * amount,
+            prices.getIn([toPriceKey({ id }), currency]) * amount,
           0
         ) || 0)
   )

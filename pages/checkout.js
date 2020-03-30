@@ -24,6 +24,7 @@ import {
 import { injectIntl } from "react-intl";
 import CartContainer from "../containers/CartContainer";
 import { removeAllProducts } from "../src/actions/cart";
+import { timeStringToDate } from '../src/utils';
 import { CircularProgress } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 
@@ -43,8 +44,8 @@ const FORM_MEMBERS = [
     "email",
     /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i
   ],
-  ["address1"],
-  ["address2"],
+  ["address1", /^(?:[\w0-9,\.]+\s?)+$/],
+  ["address2", /^(?:[\w0-9,\.]+\s?)+$/],
   ["payment"],
   ["time"]
 ];
@@ -131,7 +132,7 @@ export default injectIntl(({ intl }) => {
             products: details.products,
             email: details.email,
             phone: details.phone,
-            time: details.time,
+            time: timeStringToDate(details.time),
             address1: details.address1,
             address2: details.address2,
             payment: details.payment,

@@ -22,6 +22,13 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
 
   const productId = props.id;
   const prodConfiguration = configuration.get(productId);
+  const choosenProductConfiguration =
+    (prodConfiguration &&
+      props.configurations.find(
+        ({ seqId }) => seqId === prodConfiguration.selectedConfiguration
+      )) ||
+    props.configurations[0];
+
   const handleAddProduct = useCallback(
     (_, quantity) =>
       void dispatch(
@@ -30,9 +37,7 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
             id: props.id,
             toppings: prodConfiguration && prodConfiguration.toppings,
             quantity,
-            selectedConfiguration: prodConfiguration
-              ? prodConfiguration.selectedConfiguration
-              : 0
+            selectedConfiguration: choosenProductConfiguration
           },
           Number.isSafeInteger(props.maxQuantity) && props.maxQuantity > 0
             ? props.maxQuantity
@@ -40,7 +45,7 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
           props.configurations
         )
       ),
-    [productId, prodConfiguration]
+    [productId, prodConfiguration, choosenProductConfiguration]
   );
   const handleSelectConfiguration = useCallback(
     event =>
@@ -49,12 +54,6 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
   );
   const getAdditionalCost = useSelector(productAdditionalCostSelector);
 
-  const choosenProductConfiguration =
-    (prodConfiguration &&
-      props.configurations.find(
-        ({ seqId }) => seqId === prodConfiguration.selectedConfiguration
-      )) ||
-    props.configurations[0];
 
   const price = formatPrice(
     intl,

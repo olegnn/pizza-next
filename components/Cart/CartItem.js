@@ -28,6 +28,7 @@ import { formatPrice } from "../../src/formatters";
 const StyledToppingIcon = styled.img`
   max-height: 30px;
   max-width: 30px;
+  margin: 5px;
 `;
 
 const StyledProductIcon = styled(ProductIcon)`
@@ -40,7 +41,7 @@ const StyledItemName = styled(Typography)`
 `;
 
 const StyledListItem = styled(ListItem)`
-  width: auto;
+  min-width: auto;
 `;
 
 const StyledListItemIconStart = styled(ListItemIcon)`
@@ -61,6 +62,11 @@ const PriceC = styled(Typography)`
   padding-left: 10px;
 `;
 
+const QuantityInput = styled(TextField)`
+  min-width: 30px;
+  margin-right: 20px;
+`;
+
 export default memo(function CartItem({
   product: {
     id,
@@ -79,17 +85,15 @@ export default memo(function CartItem({
   disabled,
   intl
 }) {
-  console.log("render");
   const configuration = availableConfigurations.find(
-    ({ seqId }) => +seqId === +selectedConfiguration
+    ({ seqId }) => +seqId === +selectedConfiguration.seqId
   );
-  console.log(configuration, selectedConfiguration);
   return (
     <StyledListItem>
-      <StyledListItemIconStart>
+      <StyledListItemIconStart key="start">
         <StyledProductIcon category={category} />
       </StyledListItemIconStart>
-      <StyledListItemText>
+      <StyledListItemText key="text">
         <FormControlLabel
           labelPlacement="start"
           label={
@@ -98,8 +102,7 @@ export default memo(function CartItem({
             </StyledItemName>
           }
           control={
-            <TextField
-              id="standard-number"
+            <QuantityInput
               type="number"
               size="small"
               value={quantity}

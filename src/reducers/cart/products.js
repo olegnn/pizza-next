@@ -3,10 +3,10 @@ import { add, curry, __, pipe, always, dec, propEq } from "ramda";
 import * as CART_ACTIONS from "../../actionTypes/cart";
 import {
   createReducer,
-  productToKey,
+  toProductKey,
   createHandlers,
   toNaturalNum,
-  productToKeyPrefix
+  toProductKeyPrefix
 } from "../../utils";
 import { getProductQuantityById } from "../../selectors/product";
 
@@ -15,7 +15,7 @@ const initialState = new OrderedMap();
 const handlers = createHandlers({
   [CART_ACTIONS.ADD_PRODUCT]: (
     state,
-    { product, productKey = productToKey(product), maxQuantity }
+    { product, productKey = toProductKey(product), maxQuantity }
   ) => {
     const updatedState = state.update(productKey, cartProduct =>
       cartProduct
@@ -78,7 +78,7 @@ const handlers = createHandlers({
     return state.delete(productKey);
   },
   [CART_ACTIONS.CHANGE_PRODUCT]: (state, { productKey, product }) => {
-    const newProductKey = productToKey(product);
+    const newProductKey = toProductKey(product);
     if (newProductKey !== productKey) {
       return pipe(
         handlers[CART_ACTIONS.REMOVE_PRODUCT](__, { productKey }),

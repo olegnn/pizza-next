@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import styled from "styled-components";
 import ToppingsListContainer from "../containers/ToppingListContainer";
 import ProductListContainer from "../containers/ProductListContainer";
@@ -14,19 +14,40 @@ import {
   DialogContent,
   Slider
 } from "@material-ui/core";
+import {
+  usePopupState,
+  bindToggle,
+  bindPopper
+} from "material-ui-popup-state/hooks";
+import useOutsideClickHandler from "../hooks/useOutsideClickHandler";
 
 export default function withPopper(Component) {
   const wrapped = props => {
     const [anchorEl, setAnchorEl] = useState(null);
-    const [selectedId, setselectedId] = useState(null);
+    const [selectedId, setSelectedId] = useState(null);
+    const popperRef = useRef(null);
 
     const handleClick = useCallback(
       (event, id) => {
-        setselectedId(id);
-        setAnchorEl(event.currentTarget);
+        if (event.currentTarget.contains(anchorEl)) {
+          setSelectedId(null);
+          setAnchorEl(null);
+        } else {
+          setSelectedId(id);
+          setAnchorEl(event.currentTarget);
+        }
       },
-      [setselectedId, setAnchorEl]
+      [anchorEl, selectedId]
     );
+
+    const closePopper = useCallback(
+      (event) => {
+        setSelectedId(null);
+        setAnchorEl(null);
+      }
+    );
+
+    useOutsideClickHandler(popperRef, anchorEl, closePopper);
 
     const popperTransition = useCallback(
       ({ TransitionProps }) => (
@@ -42,7 +63,7 @@ export default function withPopper(Component) {
     );
 
     const toppingsPopper = selectedId != null && (
-      <Popper open={selectedId != null} anchorEl={anchorEl} transition>
+      <Popper ref={popperRef} open={selectedId != null} anchorEl={anchorEl} transition>
         {popperTransition}
       </Popper>
     );

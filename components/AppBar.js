@@ -15,17 +15,18 @@ import styled from "styled-components";
 import BadgeCartContainer from "../containers/BadgeCartContainer";
 import CartItemContainer from "../containers/CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
-import { toggleDrawer } from "../src/actionTypes/ui";
-import { cartTotalSelector, isDrawerOpenSelector } from "../src/selectors";
+import { cartTotalSelector, isRightDrawerOpenSelector } from "../src/selectors";
 import Cart from "./Cart/Cart";
 
 const StyledAppBar = styled(MAppBar)`
   margin-top: 0px;
-  ${({ leftMargin, rightMargin }) => `
+  padding-left: ${({ leftMargin }) => leftMargin}px;
+
+`;
+/*  ${({ leftMargin, rightMargin }) => `
     margin-left: ${leftMargin};
     margin-right: ${rightMargin};
-  `}
-`;
+  `}*/
 
 const MenuButton = styled(Button)`
   margin-right: 30rem;
@@ -43,7 +44,8 @@ export default memo(function AppBar({
   header,
   rightMargin,
   leftMargin,
-  onToggleCart
+  onToggleLeft,
+  onToggleRight
 }) {
   return (
     <StyledAppBar
@@ -52,9 +54,18 @@ export default memo(function AppBar({
       position="fixed"
     >
       <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={onToggleLeft}
+          edge="start"
+          className=""
+        >
+          <MenuIcon />
+        </IconButton>
         <Header variant="h6">{header}</Header>
         <LoginButton color="inherit">Login</LoginButton>
-        <IconButton aria-label="cart" onClick={onToggleCart}>
+        <IconButton aria-label="cart" onClick={onToggleRight}>
           <BadgeCartContainer />
         </IconButton>
       </Toolbar>

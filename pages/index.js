@@ -39,11 +39,13 @@ const menuData = [
 
 const StyledImg = styled.img`
   height: inherit;
+  width: auto
   background-size: cover;
 `;
 
 const StyledButton = styled(ButtonBase)`
-  height: 100%;
+  height: inherit;
+  width: 100%;
 `;
 
 export default () => {

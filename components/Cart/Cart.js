@@ -13,6 +13,7 @@ import {
   ChevronRight as ChevronRightIcon
 } from "@material-ui/icons";
 import { map, pipe, toPairs, propEq } from "ramda";
+import Link from 'next/Link';
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -50,23 +51,8 @@ export default memo(function Cart({
   intl,
   children,
   disabled,
-  hideActions
+  actions
 }) {
-  const actions =
-    hideActions ? null : (
-      <>
-        <StyledButton variant="contained" onClick={onCheckout} color="primary">
-          Checkout
-        </StyledButton>
-        <StyledButton
-          variant="contained"
-          onClick={onClearCart}
-          color="secondary"
-        >
-          Clear
-        </StyledButton>
-      </>
-    );
   return (
     <>
       <List>

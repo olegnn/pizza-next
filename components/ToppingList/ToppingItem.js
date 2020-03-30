@@ -14,7 +14,6 @@ export default memo(function ToppingItem({
   onAmountChange,
   max
 }) {
-  console.log("render");
   return (
     <div>
       <Typography id="discrete-slider" gutterBottom>

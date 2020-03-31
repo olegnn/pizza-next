@@ -82,19 +82,21 @@ export default memo(function CartItem({
           labelPlacement="start"
           label={
             <StyledItemName>
-              {name}{configuration && ` (${configuration.attr})`}
+              {name}
+              {configuration && ` (${configuration.attr})`}
             </StyledItemName>
           }
           control={
             <QuantityInput
               type="number"
               size="small"
-              value={quantity}
+              value={String(quantity)}
               inputProps={{
                 max: maxQuantity,
                 min: 0
               }}
-              onChange={event => onChangeQuantity(event, maxQuantity)}
+              onChange={event => onChangeQuantity(event, maxQuantity, false)}
+              onBlur={event => onChangeQuantity(event, maxQuantity, true)}
               InputLabelProps={{
                 shrink: true
               }}
@@ -103,8 +105,8 @@ export default memo(function CartItem({
         />
       </StyledListItemText>
       {[...toppings.entries()].map(([toppingId, quantity]) => (
-        <span key={toppingId}>
-          <StyledListItemIcon>
+        <>
+          <StyledListItemIcon key={toppingId}>
             <StyledToppingIcon
               src={
                 availableToppings.find(({ id }) => id === toppingId).image
@@ -112,8 +114,8 @@ export default memo(function CartItem({
               }
             />
           </StyledListItemIcon>
-          <Typography> x {quantity} </Typography>
-        </span>
+          <Typography key={toppingId + quantity}> x {quantity} </Typography>
+        </>
       ))}
       <PriceC variant="h6"> = {price}</PriceC>
     </StyledListItem>

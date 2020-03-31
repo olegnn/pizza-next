@@ -46,11 +46,16 @@ export default memo(injectIntl(function CartItemContainer({
   });
   const dispatch = useDispatch();
   const handleChangeQuantity = useCallback(
-    (event, maxQuantity) =>
+    (event, maxQuantity, deleteIfZero) =>
       void dispatch(
-        changeProductQuantity(productKey, +event.target.value, maxQuantity)
+        changeProductQuantity(
+          productKey,
+          +event.target.value,
+          maxQuantity,
+          deleteIfZero
+        )
       ),
-    [id]
+    []
   );
   const price = formatPrice(
     intl,

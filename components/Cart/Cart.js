@@ -21,10 +21,19 @@ import { addPrices } from "../../app/utils";
 
 const StyledTotal = styled(Typography)`
   margin: 10px;
+  padding-right: 20px;
 `;
 
 const StyledChild = styled.div`
   margin: 10px;
+`;
+
+const StyledButtonGroup = styled.span`
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: end;
 `;
 
 export default memo(function Cart({
@@ -51,8 +60,10 @@ export default memo(function Cart({
           />
         ))}
       </List>
-      <StyledChild>{children}</StyledChild>
-      <StyledTotal variant="h6">{total}</StyledTotal>
+      <StyledButtonGroup>
+        <StyledChild>{children}</StyledChild>
+        <StyledTotal variant="h6">{total}</StyledTotal>
+      </StyledButtonGroup>
       {actions}
     </>
   );

@@ -33,7 +33,7 @@ const handlers = createHandlers({
   },
   [CART_ACTIONS.CHANGE_PRODUCT_QUANTITY]: (
     state,
-    { productKey, quantity, maxQuantity }
+    { productKey, quantity, maxQuantity, deleteIfZero = false }
   ) => {
     if (typeof quantity !== "number") return state;
     else {
@@ -56,7 +56,9 @@ const handlers = createHandlers({
         }
       }
 
-      return deleteProduct ? updatedState.delete(productKey) : updatedState;
+      return deleteIfZero && deleteProduct
+        ? updatedState.delete(productKey)
+        : updatedState;
     }
   },
   [CART_ACTIONS.REMOVE_PRODUCT]: (state, { productKey, quantity }) => {

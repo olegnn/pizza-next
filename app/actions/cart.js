@@ -25,11 +25,20 @@ export const removeProduct = assocPath(["payload", "productKey"], __, {
   type: CART_ACTIONS.REMOVE_PRODUCT
 });
 
-export const changeProductQuantity = pipe(
-  Array,
-  zipObj(["productKey", "quantity", "maxQuantity"]),
-  assoc("payload", __, { type: CART_ACTIONS.CHANGE_PRODUCT_QUANTITY })
-);
+export const changeProductQuantity = (
+  productKey,
+  quantity,
+  maxQuantity,
+  deleteIfZero = false
+) => ({
+  payload: {
+    productKey,
+    quantity,
+    maxQuantity,
+    deleteIfZero
+  },
+  type: CART_ACTIONS.CHANGE_PRODUCT_QUANTITY
+});
 
 export const removeAllProducts = always({
   type: CART_ACTIONS.REMOVE_ALL_PRODUCTS

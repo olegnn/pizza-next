@@ -282,7 +282,7 @@ export default withApollo(injectIntl(({ intl }) => {
               type="submit"
               color="primary"
               variant="contained"
-              disabled={!total.amount || !validations.reduce(and, true)}
+              disabled={!total.amount}
             >
               Submit order
             </Button>

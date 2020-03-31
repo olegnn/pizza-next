@@ -4,15 +4,7 @@ import { Button } from "@material-ui/core";
 import { ButtonGroup } from "@material-ui/core";
 import styled from "styled-components";
 
-const StyledButtonGroup = styled(ButtonGroup)`
-  width: 100%;
-  display: flex;
-  align-items: space-around;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const StyledButton = styled(Button)`
+const StyledButton = styled.span`
   margin: 5px;
 `;
 
@@ -26,18 +18,22 @@ export default memo(function CartActionGroup({
 }) {
   return show ? (
     <>
-      <Link href="/checkout" passHref>
-        <StyledButton
-          component="a"
-          variant="contained"
-          onClick={onCheckout}
-          color="primary"
-        >
-          {checkoutText}
-        </StyledButton>
-      </Link>
-      <StyledButton variant="contained" onClick={onClear} color="secondary">
-        {clearText}
+      <StyledButton>
+        <Link href="/checkout" passHref>
+          <Button
+            component="a"
+            variant="contained"
+            onClick={onCheckout}
+            color="primary"
+          >
+            {checkoutText}
+          </Button>
+        </Link>
+      </StyledButton>
+      <StyledButton>
+        <Button variant="contained" onClick={onClear} color="secondary">
+          {clearText}
+        </Button>
       </StyledButton>
     </>
   ) : null;

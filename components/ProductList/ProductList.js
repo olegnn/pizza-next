@@ -34,7 +34,7 @@ export default memo(function ProductList({
       spacing={3}
     >
       {products.map(prod => (
-        <Grid item sm={6} md={3} xl={12} xs={12} key={prod.id}>
+        <Grid item sm={6} md={3} xs={12} key={prod.id}>
           <Item
             {...prod}
             selected={selected === prod.id}

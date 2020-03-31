@@ -28,8 +28,8 @@ export default memo(function LeftDrawer({ items, ...props }) {
       <Divider />
       <List>
         {items.map(({ name, icon, selected, path }) => (
-          <Link href={path}>
-            <StyledItem selected={selected} key={name} button>
+          <Link href={path} passHref key={path}>
+            <StyledItem component="a" selected={selected} key={name} button>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText>{name}</ListItemText>
             </StyledItem>

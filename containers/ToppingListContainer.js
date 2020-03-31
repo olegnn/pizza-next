@@ -1,14 +1,12 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { path } from "ramda";
-import { useCallback } from "react";
-import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useMemo, memo } from "react";
 
-/// import { ToppingList, ItemSlider } from '../components/ItemGroup';
 import ToppingList from "../components/ToppingList/ToppingList";
 import withDataLoader from "../hocs/withDataLoader";
-import { changeToppingAmount, removeAllProductToppings } from "../app/actions/overlay";
+import { setProductTopping, removeAllProductToppings } from "../app/actions/overlay";
 import ToppingSliderContainer from "./ToppingSliderContainer";
 
 const ConfiguredToppingList = withDataLoader(ToppingList, {
@@ -35,7 +33,7 @@ const TOPPING_LIST_QUERY = gql`
   }
 `;
 
-export default function ToppingListContainer({ selected: productId }) {
+export default memo(function ToppingListContainer({ selected: productId }) {
   const dispatch = useDispatch();
   const toppingsQuery = useQuery(TOPPING_LIST_QUERY, {
     variables: { productId }
@@ -56,4 +54,4 @@ export default function ToppingListContainer({ selected: productId }) {
       Item={toppingSliderWithId}
     />
   );
-}
+});

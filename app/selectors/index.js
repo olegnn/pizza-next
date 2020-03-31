@@ -17,23 +17,19 @@ export const cartPricesSelector = pipe(cartSelector, prop("prices"));
 
 export const cartCurrencySelector = pipe(cartSelector, prop("currency"));
 
-/*export const overlayConfigurtaionSelector = pipe(
-  overlaySelector /*, prop('toppings')
-);*/
-
-export const selectedProductSelector = pipe(
+export const selectedElementSelector = pipe(
   uiSelector,
-  prop("selectedProduct")
+  prop("selectedElement")
+);
+
+export const isLeftDrawerOpenSelector = pipe(
+  uiSelector,
+  prop("leftDrawerOpen")
 );
 
 export const isRightDrawerOpenSelector = pipe(
   uiSelector,
   prop("rightDrawerOpen")
-);
-
-export const isLeftDrawerOpenSelector = pipe(
-  uiSelector,
-  prop('leftDrawerOpen')
 );
 
 export const productInCartCountSelector = createObjectSelector(

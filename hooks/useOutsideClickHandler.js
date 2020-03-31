@@ -1,18 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 /**
  * Use to fire callback when occcurs click outside of ref and anchorEl.
  */
-export default function useOutsideClickHandler(ref, anchorEl, cb) {
+export default function useOutsideClickHandler(ref, cb) {
   useEffect(() => {
     function handleClickOutside(event) {
-      console.log(ref, anchorEl, cb);
       if (
         ref &&
         ref.current &&
         !ref.current.contains(event.target) &&
-        !event.target.contains(ref.current) &&
-        (!anchorEl || (!anchorEl.contains(event.target) && !event.target.contains(anchorEl)))
+        !event.target.contains(ref.current)
       ) {
         cb();
       }
@@ -22,5 +20,5 @@ export default function useOutsideClickHandler(ref, anchorEl, cb) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref, anchorEl, cb]);
+  }, [ref, cb]);
 }

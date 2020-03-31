@@ -26,22 +26,18 @@ export default function withPopper(Component, PopperComponent) {
 
     const handleClick = useCallback(
       (event, value) => {
-        if (event.currentTarget.contains(anchorEl)) {
-          setSelected(null);
-          setAnchorEl(null);
-        } else {
-          setSelected(value);
-          setAnchorEl(event.currentTarget);
-        }
+        setSelected(value);
+        setAnchorEl(event.currentTarget);
       },
-      [anchorEl, selected]
+      []
     );
 
-    useOutsideClickHandler(popperRef, anchorEl, useCallback(
+    useOutsideClickHandler(popperRef, useCallback(
       (event) => {
         setSelected(null);
         setAnchorEl(null);
-      }
+      },
+      []
     ));
 
     const popperTransition = useCallback(

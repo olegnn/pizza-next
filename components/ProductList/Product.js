@@ -29,10 +29,10 @@ export default memo(function Product({
   onCustomizeProduct,
   onSelectConfiguration
 }) {
-  const handleCustomizeProduct = useCallback(event => void onCustomizeProduct(event, id), [
-    onCustomizeProduct,
-    id
-  ]);
+  const handleCustomizeProduct = useCallback(
+    event => console.log(selected) || !selected && void onCustomizeProduct(event, id),
+    [onCustomizeProduct, id, selected]
+  );
 
   return (
     <Card raised={selected}>
@@ -60,6 +60,7 @@ export default memo(function Product({
           >
             {configurations.map(conf => (
               <FormControlLabel
+                key={conf.seqId}
                 value={conf.seqId}
                 control={<Radio />}
                 label={conf.attr}

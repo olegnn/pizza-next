@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { injectIntl } from "react-intl";
 import { propEq } from "ramda";
@@ -35,16 +35,17 @@ const DELIVERY_STATE_QUERY = gql`
   }
 `;
 
-export default injectIntl(function CartContainer({ delivery, intl, showActions, ...props }) {
+export default memo(injectIntl(function CartContainer({ delivery, intl, showActions, ...props }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const products = useSelector(cartProductsSelector);
   const deliveryStateQuery = useQuery(DELIVERY_STATE_QUERY);
 
-  const clearCart = useCallback(() => void dispatch(removeAllProducts()));
+  const clearCart = useCallback(() => void dispatch(removeAllProducts()), []);
   const total = useSelector(cartTotalSelector);
   const handleCheckout = useCallback(
-    () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
+    () => void dispatch(toggleDrawer(DRAWERS.RIGHT)),
+    []
   );
 
   if (deliveryStateQuery.loading) {
@@ -88,4 +89,4 @@ export default injectIntl(function CartContainer({ delivery, intl, showActions, 
       </Cart>
     );
   }
-});
+}));

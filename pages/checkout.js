@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from "@material-ui/core";
 import { RadioGroup } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
@@ -25,6 +26,8 @@ import { injectIntl } from "react-intl";
 import CartContainer from "../containers/CartContainer";
 import { removeAllProducts } from "../app/actions/cart";
 import { timeStringToDate } from "../app/utils";
+import withApollo from '../hocs/withApollo';
+import { getCurrentTimeString } from '../app/utils';
 import { CircularProgress } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 
@@ -91,7 +94,15 @@ const StyledCheckout = styled.div`
   justify-content: center;
 `;
 
-export default injectIntl(({ intl }) => {
+const StyledSubmit = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 5px;
+`;
+
+export default withApollo(injectIntl(({ intl }) => {
   const dispatch = useDispatch();
   const details = useSelector(detailsSelector);
   const total = useSelector(cartTotalSelector);
@@ -131,7 +142,7 @@ export default injectIntl(({ intl }) => {
             products: details.products,
             email: details.email,
             phone: details.phone,
-            time: timeStringToDate(details.time),
+            time: timeStringToDate(details.time || getCurrentTimeString()),
             address1: details.address1,
             address2: details.address2,
             payment: details.payment,
@@ -251,7 +262,6 @@ export default injectIntl(({ intl }) => {
             name="payment"
             value={details.payment}
             onChange={handlers[5][0]}
-            error={touched[5] && !validations[5]}
           >
             <FormControlLabel value="cash" control={<Radio />} label="Cash" />
             <FormControlLabel value="card" control={<Radio />} label="Card" />
@@ -267,18 +277,20 @@ export default injectIntl(({ intl }) => {
               value={details.time}
             />
           </div>
-          <Button
-            type="submit"
-            color="primary"
-            outlined
-            disabled={!total.amount || !validations.reduce(and, true)}
-          >
-            Submit order
-          </Button>
+          <StyledSubmit>
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              disabled={!total.amount || !validations.reduce(and, true)}
+            >
+              Submit order
+            </Button>
+          </StyledSubmit>
         </form>
       </StyledCheckout>
     );
   }
 
   return <PageContainer>{content}</PageContainer>;
-});
+}));

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { useCallback } from "react";
+import { useCallback, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { injectIntl } from "react-intl";
 
@@ -35,7 +35,7 @@ const GET_PRODUCT_QUERY = gql`
 
 const CartItemWithDataLoader = withDataLoader(CartItem);
 
-export default injectIntl(function CartItemContainer({
+export default memo(injectIntl(function CartItemContainer({
   intl,
   productKey,
   id,
@@ -65,4 +65,4 @@ export default injectIntl(function CartItemContainer({
       {...props}
     />
   );
-});
+}));

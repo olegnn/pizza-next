@@ -16,7 +16,7 @@ export default memo(function ToppingList({
     <div>
       <Typography variant="h6">{header}</Typography>
       {toppings.map(itemProps => (
-        <Item {...itemProps} />
+        <Item key={itemProps.id} {...itemProps} />
       ))}
       <Button onClick={onReset} color="secondary">
         Reset

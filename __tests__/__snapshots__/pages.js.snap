@@ -1,0 +1,2589 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it takes all pages snapshots takes snapshots 1`] = `
+Array [
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+      <h6
+        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+      >
+        Pizza store
+      </h6>
+      <button
+        aria-label="cart"
+        className="MuiButtonBase-root MuiIconButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <span
+            className="MuiBadge-root"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+            >
+              0
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+    width={200}
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-123"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <ul
+        className="MuiList-root MuiList-padding"
+      >
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-restaurant-menu-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Menu
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/pizza"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pizza-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Pizza
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/soups"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soup-plate-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Soups
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/drinks"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soda-bottle-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Drinks
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/desserts"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pancake-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Desserts
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/checkout"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-checkout-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Checkout
+            </span>
+          </div>
+        </a>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="sc-fznxsB fuxlKR"
+  >
+    <div
+      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h3"
+      >
+        Desserts
+      </h3>
+      <div
+        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+    width="600px"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzpjYC eeHQkq"
+        width="600px"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`it takes all pages snapshots takes snapshots 2`] = `
+Array [
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <h6
+        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+      >
+        Pizza store
+      </h6>
+      <button
+        aria-label="cart"
+        className="MuiButtonBase-root MuiIconButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <span
+            className="MuiBadge-root"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+            >
+              0
+            </span>
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </header>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+    width={200}
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-174"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <ul
+        className="MuiList-root MuiList-padding"
+      >
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-restaurant-menu-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Menu
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/pizza"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pizza-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Pizza
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/soups"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soup-plate-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Soups
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/drinks"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soda-bottle-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Drinks
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/desserts"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pancake-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Desserts
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/checkout"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-checkout-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Checkout
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="sc-fznxsB fuxlKR"
+  >
+    <div
+      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h3"
+      >
+        Pizza
+      </h3>
+      <div
+        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+    width="600px"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzpjYC eeHQkq"
+        width="600px"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`it takes all pages snapshots takes snapshots 3`] = `
+Array [
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+      <h6
+        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+      >
+        Pizza store
+      </h6>
+      <button
+        aria-label="cart"
+        className="MuiButtonBase-root MuiIconButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <span
+            className="MuiBadge-root"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+            >
+              0
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+    width={200}
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-185"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <ul
+        className="MuiList-root MuiList-padding"
+      >
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-restaurant-menu-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Menu
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/pizza"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pizza-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Pizza
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/soups"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soup-plate-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Soups
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/drinks"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soda-bottle-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Drinks
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/desserts"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pancake-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Desserts
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/checkout"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-checkout-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Checkout
+            </span>
+          </div>
+        </a>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="sc-fznxsB fuxlKR"
+  >
+    <div
+      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h3"
+      >
+        Soups
+      </h3>
+      <div
+        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+    width="600px"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzpjYC eeHQkq"
+        width="600px"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`it takes all pages snapshots takes snapshots 4`] = `
+Array [
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <h6
+        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+      >
+        Pizza store
+      </h6>
+      <button
+        aria-label="cart"
+        className="MuiButtonBase-root MuiIconButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <span
+            className="MuiBadge-root"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+            >
+              0
+            </span>
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </header>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+    width={200}
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-186"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <ul
+        className="MuiList-root MuiList-padding"
+      >
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-restaurant-menu-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Menu
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/pizza"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pizza-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Pizza
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/soups"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soup-plate-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Soups
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/drinks"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soda-bottle-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Drinks
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/desserts"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pancake-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Desserts
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/checkout"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-checkout-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Checkout
+            </span>
+          </div>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </a>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="sc-fznxsB fuxlKR"
+  >
+    <div
+      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+    >
+      <h3
+        className="MuiTypography-root MuiTypography-h3"
+      >
+        Drinks
+      </h3>
+      <div
+        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+    width="600px"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzpjYC eeHQkq"
+        width="600px"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`it takes all pages snapshots takes snapshots 5`] = `
+Array [
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+      <h6
+        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+      >
+        Pizza store
+      </h6>
+      <button
+        aria-label="cart"
+        className="MuiButtonBase-root MuiIconButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <span
+            className="MuiBadge-root"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+            <span
+              className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+            >
+              0
+            </span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </header>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+    width={200}
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-187"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <ul
+        className="MuiList-root MuiList-padding"
+      >
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-restaurant-menu-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Menu
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/pizza"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pizza-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Pizza
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/soups"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soup-plate-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Soups
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/drinks"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-soda-bottle-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Drinks
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/desserts"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-pancake-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Desserts
+            </span>
+          </div>
+        </a>
+        <a
+          aria-disabled={false}
+          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          href="/checkout"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+        >
+          <div
+            className="MuiListItemIcon-root"
+          >
+            <img
+              className="sc-fznWqX oPoTt"
+              src="/icons/icons8-checkout-96.png"
+            />
+          </div>
+          <div
+            className="MuiListItemText-root"
+          >
+            <span
+              className="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              Checkout
+            </span>
+          </div>
+        </a>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="sc-fznxsB fuxlKR"
+  >
+    <div
+      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+    >
+      <ul
+        className="MuiGridList-root"
+        style={
+          Object {
+            "margin": -2,
+          }
+        }
+      >
+        <li
+          className="MuiGridListTile-root"
+          style={
+            Object {
+              "height": "auto",
+              "padding": 2,
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            className="MuiGridListTile-tile"
+          >
+            <h3
+              className="MuiTypography-root MuiTypography-h3"
+            >
+              Menu
+            </h3>
+          </div>
+        </li>
+        <li
+          className="MuiGridListTile-root"
+          style={
+            Object {
+              "height": 364,
+              "padding": 2,
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            className="MuiGridListTile-tile"
+          >
+            <a
+              aria-disabled={false}
+              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              href="/pizza"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+            >
+              <img
+                alt="Pizza"
+                className="sc-fzoNJl laHPsE"
+                src="/pizza.jpg"
+              />
+              <div
+                className="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom MuiGridListTileBar-rootSubtitle"
+              >
+                <div
+                  className="MuiGridListTileBar-titleWrap"
+                >
+                  <div
+                    className="MuiGridListTileBar-title"
+                  >
+                    Pizza
+                  </div>
+                  <div
+                    className="MuiGridListTileBar-subtitle"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li
+          className="MuiGridListTile-root"
+          style={
+            Object {
+              "height": 364,
+              "padding": 2,
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            className="MuiGridListTile-tile"
+          >
+            <a
+              aria-disabled={false}
+              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              href="/soups"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+            >
+              <img
+                alt="Soups"
+                className="sc-fzoNJl laHPsE"
+                src="/soup.jpg"
+              />
+              <div
+                className="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom MuiGridListTileBar-rootSubtitle"
+              >
+                <div
+                  className="MuiGridListTileBar-titleWrap"
+                >
+                  <div
+                    className="MuiGridListTileBar-title"
+                  >
+                    Soups
+                  </div>
+                  <div
+                    className="MuiGridListTileBar-subtitle"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li
+          className="MuiGridListTile-root"
+          style={
+            Object {
+              "height": 364,
+              "padding": 2,
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            className="MuiGridListTile-tile"
+          >
+            <a
+              aria-disabled={false}
+              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              href="/desserts"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+            >
+              <img
+                alt="Desserts"
+                className="sc-fzoNJl laHPsE"
+                src="/dessert.jpg"
+              />
+              <div
+                className="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom MuiGridListTileBar-rootSubtitle"
+              >
+                <div
+                  className="MuiGridListTileBar-titleWrap"
+                >
+                  <div
+                    className="MuiGridListTileBar-title"
+                  >
+                    Desserts
+                  </div>
+                  <div
+                    className="MuiGridListTileBar-subtitle"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li
+          className="MuiGridListTile-root"
+          style={
+            Object {
+              "height": 364,
+              "padding": 2,
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            className="MuiGridListTile-tile"
+          >
+            <a
+              aria-disabled={false}
+              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              href="/drinks"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+            >
+              <img
+                alt="Drinks"
+                className="sc-fzoNJl laHPsE"
+                src="/drinks.jpg"
+              />
+              <div
+                className="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom MuiGridListTileBar-rootSubtitle"
+              >
+                <div
+                  className="MuiGridListTileBar-titleWrap"
+                >
+                  <div
+                    className="MuiGridListTileBar-title"
+                  >
+                    Drinks
+                  </div>
+                  <div
+                    className="MuiGridListTileBar-subtitle"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  <div
+    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+    width="600px"
+  >
+    <div
+      className="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      <div
+        className="sc-fzpjYC eeHQkq"
+        width="600px"
+      >
+        <button
+          className="MuiButtonBase-root MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+]
+`;

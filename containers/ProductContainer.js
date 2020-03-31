@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useCallback } from "react";
+import { useCallback, memo } from "react";
 import { injectIntl } from "react-intl";
 import {
   overlaySelector,
-  selectedProductSelector,
+  selectedElementSelector,
   productAdditionalCostSelector,
   cartCurrencySelector
 } from "../app/selectors";
@@ -14,9 +14,9 @@ import { setProductConfiguration } from "../app/actions/overlay";
 import { pick, propEq } from "ramda";
 import { addPrices } from "../app/utils";
 import { formatPrice } from "../app/formatters";
-import { ProductConfigurationSelection } from '../app/types';
+import { ProductConfigurationSelection } from "../app/types";
 
-export default injectIntl(function ProductContainer({ intl, ...props }) {
+export default memo(injectIntl(function ProductContainer({ intl, ...props }) {
   const dispatch = useDispatch();
   const configuration = useSelector(overlaySelector);
   const currency = useSelector(cartCurrencySelector);
@@ -29,15 +29,6 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
         ({ seqId }) => seqId === prodConfiguration.selectedConfiguration
       )) ||
     props.configurations[0];
-
-    if (props.name.includes('Carb')) {
-  
-      console.log(
-        prodConfiguration,
-        props.configurations,
-        choosenProductConfiguration
-      );
-    }
 
   const handleAddProduct = useCallback(
     () =>
@@ -93,4 +84,4 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
       onSelectConfiguration={handleSelectConfiguration}
     />
   );
-});
+}));

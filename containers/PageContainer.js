@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { useMemo } from 'react';
+import React, { useMemo, memo} from 'react';
 
 import AppBar from "../components/AppBar";
 import Cart from "../components/Cart/Cart";
@@ -28,14 +28,19 @@ import CartContainer from "./CartContainer";
 import RightDrawerContainer from "./RightDrawerContainer";
 
 const leftDrawerWidth = 200;
+const rightDrawerWidth = 600;
+
+const StyledWrapper = styled.div`
+  padding-left: ${props => (props.leftPadding || 0) + 5}px;
+`;
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: start;
   vertical-align: middle;
-  padding-left: ${props => (props.leftOpen ? leftDrawerWidth : 0) + 5}px;
 `;
 
 const StyledMenuIcon = styled.img`
@@ -76,14 +81,16 @@ const MENU_ITEMS = [
   }
 ];
 
-export default function PageContainer({ children }) {
+export default memo(function PageContainer({ children }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const handleToggleRightDrawer = useCallback(
-    () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
+    () => void dispatch(toggleDrawer(DRAWERS.RIGHT)),
+    []
   );
   const handleToggleLeftDrawer = useCallback(
-    () => void dispatch(toggleDrawer(DRAWERS.LEFT))
+    () => void dispatch(toggleDrawer(DRAWERS.LEFT)),
+    []
   );
   const isLeftDrawerOpen = useSelector(isLeftDrawerOpenSelector);
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
@@ -91,16 +98,16 @@ export default function PageContainer({ children }) {
     () =>
       MENU_ITEMS.map(item => ({
         ...item,
-        selected: router.pathname === item.path
+        selected: Boolean(router) && router.pathname === item.path
       })),
-    [router.pathname]
+    [router && router.pathname]
   );
 
   return (
     <>
       <AppBar
-        leftMargin={isLeftDrawerOpen ? leftDrawerWidth : 0}
-        rightMargin={isRightDrawerOpen ? leftDrawerWidth : 0}
+        leftPadding={isLeftDrawerOpen ? leftDrawerWidth : 0}
+        rightPadding={isRightDrawerOpen ? rightDrawerWidth : 0}
         onToggleRight={handleToggleRightDrawer}
         onToggleLeft={handleToggleLeftDrawer}
         header="Pizza store"
@@ -110,10 +117,12 @@ export default function PageContainer({ children }) {
         items={items}
         width={leftDrawerWidth}
       />
-      <StyledContainer leftOpen={isLeftDrawerOpen}>{children}</StyledContainer>
+      <StyledWrapper leftPadding={isLeftDrawerOpen ? leftDrawerWidth : 0}>
+        <StyledContainer>{children}</StyledContainer>
+      </StyledWrapper>
       <RightDrawerContainer>
         <CartContainer showActions />
       </RightDrawerContainer>
     </>
   );
-}
+});

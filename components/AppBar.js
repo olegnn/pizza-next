@@ -1,3 +1,4 @@
+import { omit, pipe } from 'ramda';
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
@@ -7,7 +8,6 @@ import { AppBar as MAppBar } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import Head from "next/head";
 import { useState } from "react";
-import { useCallback } from "react";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -18,9 +18,11 @@ import { removeAllProducts } from "../app/actions/cart";
 import { cartTotalSelector, isRightDrawerOpenSelector } from "../app/selectors";
 import Cart from "./Cart/Cart";
 
-const StyledAppBar = styled(MAppBar)`
+
+const StyledAppBar = styled(pipe(omit(['leftPadding', 'rightPadding']), props => <MAppBar {...props} />))`
   margin-top: 0px;
-  padding-left: ${({ leftMargin }) => leftMargin}px;
+  padding-left: ${({ leftPadding }) => leftPadding}px;
+  padding-right: ${({ rightPadding }) => rightPadding}px;
 `;
 
 const MenuButton = styled(Button)`
@@ -37,14 +39,15 @@ const LoginButton = styled(Button)`
 
 export default memo(function AppBar({
   header,
-  rightMargin,
-  leftMargin,
+  leftPadding,
+  rightPadding,
   onToggleLeft,
   onToggleRight
 }) {
   return (
     <StyledAppBar
-      leftMargin={leftMargin}
+      leftPadding={leftPadding}
+      rightPadding={rightPadding}
       position="fixed"
     >
       <Toolbar>
@@ -58,7 +61,6 @@ export default memo(function AppBar({
           <MenuIcon />
         </IconButton>
         <Header variant="h6">{header}</Header>
-        {/*<LoginButton color="inherit">Login</LoginButton>*/}
         <IconButton aria-label="cart" onClick={onToggleRight}>
           <BadgeCartContainer />
         </IconButton>

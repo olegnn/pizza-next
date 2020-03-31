@@ -16,10 +16,14 @@ export const createHandlers = pipe(map(curryN(2)), object =>
 export const toProductKey = ({ id, toppings, selectedConfiguration }) =>
   `${id}@${
     toppings ? toppings.entrySeq().join("=") : ""
-  }@${typeof selectedConfiguration === "object" && selectedConfiguration.seqId || 0}`;
+  }@${(typeof selectedConfiguration === "object" &&
+    selectedConfiguration.seqId) ||
+    0}`;
 
 export const toPriceKey = ({ id, selectedConfiguration }) =>
-  `${id}@${typeof selectedConfiguration === 'object' && selectedConfiguration.seqId || 0}`;
+  `${id}@${(typeof selectedConfiguration === "object" &&
+    selectedConfiguration.seqId) ||
+    0}`;
 
 export const toNaturalNum = num => Math.max(+num | 0, 0);
 
@@ -40,6 +44,10 @@ export function hasWindow() {
   }
 }
 
-export const getCurrentTimeString = () => new Date().toISOString().match(/\d\d\:\d\d/)[0];
+const timeReg = /\d\d\:\d\d/;
 
-export const timeStringToDate = time => new Date(new Date().toISOString().replace(/\d\d\:\d\d/, time));
+export const getCurrentTimeString = () =>
+  new Date().toISOString().match(timeReg)[0];
+
+export const timeStringToDate = time =>
+  new Date(new Date().toISOString().replace(timeReg, time));

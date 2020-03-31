@@ -8,6 +8,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import PageContainer from "../containers/PageContainer";
+import withApollo from '../hocs/withApollo';
 
 const menuData = [
   {
@@ -47,7 +48,7 @@ const StyledButton = styled(ButtonBase)`
   min-width: 100%;
 `;
 
-export default function Index() {
+export default withApollo(function Index() {
   return (
     <PageContainer>
       <GridList cellHeight={360} className="">
@@ -73,4 +74,4 @@ export default function Index() {
       </GridList>
     </PageContainer>
   );
-}
+});

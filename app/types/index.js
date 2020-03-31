@@ -24,13 +24,13 @@ export const Details = Record(
     payment: "cash",
     address1: "",
     address2: "",
-    time: getCurrentTimeString()
+    time: ""
   },
   "Details"
 );
 
 export const UI = Record(
-  { leftDrawerOpen: false, rightDrawerOpen: false, selectedProduct: null },
+  { leftDrawerOpen: false, rightDrawerOpen: false, selectedElement: null },
   "UI"
 );
 

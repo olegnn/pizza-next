@@ -22,18 +22,19 @@ export default memo(function ProductList({
   products,
   selected,
   onSelect,
-  Item
+  Item,
+  ...props
 }) {
   return (
     <StyledGrid
       container
       direction="row"
-      alignItems="start"
+      alignItems="flex-start"
       justify="center"
       spacing={3}
     >
       {products.map(prod => (
-        <Grid item sm={4} md={3} xs={12} key={prod.id}>
+        <Grid item sm={6} md={3} xl={12} xs={12} key={prod.id}>
           <Item
             {...prod}
             selected={selected === prod.id}

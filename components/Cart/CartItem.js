@@ -29,7 +29,7 @@ const StyledListItem = styled(ListItem)`
 
 const StyledListItemIconStart = styled(ListItemIcon)`
   margin-right: -40px;
-  margin-left: -15px;
+  margin-left: -10px;
 `;
 
 const StyledListItemIcon = styled(ListItemIcon)`
@@ -44,6 +44,7 @@ const StyledListItemText = styled(ListItemText)`
 const PriceC = styled(Typography)`
   padding-left: 10px;
   margin-right: 0px;
+  right: 0px;
 `;
 
 const QuantityInput = styled(TextField)`
@@ -102,8 +103,8 @@ export default memo(function CartItem({
         />
       </StyledListItemText>
       {[...toppings.entries()].map(([toppingId, quantity]) => (
-        <>
-          <StyledListItemIcon key={toppingId}>
+        <span key={toppingId}>
+          <StyledListItemIcon>
             <StyledToppingIcon
               src={
                 availableToppings.find(({ id }) => id === toppingId).image
@@ -112,7 +113,7 @@ export default memo(function CartItem({
             />
           </StyledListItemIcon>
           <Typography> x {quantity} </Typography>
-        </>
+        </span>
       ))}
       <PriceC variant="h6"> = {price}</PriceC>
     </StyledListItem>

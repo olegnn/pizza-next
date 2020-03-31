@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
+import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Cart from "../components/Cart/Cart";
@@ -13,11 +14,12 @@ import {
 import CartItemContainer from "./CartItemContainer";
 import { removeAllProducts } from "../app/actions/cart";
 
-export default function RightDrawerContainer({ children, ...props }) {
+export default memo(function RightDrawerContainer({ children, ...props }) {
   const dispatch = useDispatch();
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
   const handleToggle = useCallback(
-    () => void dispatch(toggleDrawer(DRAWERS.RIGHT))
+    () => void dispatch(toggleDrawer(DRAWERS.RIGHT)),
+    []
   );
 
   return (
@@ -30,4 +32,4 @@ export default function RightDrawerContainer({ children, ...props }) {
       {children}
     </RightDrawer>
   );
-}
+});

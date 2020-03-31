@@ -2,8 +2,29 @@
 
 exports[`it takes all pages snapshots takes snapshots 1`] = `
 Array [
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  .c0 {
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  -webkit-box-flex: 7;
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary c0 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -44,7 +65,7 @@ Array [
         </span>
       </button>
       <h6
-        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+        className="MuiTypography-root c1 MuiTypography-h6"
       >
         Pizza store
       </h6>
@@ -94,8 +115,32 @@ Array [
       </button>
     </div>
   </header>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+  .c0 {
+  width: 200;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c1 {
+  min-width: 200px;
+}
+
+.c2 {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width={200}
   >
     <div
@@ -107,7 +152,7 @@ Array [
       }
     >
       <div
-        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-123"
+        className="styled.div-root-122 styled.div-root-123"
       />
       <hr
         className="MuiDivider-root"
@@ -117,7 +162,7 @@ Array [
       >
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
@@ -138,7 +183,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-restaurant-menu-96.png"
             />
           </div>
@@ -154,7 +199,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/pizza"
           onBlur={[Function]}
           onClick={[Function]}
@@ -175,7 +220,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pizza-96.png"
             />
           </div>
@@ -191,7 +236,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/soups"
           onBlur={[Function]}
           onClick={[Function]}
@@ -212,7 +257,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soup-plate-96.png"
             />
           </div>
@@ -228,7 +273,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/drinks"
           onBlur={[Function]}
           onClick={[Function]}
@@ -249,7 +294,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soda-bottle-96.png"
             />
           </div>
@@ -265,7 +310,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/desserts"
           onBlur={[Function]}
           onClick={[Function]}
@@ -286,7 +331,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pancake-96.png"
             />
           </div>
@@ -302,7 +347,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/checkout"
           onBlur={[Function]}
           onClick={[Function]}
@@ -323,7 +368,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-checkout-96.png"
             />
           </div>
@@ -340,11 +385,48 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="sc-fznxsB fuxlKR"
+  .c0 {
+  padding-left: 5px;
+}
+
+.c1 {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  vertical-align: middle;
+}
+
+.c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="c0"
   >
     <div
-      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+      className="MuiContainer-root c1 MuiContainer-maxWidthLg"
     >
       <h3
         className="MuiTypography-root MuiTypography-h3"
@@ -352,7 +434,7 @@ Array [
         Desserts
       </h3>
       <div
-        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root c2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
@@ -378,8 +460,28 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+  .c0 {
+  min-width: 600px;
+}
+
+.c1 {
+  min-width: 600px;
+}
+
+@media only screen and (max-width:600px) {
+  .c0 {
+    min-width: 100vw;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    min-width: 100vw;
+  }
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width="600px"
   >
     <div
@@ -391,7 +493,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpjYC eeHQkq"
+        className="c1"
         width="600px"
       >
         <button
@@ -461,8 +563,29 @@ Array [
 
 exports[`it takes all pages snapshots takes snapshots 2`] = `
 Array [
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  .c0 {
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  -webkit-box-flex: 7;
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary c0 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -506,7 +629,7 @@ Array [
         />
       </button>
       <h6
-        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+        className="MuiTypography-root c1 MuiTypography-h6"
       >
         Pizza store
       </h6>
@@ -559,8 +682,32 @@ Array [
       </button>
     </div>
   </header>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+  .c0 {
+  width: 200;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c1 {
+  min-width: 200px;
+}
+
+.c2 {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width={200}
   >
     <div
@@ -572,7 +719,7 @@ Array [
       }
     >
       <div
-        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-174"
+        className="styled.div-root-122 styled.div-root-174"
       />
       <hr
         className="MuiDivider-root"
@@ -582,7 +729,7 @@ Array [
       >
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
@@ -603,7 +750,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-restaurant-menu-96.png"
             />
           </div>
@@ -622,7 +769,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/pizza"
           onBlur={[Function]}
           onClick={[Function]}
@@ -643,7 +790,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pizza-96.png"
             />
           </div>
@@ -662,7 +809,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/soups"
           onBlur={[Function]}
           onClick={[Function]}
@@ -683,7 +830,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soup-plate-96.png"
             />
           </div>
@@ -702,7 +849,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/drinks"
           onBlur={[Function]}
           onClick={[Function]}
@@ -723,7 +870,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soda-bottle-96.png"
             />
           </div>
@@ -742,7 +889,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/desserts"
           onBlur={[Function]}
           onClick={[Function]}
@@ -763,7 +910,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pancake-96.png"
             />
           </div>
@@ -782,7 +929,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/checkout"
           onBlur={[Function]}
           onClick={[Function]}
@@ -803,7 +950,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-checkout-96.png"
             />
           </div>
@@ -823,11 +970,48 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="sc-fznxsB fuxlKR"
+  .c0 {
+  padding-left: 5px;
+}
+
+.c1 {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  vertical-align: middle;
+}
+
+.c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="c0"
   >
     <div
-      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+      className="MuiContainer-root c1 MuiContainer-maxWidthLg"
     >
       <h3
         className="MuiTypography-root MuiTypography-h3"
@@ -835,7 +1019,7 @@ Array [
         Pizza
       </h3>
       <div
-        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root c2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
@@ -861,8 +1045,28 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+  .c0 {
+  min-width: 600px;
+}
+
+.c1 {
+  min-width: 600px;
+}
+
+@media only screen and (max-width:600px) {
+  .c0 {
+    min-width: 100vw;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    min-width: 100vw;
+  }
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width="600px"
   >
     <div
@@ -874,7 +1078,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpjYC eeHQkq"
+        className="c1"
         width="600px"
       >
         <button
@@ -947,8 +1151,29 @@ Array [
 
 exports[`it takes all pages snapshots takes snapshots 3`] = `
 Array [
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  .c0 {
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  -webkit-box-flex: 7;
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary c0 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -989,7 +1214,7 @@ Array [
         </span>
       </button>
       <h6
-        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+        className="MuiTypography-root c1 MuiTypography-h6"
       >
         Pizza store
       </h6>
@@ -1039,8 +1264,32 @@ Array [
       </button>
     </div>
   </header>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+  .c0 {
+  width: 200;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c1 {
+  min-width: 200px;
+}
+
+.c2 {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width={200}
   >
     <div
@@ -1052,7 +1301,7 @@ Array [
       }
     >
       <div
-        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-185"
+        className="styled.div-root-122 styled.div-root-185"
       />
       <hr
         className="MuiDivider-root"
@@ -1062,7 +1311,7 @@ Array [
       >
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1083,7 +1332,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-restaurant-menu-96.png"
             />
           </div>
@@ -1099,7 +1348,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/pizza"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1120,7 +1369,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pizza-96.png"
             />
           </div>
@@ -1136,7 +1385,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/soups"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1157,7 +1406,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soup-plate-96.png"
             />
           </div>
@@ -1173,7 +1422,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/drinks"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1194,7 +1443,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soda-bottle-96.png"
             />
           </div>
@@ -1210,7 +1459,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/desserts"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1231,7 +1480,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pancake-96.png"
             />
           </div>
@@ -1247,7 +1496,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/checkout"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1268,7 +1517,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-checkout-96.png"
             />
           </div>
@@ -1285,11 +1534,48 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="sc-fznxsB fuxlKR"
+  .c0 {
+  padding-left: 5px;
+}
+
+.c1 {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  vertical-align: middle;
+}
+
+.c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="c0"
   >
     <div
-      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+      className="MuiContainer-root c1 MuiContainer-maxWidthLg"
     >
       <h3
         className="MuiTypography-root MuiTypography-h3"
@@ -1297,7 +1583,7 @@ Array [
         Soups
       </h3>
       <div
-        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root c2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
@@ -1323,8 +1609,28 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+  .c0 {
+  min-width: 600px;
+}
+
+.c1 {
+  min-width: 600px;
+}
+
+@media only screen and (max-width:600px) {
+  .c0 {
+    min-width: 100vw;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    min-width: 100vw;
+  }
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width="600px"
   >
     <div
@@ -1336,7 +1642,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpjYC eeHQkq"
+        className="c1"
         width="600px"
       >
         <button
@@ -1406,8 +1712,29 @@ Array [
 
 exports[`it takes all pages snapshots takes snapshots 4`] = `
 Array [
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  .c0 {
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  -webkit-box-flex: 7;
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary c0 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -1451,7 +1778,7 @@ Array [
         />
       </button>
       <h6
-        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+        className="MuiTypography-root c1 MuiTypography-h6"
       >
         Pizza store
       </h6>
@@ -1504,8 +1831,32 @@ Array [
       </button>
     </div>
   </header>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+  .c0 {
+  width: 200;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c1 {
+  min-width: 200px;
+}
+
+.c2 {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width={200}
   >
     <div
@@ -1517,7 +1868,7 @@ Array [
       }
     >
       <div
-        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-186"
+        className="styled.div-root-122 styled.div-root-186"
       />
       <hr
         className="MuiDivider-root"
@@ -1527,7 +1878,7 @@ Array [
       >
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1548,7 +1899,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-restaurant-menu-96.png"
             />
           </div>
@@ -1567,7 +1918,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/pizza"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1588,7 +1939,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pizza-96.png"
             />
           </div>
@@ -1607,7 +1958,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/soups"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1628,7 +1979,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soup-plate-96.png"
             />
           </div>
@@ -1647,7 +1998,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/drinks"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1668,7 +2019,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soda-bottle-96.png"
             />
           </div>
@@ -1687,7 +2038,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/desserts"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1708,7 +2059,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pancake-96.png"
             />
           </div>
@@ -1727,7 +2078,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/checkout"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1748,7 +2099,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-checkout-96.png"
             />
           </div>
@@ -1768,11 +2119,48 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="sc-fznxsB fuxlKR"
+  .c0 {
+  padding-left: 5px;
+}
+
+.c1 {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  vertical-align: middle;
+}
+
+.c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="c0"
   >
     <div
-      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+      className="MuiContainer-root c1 MuiContainer-maxWidthLg"
     >
       <h3
         className="MuiTypography-root MuiTypography-h3"
@@ -1780,7 +2168,7 @@ Array [
         Drinks
       </h3>
       <div
-        className="MuiCircularProgress-root sc-fzoyTs CQXHd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root c2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
@@ -1806,8 +2194,28 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+  .c0 {
+  min-width: 600px;
+}
+
+.c1 {
+  min-width: 600px;
+}
+
+@media only screen and (max-width:600px) {
+  .c0 {
+    min-width: 100vw;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    min-width: 100vw;
+  }
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width="600px"
   >
     <div
@@ -1819,7 +2227,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpjYC eeHQkq"
+        className="c1"
         width="600px"
       >
         <button
@@ -1892,8 +2300,29 @@ Array [
 
 exports[`it takes all pages snapshots takes snapshots 5`] = `
 Array [
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary sc-fzplWN ghBKLR mui-fixed MuiPaper-elevation4"
+  .c0 {
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  -webkit-box-flex: 7;
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary c0 mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -1934,7 +2363,7 @@ Array [
         </span>
       </button>
       <h6
-        className="MuiTypography-root sc-fznKkj iJZVPT MuiTypography-h6"
+        className="MuiTypography-root c1 MuiTypography-h6"
       >
         Pizza store
       </h6>
@@ -1984,8 +2413,32 @@ Array [
       </button>
     </div>
   </header>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzokOt fLkCEH"
+  .c0 {
+  width: 200;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c1 {
+  min-width: 200px;
+}
+
+.c2 {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width={200}
   >
     <div
@@ -1997,7 +2450,7 @@ Array [
       }
     >
       <div
-        className="sc-fzqNJr cPhlSZ styled.div-root-122 styled.div-root-187"
+        className="styled.div-root-122 styled.div-root-187"
       />
       <hr
         className="MuiDivider-root"
@@ -2007,7 +2460,7 @@ Array [
       >
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2028,7 +2481,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-restaurant-menu-96.png"
             />
           </div>
@@ -2044,7 +2497,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/pizza"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2065,7 +2518,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pizza-96.png"
             />
           </div>
@@ -2081,7 +2534,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/soups"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2102,7 +2555,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soup-plate-96.png"
             />
           </div>
@@ -2118,7 +2571,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/drinks"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2139,7 +2592,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-soda-bottle-96.png"
             />
           </div>
@@ -2155,7 +2608,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/desserts"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2176,7 +2629,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-pancake-96.png"
             />
           </div>
@@ -2192,7 +2645,7 @@ Array [
         </a>
         <a
           aria-disabled={false}
-          className="MuiButtonBase-root MuiListItem-root sc-fzqBZW jtZooy MuiListItem-gutters MuiListItem-button"
+          className="MuiButtonBase-root MuiListItem-root c1 MuiListItem-gutters MuiListItem-button"
           href="/checkout"
           onBlur={[Function]}
           onClick={[Function]}
@@ -2213,7 +2666,7 @@ Array [
             className="MuiListItemIcon-root"
           >
             <img
-              className="sc-fznWqX oPoTt"
+              className="c2"
               src="/icons/icons8-checkout-96.png"
             />
           </div>
@@ -2230,11 +2683,54 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="sc-fznxsB fuxlKR"
+  .c0 {
+  padding-left: 5px;
+}
+
+.c1 {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  vertical-align: middle;
+}
+
+.c3 {
+  height: inherit;
+  min-width: 100%;
+  background-size: cover;
+}
+
+.c2 {
+  height: inherit;
+  min-width: 100%;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+<div
+    className="c0"
   >
     <div
-      className="MuiContainer-root sc-fznJRM bVdKAO MuiContainer-maxWidthLg"
+      className="MuiContainer-root c1 MuiContainer-maxWidthLg"
     >
       <ul
         className="MuiGridList-root"
@@ -2279,7 +2775,7 @@ Array [
           >
             <a
               aria-disabled={false}
-              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              className="MuiButtonBase-root c2"
               href="/pizza"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2298,7 +2794,7 @@ Array [
             >
               <img
                 alt="Pizza"
-                className="sc-fzoNJl laHPsE"
+                className="c3"
                 src="/pizza.jpg"
               />
               <div
@@ -2339,7 +2835,7 @@ Array [
           >
             <a
               aria-disabled={false}
-              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              className="MuiButtonBase-root c2"
               href="/soups"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2358,7 +2854,7 @@ Array [
             >
               <img
                 alt="Soups"
-                className="sc-fzoNJl laHPsE"
+                className="c3"
                 src="/soup.jpg"
               />
               <div
@@ -2399,7 +2895,7 @@ Array [
           >
             <a
               aria-disabled={false}
-              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              className="MuiButtonBase-root c2"
               href="/desserts"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2418,7 +2914,7 @@ Array [
             >
               <img
                 alt="Desserts"
-                className="sc-fzoNJl laHPsE"
+                className="c3"
                 src="/dessert.jpg"
               />
               <div
@@ -2459,7 +2955,7 @@ Array [
           >
             <a
               aria-disabled={false}
-              className="MuiButtonBase-root sc-fzoXWK wwKBE"
+              className="MuiButtonBase-root c2"
               href="/drinks"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2478,7 +2974,7 @@ Array [
             >
               <img
                 alt="Drinks"
-                className="sc-fzoNJl laHPsE"
+                className="c3"
                 src="/drinks.jpg"
               />
               <div
@@ -2507,8 +3003,28 @@ Array [
       </ul>
     </div>
   </div>,
-  <div
-    className="MuiDrawer-root MuiDrawer-docked sc-fzoXzr jFTvjJ"
+  .c0 {
+  min-width: 600px;
+}
+
+.c1 {
+  min-width: 600px;
+}
+
+@media only screen and (max-width:600px) {
+  .c0 {
+    min-width: 100vw;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    min-width: 100vw;
+  }
+}
+
+<div
+    className="MuiDrawer-root MuiDrawer-docked c0"
     width="600px"
   >
     <div
@@ -2520,7 +3036,7 @@ Array [
       }
     >
       <div
-        className="sc-fzpjYC eeHQkq"
+        className="c1"
         width="600px"
       >
         <button

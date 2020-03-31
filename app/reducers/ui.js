@@ -1,6 +1,6 @@
 import { createReducer, createHandlers } from "../utils";
 import * as UI_ACTIONS from "../actionTypes/ui";
-import { DRAWERS } from '../actions/ui';
+import { DRAWERS } from "../actions/ui";
 import { not } from "ramda";
 import { UI } from "../types";
 

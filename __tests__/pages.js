@@ -9,6 +9,7 @@ import App from "../pages/_app";
 import { IntlProvider } from "react-intl";
 import { createServerStore } from "../app/store";
 import { Provider } from "react-redux";
+import 'jest-styled-components';
 
 global.React = React;
 

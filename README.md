@@ -5,9 +5,9 @@ This's a demo pizza project based on ReactJS (Next.js) and GraphQL.
 First, install dependencies
 
 ```bash
-npm run dev
+npm install
 # or
-yarn dev
+yarn
 ```
 
 And then...
@@ -47,3 +47,17 @@ npm run test
 # or
 yarn test
 ```
+
+## Project structure
+
+All application routes are defined in `pages/` folder.
+
+Code base including utils, models, Redux-related stuff like reducers, selectors etc, is located in `app/` folder.
+
+HOCS (Higher Order Components) are stored in `hocs/` folder.
+
+Hooks defined in `hooks/` folder.
+
+Containers (components with `Apollo`/`Redux` data - bound) are located in `containers/` folder.
+
+Reusable components take place in `components/` folder.

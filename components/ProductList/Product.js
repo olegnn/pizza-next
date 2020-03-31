@@ -30,7 +30,9 @@ export default memo(function Product({
   onSelectConfiguration
 }) {
   const handleCustomizeProduct = useCallback(
-    event => console.log(selected) || !selected && void onCustomizeProduct(event, id),
+    event =>
+      console.log(selected) ||
+      (!selected && void onCustomizeProduct(event, id)),
     [onCustomizeProduct, id, selected]
   );
 

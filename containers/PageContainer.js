@@ -35,7 +35,7 @@ const StyledContainer = styled(Container)`
   flex-direction: column;
   justify-content: space-between;
   vertical-align: middle;
-  padding-left: ${props => (props.leftOpen ? leftDrawerWidth + 5: 0)}px;
+  padding-left: ${props => (props.leftOpen ? leftDrawerWidth : 0) + 5}px;
 `;
 
 const StyledMenuIcon = styled.img`

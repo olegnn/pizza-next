@@ -27,6 +27,9 @@ const TOPPING_LIST_QUERY = gql`
           currency
           amount
         }
+        image {
+          source
+        }
       }
     }
   }

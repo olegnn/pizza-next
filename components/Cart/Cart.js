@@ -16,8 +16,8 @@ import { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { formatPrice } from "../../src/formatters";
-import { addPrices } from "../../src/utils";
+import { formatPrice } from "../../app/formatters";
+import { addPrices } from "../../app/utils";
 
 const StyledTotal = styled(Typography)`
   margin: 10px;

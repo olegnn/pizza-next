@@ -15,16 +15,16 @@ import gql from "graphql-tag";
 import { useEffect } from "react";
 
 import PageContainer from "../containers/PageContainer";
-import { setDetails } from "../src/actions/details";
+import { setDetails } from "../app/actions/details";
 import {
   detailsSelector,
   cartTotalSelector,
   cartProductsSelector
-} from "../src/selectors";
+} from "../app/selectors";
 import { injectIntl } from "react-intl";
 import CartContainer from "../containers/CartContainer";
-import { removeAllProducts } from "../src/actions/cart";
-import { timeStringToDate } from "../src/utils";
+import { removeAllProducts } from "../app/actions/cart";
+import { timeStringToDate } from "../app/utils";
 import { CircularProgress } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 

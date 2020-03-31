@@ -7,7 +7,7 @@ import ToppingsListContainer from "./ToppingListContainer";
 import ProductList from "../components/ProductList/ProductList";
 import withDataLoader from "../hocs/withDataLoader";
 import withPopper from "../hocs/withPopper";
-import { addProduct } from "../src/actions/cart";
+import { addProduct } from "../app/actions/cart";
 import ProductContainer from "./ProductContainer";
 import { always } from 'ramda';
 

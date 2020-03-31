@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 /// import { ToppingList, ItemSlider } from '../components/ItemGroup';
 import ToppingList from "../components/ToppingList/ToppingList";
 import withDataLoader from "../hocs/withDataLoader";
-import { changeToppingAmount, removeAllProductToppings } from "../src/actions/overlay";
+import { changeToppingAmount, removeAllProductToppings } from "../app/actions/overlay";
 import ToppingSliderContainer from "./ToppingSliderContainer";
 
 const ConfiguredToppingList = withDataLoader(ToppingList, {

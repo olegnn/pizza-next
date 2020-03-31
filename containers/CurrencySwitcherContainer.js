@@ -1,8 +1,8 @@
 import CurrencySwitcher from "../components/CurrencySwitcher";
-import { cartCurrencySelector } from "../src/selectors";
+import { cartCurrencySelector } from "../app/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
-import { setCurrency } from "../src/actions/cart";
+import { setCurrency } from "../app/actions/cart";
 
 const CURRENCIES = [
   { currency: "USD", symbol: "$" },

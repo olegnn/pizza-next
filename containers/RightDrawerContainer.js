@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
-import { toggleDrawer, DRAWERS } from "../src/actions/ui";
+import { toggleDrawer, DRAWERS } from "../app/actions/ui";
 import {
   cartProductsSelector,
   cartTotalSelector,
   isRightDrawerOpenSelector
-} from "../src/selectors";
+} from "../app/selectors";
 import CartItemContainer from "./CartItemContainer";
-import { removeAllProducts } from "../src/actions/cart";
+import { removeAllProducts } from "../app/actions/cart";
 
 export default function RightDrawerContainer({ children, ...props }) {
   const dispatch = useDispatch();

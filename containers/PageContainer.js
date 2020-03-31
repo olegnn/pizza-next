@@ -17,13 +17,13 @@ import Cart from "../components/Cart/Cart";
 import LeftDrawer from "../components/LeftDrawer";
 import BadgeCartContainer from "../containers/BadgeCartContainer";
 import CartItemContainer from "../containers/CartItemContainer";
-import { removeAllProducts } from "../src/actions/cart";
-import { toggleDrawer, DRAWERS } from "../src/actions/ui";
+import { removeAllProducts } from "../app/actions/cart";
+import { toggleDrawer, DRAWERS } from "../app/actions/ui";
 import {
   cartTotalSelector,
   isRightDrawerOpenSelector,
   isLeftDrawerOpenSelector
-} from "../src/selectors";
+} from "../app/selectors";
 import CartContainer from "./CartContainer";
 import RightDrawerContainer from "./RightDrawerContainer";
 

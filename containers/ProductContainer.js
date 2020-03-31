@@ -6,15 +6,15 @@ import {
   selectedProductSelector,
   productAdditionalCostSelector,
   cartCurrencySelector
-} from "../src/selectors";
+} from "../app/selectors";
 import Product from "../components/ProductList/Product";
-import { addProduct } from "../src/actions/cart";
+import { addProduct } from "../app/actions/cart";
 import { Map } from "immutable";
-import { setProductConfiguration } from "../src/actions/overlay";
+import { setProductConfiguration } from "../app/actions/overlay";
 import { pick, propEq } from "ramda";
-import { addPrices } from "../src/utils";
-import { formatPrice } from "../src/formatters";
-import { ProductConfigurationSelection } from '../src/types';
+import { addPrices } from "../app/utils";
+import { formatPrice } from "../app/formatters";
+import { ProductConfigurationSelection } from '../app/types';
 
 export default injectIntl(function ProductContainer({ intl, ...props }) {
   const dispatch = useDispatch();

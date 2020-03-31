@@ -1,8 +1,8 @@
 import ToppingItem from "../components/ToppingList/ToppingItem";
-import { overlaySelector } from "../src/selectors";
+import { overlaySelector } from "../app/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from "react";
-import { changeToppingAmount } from "../src/actions/overlay";
+import { changeToppingAmount } from "../app/actions/overlay";
 
 export default function ToppingSliderContainer({
     productId,

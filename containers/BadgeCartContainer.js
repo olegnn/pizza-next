@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { productInCartCountSelector } from '../src/selectors';
+import { productInCartCountSelector } from '../app/selectors';
 import { Badge } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 

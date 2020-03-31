@@ -7,20 +7,20 @@ import CartActionGroup from '../components/Cart/CartActionGroup';
 
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
-import { toggleDrawer, DRAWERS } from "../src/actions/ui";
+import { toggleDrawer, DRAWERS } from "../app/actions/ui";
 import {
   cartProductsSelector,
   cartTotalSelector,
   isRightDrawerOpenSelector
-} from "../src/selectors";
+} from "../app/selectors";
 import CartItemContainer from "./CartItemContainer";
-import { removeAllProducts } from "../src/actions/cart";
+import { removeAllProducts } from "../app/actions/cart";
 import withDataLoader from "../hocs/withDataLoader";
 import { path } from "ramda";
 import gql from "graphql-tag";
 import CurrencySwitcherContainer from "./CurrencySwitcherContainer";
-import { formatPrice } from "../src/formatters";
-import { addPrices } from "../src/utils";
+import { formatPrice } from "../app/formatters";
+import { addPrices } from "../app/utils";
 import { Typography, CircularProgress } from "@material-ui/core";
 import { useQuery } from "@apollo/react-hooks";
 

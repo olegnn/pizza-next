@@ -6,9 +6,9 @@ import { injectIntl } from "react-intl";
 
 import CartItem from "../components/Cart/CartItem";
 import withDataLoader from "../hocs/withDataLoader";
-import { changeProductQuantity } from "../src/actions/cart";
-import { cartProductsSelector, productPriceSelector } from "../src/selectors";
-import { formatPrice } from "../src/formatters";
+import { changeProductQuantity } from "../app/actions/cart";
+import { cartProductsSelector, productPriceSelector } from "../app/selectors";
+import { formatPrice } from "../app/formatters";
 
 const GET_PRODUCT_QUERY = gql`
   query Product($id: ID!) {

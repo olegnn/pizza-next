@@ -10,7 +10,7 @@ import { FormControlLabel } from "@material-ui/core";
 import { CardContent } from "@material-ui/core";
 import { memo } from "react";
 import { injectIntl } from "react-intl";
-import { formatPrice } from "../../src/formatters";
+import { formatPrice } from "../../app/formatters";
 import { useCallback } from "react";
 
 export default memo(function Product({

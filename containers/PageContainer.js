@@ -10,10 +10,11 @@ import { useState } from "react";
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { useMemo } from 'react';
 
 import AppBar from "../components/AppBar";
 import Cart from "../components/Cart/Cart";
-import Menu from "../components/Menu";
+import LeftDrawer from "../components/LeftDrawer";
 import BadgeCartContainer from "../containers/BadgeCartContainer";
 import CartItemContainer from "../containers/CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
@@ -24,7 +25,7 @@ import {
   isLeftDrawerOpenSelector
 } from "../src/selectors";
 import CartContainer from "./CartContainer";
-import DrawerContainer from "./DrawerContainer";
+import RightDrawerContainer from "./RightDrawerContainer";
 
 const leftDrawerWidth = 200;
 
@@ -43,43 +44,37 @@ const StyledMenuIcon = styled.img`
 `;
 
 const MENU_ITEMS = [
-          {
-            name: "Menu",
-            icon: null,
-            // onClick: closeLeftDrawer,
-            path: "/"
-          },
-          {
-            name: "Pizza",
-            icon: <StyledMenuIcon src="/icons/icons8-pizza-96.png" />,
-            // onClick: closeLeftDrawer,
-            path: "/pizza"
-          },
-          {
-            name: "Soups",
-            icon: <StyledMenuIcon src="/icons/icons8-soup-plate-96.png" />,
-            // onClick: closeLeftDrawer,
-            path: "/soups"
-          },
-          {
-            name: "Drinks",
-            icon: <StyledMenuIcon src="/icons/icons8-soda-bottle-96.png" />,
-            // onClick: closeLeftDrawer,
-            path: "/drinks"
-          },
-          {
-            name: "Desserts",
-            icon: <StyledMenuIcon src="/icons/icons8-pancake-96.png" />,
-            // onClick: closeLeftDrawer,
-            path: "/desserts"
-          },
-          {
-            name: "Checkout",
-            icon: <StyledMenuIcon src="/icons/icons8-checkout-96.png" />,
-            // onClick: closeLeftDrawer,
-            path: "/checkout"
-          }
-        ];
+  {
+    name: "Menu",
+    icon: <StyledMenuIcon src="/icons/icons8-restaurant-menu-96.png" />,
+    path: "/"
+  },
+  {
+    name: "Pizza",
+    icon: <StyledMenuIcon src="/icons/icons8-pizza-96.png" />,
+    path: "/pizza"
+  },
+  {
+    name: "Soups",
+    icon: <StyledMenuIcon src="/icons/icons8-soup-plate-96.png" />,
+    path: "/soups"
+  },
+  {
+    name: "Drinks",
+    icon: <StyledMenuIcon src="/icons/icons8-soda-bottle-96.png" />,
+    path: "/drinks"
+  },
+  {
+    name: "Desserts",
+    icon: <StyledMenuIcon src="/icons/icons8-pancake-96.png" />,
+    path: "/desserts"
+  },
+  {
+    name: "Checkout",
+    icon: <StyledMenuIcon src="/icons/icons8-checkout-96.png" />,
+    path: "/checkout"
+  }
+];
 
 export default function PageContainer({ children }) {
   const router = useRouter();
@@ -92,29 +87,33 @@ export default function PageContainer({ children }) {
   );
   const isLeftDrawerOpen = useSelector(isLeftDrawerOpenSelector);
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
+  const items = useMemo(
+    () =>
+      MENU_ITEMS.map(item => ({
+        ...item,
+        selected: router.pathname === item.path
+      })),
+    [router.pathname]
+  );
 
   return (
     <>
       <AppBar
         leftMargin={isLeftDrawerOpen ? leftDrawerWidth : 0}
-        rightMargin={isRightDrawerOpen ? leftDrawerWidth: 0}
+        rightMargin={isRightDrawerOpen ? leftDrawerWidth : 0}
         onToggleRight={handleToggleRightDrawer}
         onToggleLeft={handleToggleLeftDrawer}
         header="Pizza store"
       />
-      <Menu
+      <LeftDrawer
         open={isLeftDrawerOpen}
-        items={MENU_ITEMS.map(item => ({
-          ...item,
-          selected: router.pathname === item.path
-        }))}
+        items={items}
         width={leftDrawerWidth}
       />
       <StyledContainer leftOpen={isLeftDrawerOpen}>{children}</StyledContainer>
-      <DrawerContainer>
+      <RightDrawerContainer>
         <CartContainer showActions />
-      </DrawerContainer>
+      </RightDrawerContainer>
     </>
   );
 }
-// <a target="_blank" href="https://icons8.com/icons/set/chili-pepper">Chili Pepper icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

@@ -21,14 +21,14 @@ const StyledHead = styledJss(styled.div``)(props => ({
   ...props.theme.mixins.toolbar
 }));
 
-export default memo(function Menu({ items, ...props }) {
+export default memo(function LeftDrawer({ items, ...props }) {
   return (
     <StyledDrawer {...props} variant="persistent">
       <StyledHead />
       <Divider />
       <List>
-        {items.map(({ name, icon, onClick, selected, path }) => (
-          <Link href={path} onClick={onClick}>
+        {items.map(({ name, icon, selected, path }) => (
+          <Link href={path}>
             <StyledItem selected={selected} key={name} button>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText>{name}</ListItemText>

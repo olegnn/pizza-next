@@ -1,6 +1,4 @@
-import memoize from "fun-memoize";
 import { Map } from "immutable";
-import { sha256 } from "js-sha256";
 import { always, assoc, curryN, evolve, map, nthArg, pipe } from "ramda";
 
 export const createReducer = (initialState, handlers) => (
@@ -18,7 +16,7 @@ export const createHandlers = pipe(map(curryN(2)), object =>
 export const toProductKey = ({ id, toppings, selectedConfiguration }) =>
   `${id}@${
     toppings ? toppings.entrySeq().join("=") : ""
-  }@${typeof selectedConfiguration === "object" &&  selectedConfiguration.seqId || 0}`;
+  }@${typeof selectedConfiguration === "object" && selectedConfiguration.seqId || 0}`;
 
 export const toPriceKey = ({ id, selectedConfiguration }) =>
   `${id}@${typeof selectedConfiguration === 'object' && selectedConfiguration.seqId || 0}`;

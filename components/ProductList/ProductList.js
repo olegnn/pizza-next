@@ -20,8 +20,8 @@ const StyledGrid = styled(Grid)`
 
 export default memo(function ProductList({
   products,
-  selectedId,
-  onSelectId,
+  selected,
+  onSelect,
   Item
 }) {
   return (
@@ -36,8 +36,8 @@ export default memo(function ProductList({
         <Grid item sm={4} md={3} xs={12} key={prod.id}>
           <Item
             {...prod}
-            selected={selectedId === prod.id}
-            onCustomizeToppings={onSelectId}
+            selected={selected === prod.id}
+            onCustomizeProduct={onSelect}
           />
         </Grid>
       ))}

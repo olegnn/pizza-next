@@ -21,7 +21,6 @@ import Cart from "./Cart/Cart";
 const StyledAppBar = styled(MAppBar)`
   margin-top: 0px;
   padding-left: ${({ leftMargin }) => leftMargin}px;
-
 `;
 
 const MenuButton = styled(Button)`
@@ -46,7 +45,6 @@ export default memo(function AppBar({
   return (
     <StyledAppBar
       leftMargin={leftMargin}
-      marginRight={rightMargin}
       position="fixed"
     >
       <Toolbar>
@@ -60,7 +58,7 @@ export default memo(function AppBar({
           <MenuIcon />
         </IconButton>
         <Header variant="h6">{header}</Header>
-        <LoginButton color="inherit">Login</LoginButton>
+        {/*<LoginButton color="inherit">Login</LoginButton>*/}
         <IconButton aria-label="cart" onClick={onToggleRight}>
           <BadgeCartContainer />
         </IconButton>

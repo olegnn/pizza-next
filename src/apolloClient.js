@@ -3,14 +3,10 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import fetch from "isomorphic-fetch";
 
-import { hasWindow } from "./utils";
-
 const cache = new InMemoryCache();
 
 const link = new HttpLink({
-  uri: hasWindow()
-    ? `http://${window.location.hostname}:4000`
-    : "http://localhost:4000",
+  uri: process.env.GRAPHQL_ENDPOINT,
   fetch
 });
 

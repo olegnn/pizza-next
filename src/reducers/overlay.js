@@ -16,10 +16,7 @@ const handlers = createHandlers({
     );
   },
 
-  [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (
-    state,
-    { productId, seqId }
-  ) =>
+  [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (state, { productId, seqId }) =>
     state.update(productId, new ProductConfiguration(), config =>
       config.set("selectedConfiguration", seqId)
     ),
@@ -31,7 +28,10 @@ const handlers = createHandlers({
     }),
 
   [OVERLAY_ACTIONS.REMOVE_ALL_PRODUCT_TOPPINGS]: (state, { productId }) =>
-    state.update(productId, value => value && value.set("toppings", new Map()))
+    state.update(
+      productId,
+      value => value && value.set("toppings", initialState)
+    )
 });
 
 export default createReducer(initialState, handlers);

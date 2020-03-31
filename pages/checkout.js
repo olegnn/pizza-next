@@ -24,7 +24,7 @@ import {
 import { injectIntl } from "react-intl";
 import CartContainer from "../containers/CartContainer";
 import { removeAllProducts } from "../src/actions/cart";
-import { timeStringToDate } from '../src/utils';
+import { timeStringToDate } from "../src/utils";
 import { CircularProgress } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 
@@ -95,11 +95,11 @@ export default injectIntl(({ intl }) => {
   const dispatch = useDispatch();
   const details = useSelector(detailsSelector);
   const total = useSelector(cartTotalSelector);
-  const [createOrder, orderQuery] = useMutation(CREATE_ORDER_MUTATION);
+  const products = useSelector(cartProductsSelector);
+  const [createOrder, orderMutation] = useMutation(CREATE_ORDER_MUTATION);
   const [touched, setTouched] = useState(
     Array.from(FORM_MEMBERS, ([member]) => !!details.get(member))
   );
-  const products = useSelector(cartProductsSelector);
 
   const handlers = useMemo(
     () =>
@@ -122,7 +122,6 @@ export default injectIntl(({ intl }) => {
   const handleSubmit = useCallback(
     event => {
       event.preventDefault();
-
       setTouched(ALL_TOUCHED);
 
       if (validations.reduce(and, true)) {
@@ -160,22 +159,22 @@ export default injectIntl(({ intl }) => {
     [validations, products, details]
   );
 
-  const orderId = path(["data", "createOrder", "id"], orderQuery);
+  const orderId = path(["data", "createOrder", "id"], orderMutation);
   useEffect(() => orderId && void dispatch(removeAllProducts()), [orderId]);
 
   let content;
 
-  if (orderQuery.loading) {
+  if (orderMutation.loading) {
     content = <CircularProgress />;
-  } else if (orderQuery.error) {
-    const error = orderQuery.error.message;
+  } else if (orderMutation.error) {
+    const error = orderMutation.error.message;
     content = (
       <Typography variant="h6">
         An unexpected error occured: {error}. Please, try again.
       </Typography>
     );
-  } else if (orderQuery.data) {
-    const order = orderQuery.data.createOrder;
+  } else if (orderMutation.data) {
+    const order = orderMutation.data.createOrder;
     content = (
       <Typography variant="h6">
         Order {order.id} is successfully created at{" "}
@@ -186,7 +185,7 @@ export default injectIntl(({ intl }) => {
     content = (
       <StyledCheckout>
         <form onSubmit={handleSubmit}>
-          <Typography variant="h3"> Checkout </Typography>
+          <Typography variant="h3">Checkout</Typography>
           <CartContainer />
           <div>
             <StyledTextField

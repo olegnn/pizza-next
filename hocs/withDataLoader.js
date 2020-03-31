@@ -1,13 +1,13 @@
-import { CircularProgress } from "@material-ui/core";
-import styled from "styled-components";
+import { CircularProgress, Typography } from "@material-ui/core";
 import { prop } from "ramda";
+import styled from "styled-components";
 
 export default function withDataLoader(
   Component,
   {
     mapQueryToProps = prop("data"),
     ProgressComponent = CircularProgress,
-    ErrorComponent
+    ErrorComponent = Typography
   } = {}
 ) {
   const StyledProgress = styled(ProgressComponent)`
@@ -19,12 +19,12 @@ export default function withDataLoader(
     if (loading) {
       return <StyledProgress />;
     } else if (error) {
-      return <p>{error.message}</p>;
+      return <ErrorComponent>{error.message}</ErrorComponent>;
     } else {
       return <Component {...mapQueryToProps(query)} {...props} />;
     }
   };
-  wrapped.displayName = `withDataLoader(${Component.displayName})`;
+  wrapped.displayName = `WithDataLoader(${Component.displayName || Component.name})`;
 
   return wrapped;
 }

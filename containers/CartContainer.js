@@ -36,9 +36,9 @@ const DELIVERY_STATE_QUERY = gql`
 `;
 
 export default injectIntl(function CartContainer({ delivery, intl, showActions, ...props }) {
-  const products = useSelector(cartProductsSelector);
   const router = useRouter();
   const dispatch = useDispatch();
+  const products = useSelector(cartProductsSelector);
   const deliveryStateQuery = useQuery(DELIVERY_STATE_QUERY);
 
   const clearCart = useCallback(() => void dispatch(removeAllProducts()));
@@ -50,7 +50,7 @@ export default injectIntl(function CartContainer({ delivery, intl, showActions, 
   if (deliveryStateQuery.loading) {
     return <CircularProgress />
   } else if (deliveryStateQuery.error) {
-    return <Typography> {deliveryStateQuery.error} </Typography>
+    return <Typography> Error: {deliveryStateQuery.error.message} </Typography>
   } else {
     const totalPlusDelivery = total.amount
       ? `Total: ${formatPrice(
@@ -78,6 +78,8 @@ export default injectIntl(function CartContainer({ delivery, intl, showActions, 
               onClear={clearCart}
               onCheckout={handleCheckout}
               checkoutUrl="/checkout"
+              checkoutText="Checkout"
+              clearText="Clear"
             />
           )
         }

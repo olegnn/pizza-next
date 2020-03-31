@@ -11,6 +11,7 @@ import { CardContent } from "@material-ui/core";
 import { memo } from "react";
 import { injectIntl } from "react-intl";
 import { formatPrice } from "../../src/formatters";
+import { useCallback } from "react";
 
 export default memo(function Product({
   id,
@@ -18,14 +19,21 @@ export default memo(function Product({
   configurations,
   description,
   images,
-  toppings,
-  price,
   selectedConfiguration,
   selected,
+  customizable,
+  price,
+  addToCartText,
+  customizeProductText,
   onAddProduct,
-  onSelectConfiguration,
-  onCustomizeToppings
+  onCustomizeProduct,
+  onSelectConfiguration
 }) {
+  const handleCustomizeProduct = useCallback(event => void onCustomizeProduct(event, id), [
+    onCustomizeProduct,
+    id
+  ]);
+
   return (
     <Card raised={selected}>
       <CardMedia
@@ -41,7 +49,7 @@ export default memo(function Product({
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {description}
-          {configurations.length < 2 ? <> ({configurations[0].attr})</> : null}
+          {configurations.length < 2 ? <>({configurations[0].attr})</> : null}
         </Typography>
       </CardContent>
       <CardActions>
@@ -61,20 +69,12 @@ export default memo(function Product({
         ) : null}
       </CardActions>
       <CardActions>
-        <Button
-          onClick={() => void onAddProduct(id, 1)}
-          size="small"
-          color="primary"
-        >
-          Add to cart
+        <Button onClick={onAddProduct} size="small" color="primary">
+          {addToCartText}
         </Button>
-        {toppings.length > 0 ? (
-          <Button
-            onClick={event => void onCustomizeToppings(event, id)}
-            size="small"
-            color="primary"
-          >
-            Customize toppings
+        {customizable ? (
+          <Button onClick={handleCustomizeProduct} size="small" color="primary">
+            {customizeProductText}
           </Button>
         ) : null}
       </CardActions>

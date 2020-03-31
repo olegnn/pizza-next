@@ -4,22 +4,38 @@ import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from "react";
 import { changeToppingAmount } from "../src/actions/overlay";
 
-export default function ToppingSliderContainer({ productId, id, ...props }) {
+export default function ToppingSliderContainer({
+    productId,
+    id,
+    name,
+    prices,
+    maxQuantity
+}) {
   const dispatch = useDispatch();
   const currentAmount =
-    useSelector(overlaySelector).getIn([productId, "toppings", id]) || 0;
+    useSelector(overlaySelector).getIn([
+      productId,
+      "toppings",
+      id
+    ]) || 0;
   const handleAmountChange = useCallback(
-    (_, amount) =>
+    (_, amount) => console.log(amount, currentAmount) ||
       currentAmount !== amount &&
-      void dispatch(changeToppingAmount(productId, id, amount, props.prices)),
-    [productId, id, currentAmount, props.prices]
+      void dispatch(
+        changeToppingAmount(productId, id, amount, prices)
+      ),
+    [productId, id, currentAmount, prices]
   );
+
+  console.log(maxQuantity);
 
   return (
     <ToppingItem
+      id={id}
+      name={name}
       amount={currentAmount}
-      onAmountChange={handleAmountChange}
-      {...props}
+      onChangeAmount={handleAmountChange}
+      maxAmount={maxQuantity}
     />
   );
 }

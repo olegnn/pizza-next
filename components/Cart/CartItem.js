@@ -1,28 +1,13 @@
-import { Checkbox } from "@material-ui/core";
-import { ExpansionPanel } from "@material-ui/core";
-import {
-  ExpansionPanelDetails,
-  ExpansionPanelSummary
-} from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-import {
-  ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon,
-  Inbox as InboxIcon,
-  Mail as MailIcon
-} from "@material-ui/icons";
 import { memo } from "react";
 import styled from "styled-components";
 
-import { ProductIcon } from "../ProductIcon";
-import { injectIntl } from "react-intl";
-import { formatPrice } from "../../src/formatters";
+import ProductIcon from "../ProductIcon";
 
 const StyledToppingIcon = styled.img`
   max-height: 30px;
@@ -81,11 +66,11 @@ export default memo(function CartItem({
   quantity,
   onChangeQuantity,
   disabled,
-  intl
 }) {
   const configuration = availableConfigurations.find(
     ({ seqId }) => +seqId === +selectedConfiguration.seqId
   );
+
   return (
     <StyledListItem>
       <StyledListItemIconStart key="start">
@@ -96,7 +81,7 @@ export default memo(function CartItem({
           labelPlacement="start"
           label={
             <StyledItemName>
-              {name} ({configuration && configuration.attr})
+              {name}{configuration && ` (${configuration.attr})`}
             </StyledItemName>
           }
           control={
@@ -116,14 +101,17 @@ export default memo(function CartItem({
           }
         />
       </StyledListItemText>
-      {[...toppings.entries()].map((/*{ quantity, icon }*/ [i, v]) => (
+      {[...toppings.entries()].map(([toppingId, quantity]) => (
         <>
-          <StyledListItemIcon key={i}>
+          <StyledListItemIcon key={toppingId}>
             <StyledToppingIcon
-              src={availableToppings.find(({ id }) => id === i).image.source}
+              src={
+                availableToppings.find(({ id }) => id === toppingId).image
+                  .source
+              }
             />
           </StyledListItemIcon>
-          <Typography> x {v} </Typography>
+          <Typography> x {quantity} </Typography>
         </>
       ))}
       <PriceC variant="h6"> = {price}</PriceC>

@@ -14,6 +14,7 @@ import { setProductConfiguration } from "../src/actions/overlay";
 import { pick, propEq } from "ramda";
 import { addPrices } from "../src/utils";
 import { formatPrice } from "../src/formatters";
+import { ProductConfigurationSelection } from '../src/types';
 
 export default injectIntl(function ProductContainer({ intl, ...props }) {
   const dispatch = useDispatch();
@@ -29,15 +30,26 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
       )) ||
     props.configurations[0];
 
+    if (props.name.includes('Carb')) {
+  
+      console.log(
+        prodConfiguration,
+        props.configurations,
+        choosenProductConfiguration
+      );
+    }
+
   const handleAddProduct = useCallback(
-    (_, quantity) =>
+    () =>
       void dispatch(
         addProduct(
           {
             id: props.id,
             toppings: prodConfiguration && prodConfiguration.toppings,
-            quantity,
-            selectedConfiguration: choosenProductConfiguration
+            quantity: 1,
+            selectedConfiguration: ProductConfigurationSelection(
+              choosenProductConfiguration
+            )
           },
           Number.isSafeInteger(props.maxQuantity) && props.maxQuantity > 0
             ? props.maxQuantity
@@ -45,7 +57,12 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
           props.configurations
         )
       ),
-    [productId, prodConfiguration, choosenProductConfiguration]
+    [
+      productId,
+      prodConfiguration,
+      choosenProductConfiguration,
+      props.configurations
+    ]
   );
   const handleSelectConfiguration = useCallback(
     event =>
@@ -53,7 +70,6 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
     [productId]
   );
   const getAdditionalCost = useSelector(productAdditionalCostSelector);
-
 
   const price = formatPrice(
     intl,
@@ -66,8 +82,13 @@ export default injectIntl(function ProductContainer({ intl, ...props }) {
   return (
     <Product
       {...props}
+      addToCartText="Add to cart"
+      customizeProductText="Customize toppings"
+      customizable={!!props.toppings.length}
       price={price}
-      selectedConfiguration={prodConfiguration && prodConfiguration.selectedConfiguration || 0}
+      selectedConfiguration={
+        (prodConfiguration && prodConfiguration.selectedConfiguration) || 0
+      }
       onAddProduct={handleAddProduct}
       onSelectConfiguration={handleSelectConfiguration}
     />

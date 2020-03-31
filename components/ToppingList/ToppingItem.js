@@ -11,8 +11,8 @@ export default memo(function ToppingItem({
   id,
   name,
   amount,
-  onAmountChange,
-  max
+  onChangeAmount,
+  maxAmount
 }) {
   return (
     <div>
@@ -22,12 +22,12 @@ export default memo(function ToppingItem({
       <ToppingSlider
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
-        onChange={onAmountChange}
+        onChange={onChangeAmount}
         value={amount}
         key={name}
         step={1}
         marks
-        max={10}
+        max={maxAmount || 10}
         min={0}
         label={name}
       />

@@ -8,10 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 /// import { ToppingList, ItemSlider } from '../components/ItemGroup';
 import ToppingList from "../components/ToppingList/ToppingList";
 import withDataLoader from "../hocs/withDataLoader";
-import {
-  changeToppingAmount,
-  removeAllProductToppings
-} from "../src/actions/overlay";
+import { changeToppingAmount, removeAllProductToppings } from "../src/actions/overlay";
 import ToppingSliderContainer from "./ToppingSliderContainer";
 
 const ConfiguredToppingList = withDataLoader(ToppingList, {
@@ -35,13 +32,12 @@ const TOPPING_LIST_QUERY = gql`
   }
 `;
 
-export default function ProductConfiguratorContainer({ productId }) {
+export default function ToppingListContainer({ selected: productId }) {
   const dispatch = useDispatch();
-
   const toppingsQuery = useQuery(TOPPING_LIST_QUERY, {
     variables: { productId }
   });
-  const [reset, toppingSliderWithId] = useMemo(
+  const [handleReset, toppingSliderWithId] = useMemo(
     () => [
       () => void dispatch(removeAllProductToppings(productId)),
       props => <ToppingSliderContainer {...props} productId={productId} />
@@ -51,7 +47,7 @@ export default function ProductConfiguratorContainer({ productId }) {
 
   return (
     <ConfiguredToppingList
-      onReset={reset}
+      onReset={handleReset}
       header="Toppings"
       query={toppingsQuery}
       Item={toppingSliderWithId}

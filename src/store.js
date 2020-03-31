@@ -4,12 +4,12 @@ import { persistReducer, persistStore } from "redux-persist";
 import immutableTransform from "redux-persist-transform-immutable";
 
 import rootReducer from "./reducers";
-import { Details, Product, ProductConfiguration } from "./types";
+import { Details, Product, ProductConfiguration, ProductConfigurationSelection } from './types';
 import { hasWindow } from "./utils";
 
 const persistConfig = {
   transforms: [
-    immutableTransform({ records: [Product, Details, ProductConfiguration] })
+    immutableTransform({ records: [Product, Details, ProductConfiguration, ProductConfigurationSelection] })
   ],
   blacklist: ["ui"],
   key: "root",
@@ -20,13 +20,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(
   persistedReducer,
-  hasWindow() &&
+  hasWindow() && process.env.NODE_ENV !== 'production' &&
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export const persistor = persistStore(store);
 
-// persistor.purge();
+process.env.CLEAR_PERSISTOR && persistor.purge();
 
 export default store;

@@ -1,7 +1,7 @@
 {
   "name": "pizza-next",
+  "author": "olegnn <olegnosov1@gmail.com>",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

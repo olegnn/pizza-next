@@ -1,9 +1,19 @@
 import { useEffect } from 'react';
 
+/**
+ * Use to fire callback when occcurs click outside of ref and anchorEl.
+ */
 export default function useOutsideClickHandler(ref, anchorEl, cb) {
   useEffect(() => {
     function handleClickOutside(event) {
-      if (ref && ref.current && !ref.current.contains(event.target) && anchorEl && !anchorEl.contains(event.target)) {
+      console.log(ref, anchorEl, cb);
+      if (
+        ref &&
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        !event.target.contains(ref.current) &&
+        (!anchorEl || (!anchorEl.contains(event.target) && !event.target.contains(anchorEl)))
+      ) {
         cb();
       }
     }

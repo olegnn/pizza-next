@@ -1,13 +1,17 @@
 import { Map, Record } from "immutable";
-import { getCurrentTimeString } from '../utils';
+import { getCurrentTimeString } from "../utils";
+
+export const ProductConfigurationSelection = Record(
+  { seqId: 0, id: null },
+  "ProductConfigurationSelection"
+);
 
 export const Product = Record(
   {
     id: null,
     quantity: 0,
-    // maxQuantity: Infinity,
     toppings: new Map(),
-    selectedConfiguration: 0
+    selectedConfiguration: ProductConfigurationSelection
   },
   "Product"
 );

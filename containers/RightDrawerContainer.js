@@ -13,7 +13,7 @@ import {
 import CartItemContainer from "./CartItemContainer";
 import { removeAllProducts } from "../src/actions/cart";
 
-export default function DrawerContainer({ children, ...props }) {
+export default function RightDrawerContainer({ children, ...props }) {
   const dispatch = useDispatch();
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
   const handleToggle = useCallback(

@@ -13,7 +13,7 @@ const handlers = createHandlers({
       not
     ),
   [UI_ACTIONS.SELECT_PRODUCT]: (state, { id }) =>
-    state.update("selectedProduct", id)
+    state.set("selectedProduct", id)
 });
 
 export default createReducer(initialState, handlers);

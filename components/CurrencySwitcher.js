@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { RadioGroup, Radio } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
 
-export default function CurrencySwitcher({ options, value, onChange }) {
+export default memo(function CurrencySwitcher({ options, value, onChange }) {
   return (
     <RadioGroup fullWidth row value={value} onChange={onChange}>
       {options.map(({ currency, symbol }) => (
@@ -9,4 +10,4 @@ export default function CurrencySwitcher({ options, value, onChange }) {
       ))}
     </RadioGroup>
   );
-}
+});

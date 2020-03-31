@@ -23,14 +23,14 @@ import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import PageContainer from "../containers/PageContainer";
-import { ProductListContainerWithPopper } from "../containers/ProductListContainer";
+import ProductListContainer from "../containers/ProductListContainer";
 import ToppingsListContainer from "../containers/ToppingListContainer";
 
 export default function Pizza() {
   return (
     <PageContainer>
-      <Typography variant="h3"> Pizza </Typography>
-      <ProductListContainerWithPopper category="Pizza" />
+      <Typography variant="h3">Pizza</Typography>
+      <ProductListContainer category="Pizza" />
     </PageContainer>
   );
 }

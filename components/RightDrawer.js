@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { List } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
@@ -12,7 +13,6 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon
 } from "@material-ui/icons";
-import { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -30,7 +30,7 @@ const StyledDrawerHeader = styled.div`
   }
 `;
 
-export default function RightDrawer({ open, children, onClickToggle, width }) {
+export default memo(function RightDrawer({ open, children, onClickToggle, width }) {
   return (
     <StyledDrawer
       width={width}
@@ -50,4 +50,4 @@ export default function RightDrawer({ open, children, onClickToggle, width }) {
       {children}
     </StyledDrawer>
   );
-}
+})

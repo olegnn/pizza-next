@@ -12,29 +12,15 @@ import {
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon
 } from "@material-ui/icons";
-import { map, pipe, toPairs, propEq } from "ramda";
-import Link from 'next/Link';
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { injectIntl } from "react-intl";
+
 import { formatPrice } from "../../src/formatters";
 import { addPrices } from "../../src/utils";
 
-const StyledButtonGroup = styled(ButtonGroup)`
-  width: 100%;
-  display: flex;
-  align-items: space-around;
-  flex-direction: row;
-  justify-content: center;
-`;
-
 const StyledTotal = styled(Typography)`
   margin: 10px;
-`;
-
-const StyledButton = styled(Button)`
-  margin: 5px;
 `;
 
 const StyledChild = styled.div`
@@ -45,10 +31,7 @@ export default memo(function Cart({
   open,
   total,
   products,
-  onClearCart,
-  onCheckout,
   Item,
-  intl,
   children,
   disabled,
   actions
@@ -63,7 +46,7 @@ export default memo(function Cart({
             id={product.id}
             toppings={product.toppings}
             quantity={product.quantity}
-            disabled
+            disabled={disabled}
             selectedConfiguration={product.selectedConfiguration}
           />
         ))}

@@ -14,8 +14,7 @@ const menuData = [
     name: "Pizza",
     description: "",
     route: "/pizza",
-    img:
-      "https://images.freeimages.com/images/large-previews/45d/pizza-1312224.jpg"
+    img: "/pizza.jpg"
   },
   {
     name: "Soups",
@@ -48,7 +47,7 @@ const StyledButton = styled(ButtonBase)`
   min-width: 100%;
 `;
 
-export default () => {
+export default function Index() {
   return (
     <PageContainer>
       <GridList cellHeight={360} className="">
@@ -74,4 +73,4 @@ export default () => {
       </GridList>
     </PageContainer>
   );
-};
+}

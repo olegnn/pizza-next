@@ -16,12 +16,12 @@ const StyledButton = styled(Button)`
   margin: 5px;
 `;
 
-export default memo(function CartActionGroup({ show, checkoutHref, onCheckout, onClear }) {
+export default memo(function CartActionGroup({ show, checkoutText, clearText, checkoutHref, onCheckout, onClear }) {
     return show ? (
       <>
         <Link href="/checkout" passHref>
           <StyledButton component="a" variant="contained" onClick={onCheckout} color="primary">
-            Checkout
+            {checkoutText}
           </StyledButton>
         </Link>
         <StyledButton
@@ -29,7 +29,7 @@ export default memo(function CartActionGroup({ show, checkoutHref, onCheckout, o
           onClick={onClear}
           color="secondary"
         >
-          Clear
+          {clearText}
         </StyledButton>
       </>
     ): null;

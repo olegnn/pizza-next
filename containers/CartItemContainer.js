@@ -35,39 +35,36 @@ const GET_PRODUCT_QUERY = gql`
 
 const CartItemWithDataLoader = withDataLoader(CartItem);
 
-export default memo(injectIntl(function CartItemContainer({
-  intl,
-  productKey,
-  id,
-  ...props
-}) {
-  const productQuery = useQuery(GET_PRODUCT_QUERY, {
-    variables: { id }
-  });
-  const dispatch = useDispatch();
-  const handleChangeQuantity = useCallback(
-    (event, maxQuantity, deleteIfZero) =>
-      void dispatch(
-        changeProductQuantity(
-          productKey,
-          +event.target.value,
-          maxQuantity,
-          deleteIfZero
-        )
-      ),
-    []
-  );
-  const price = formatPrice(
-    intl,
-    useSelector(productPriceSelector)(productKey)
-  );
+export default memo(
+  injectIntl(function CartItemContainer({ intl, productKey, id, ...props }) {
+    const productQuery = useQuery(GET_PRODUCT_QUERY, {
+      variables: { id }
+    });
+    const dispatch = useDispatch();
+    const handleChangeQuantity = useCallback(
+      (event, maxQuantity, deleteIfZero) =>
+        void dispatch(
+          changeProductQuantity(
+            productKey,
+            +event.target.value,
+            maxQuantity,
+            deleteIfZero
+          )
+        ),
+      [dispatch]
+    );
+    const price = formatPrice(
+      intl,
+      useSelector(productPriceSelector)(productKey)
+    );
 
-  return (
-    <CartItemWithDataLoader
-      query={productQuery}
-      price={price}
-      onChangeQuantity={handleChangeQuantity}
-      {...props}
-    />
-  );
-}));
+    return (
+      <CartItemWithDataLoader
+        query={productQuery}
+        price={price}
+        onChangeQuantity={handleChangeQuantity}
+        {...props}
+      />
+    );
+  })
+);

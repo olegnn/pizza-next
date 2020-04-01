@@ -1,4 +1,4 @@
-import { omit, pipe } from 'ramda';
+import { omit, pipe } from "ramda";
 import { Container } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
@@ -18,8 +18,9 @@ import { removeAllProducts } from "../app/actions/cart";
 import { cartTotalSelector, isRightDrawerOpenSelector } from "../app/selectors";
 import Cart from "./Cart/Cart";
 
-
-const StyledAppBar = styled(pipe(omit(['leftPadding', 'rightPadding']), props => <MAppBar {...props} />))`
+const StyledAppBar = styled(
+  pipe(omit(["leftPadding", "rightPadding"]), props => <MAppBar {...props} />)
+)`
   margin-top: 0px;
   padding-left: ${({ leftPadding }) => leftPadding}px;
   padding-right: ${({ rightPadding }) => rightPadding}px;

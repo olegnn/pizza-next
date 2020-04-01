@@ -18,7 +18,7 @@ export default memo(function ToppingSliderContainer({
     (_, amount) =>
       currentAmount !== amount &&
       void dispatch(setProductTopping(productId, id, amount, prices)),
-    [productId, id, currentAmount, prices]
+    [dispatch, productId, id, currentAmount, prices]
   );
 
   return (

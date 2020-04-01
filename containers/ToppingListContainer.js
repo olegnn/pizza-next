@@ -6,7 +6,10 @@ import { useMemo, memo } from "react";
 
 import ToppingList from "../components/ToppingList/ToppingList";
 import withDataLoader from "../hocs/withDataLoader";
-import { setProductTopping, removeAllProductToppings } from "../app/actions/overlay";
+import {
+  setProductTopping,
+  removeAllProductToppings
+} from "../app/actions/overlay";
 import ToppingSliderContainer from "./ToppingSliderContainer";
 
 const ConfiguredToppingList = withDataLoader(ToppingList, {
@@ -43,7 +46,7 @@ export default memo(function ToppingListContainer({ selected: productId }) {
       () => void dispatch(removeAllProductToppings(productId)),
       props => <ToppingSliderContainer {...props} productId={productId} />
     ],
-    [productId]
+    [dispatch, productId]
   );
 
   return (

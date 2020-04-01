@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 const ICONS_BY_CAREGORY = {
   Pizza: "/icons/icons8-pizza-96.png",

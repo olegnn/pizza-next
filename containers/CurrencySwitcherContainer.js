@@ -12,9 +12,9 @@ const CURRENCIES = [
 export default function CurrencySwitcherContainer(props) {
   const dispatch = useDispatch();
   const selectedCurrency = useSelector(cartCurrencySelector);
-  const handleChange = useCallback(event =>
-    void dispatch(setCurrency(event.target.value)),
-    []
+  const handleChange = useCallback(
+    event => void dispatch(setCurrency(event.target.value)),
+    [dispatch]
   );
 
   return (

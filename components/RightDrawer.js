@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 import { List } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
@@ -30,7 +30,12 @@ const StyledDrawerHeader = styled.div`
   }
 `;
 
-export default memo(function RightDrawer({ open, children, onClickToggle, width }) {
+export default memo(function RightDrawer({
+  open,
+  children,
+  onClickToggle,
+  width
+}) {
   return (
     <StyledDrawer
       width={width}
@@ -50,4 +55,4 @@ export default memo(function RightDrawer({ open, children, onClickToggle, width 
       {children}
     </StyledDrawer>
   );
-})
+});

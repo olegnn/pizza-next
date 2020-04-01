@@ -13,18 +13,12 @@ export default memo(function CartActionGroup({
   checkoutText,
   clearText,
   checkoutHref,
-  onCheckout,
   onClear
 }) {
   return show ? (
     <>
       <Link href="/checkout" passHref replace>
-        <StyledButton
-          component="a"
-          variant="contained"
-          onClick={onCheckout}
-          color="primary"
-        >
+        <StyledButton component="a" variant="contained" color="primary">
           {checkoutText}
         </StyledButton>
       </Link>

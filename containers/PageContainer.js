@@ -5,12 +5,10 @@ import { IconButton } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { useCallback } from "react";
+import Router, { useRouter } from "next/router";
+import { useCallback, useMemo, memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import React, { useMemo, memo} from 'react';
 
 import AppBar from "../components/AppBar";
 import Cart from "../components/Cart/Cart";
@@ -86,11 +84,11 @@ export default memo(function PageContainer({ children }) {
   const dispatch = useDispatch();
   const handleToggleRightDrawer = useCallback(
     () => void dispatch(toggleDrawer(DRAWERS.RIGHT)),
-    []
+    [dispatch]
   );
   const handleToggleLeftDrawer = useCallback(
     () => void dispatch(toggleDrawer(DRAWERS.LEFT)),
-    []
+    [dispatch]
   );
   const isLeftDrawerOpen = useSelector(isLeftDrawerOpenSelector);
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
@@ -102,6 +100,17 @@ export default memo(function PageContainer({ children }) {
       })),
     [router && router.pathname]
   );
+  const handleCheckout = useCallback(
+    route =>
+      route === "/checkout" && isRightDrawerOpen && handleToggleRightDrawer(),
+    [isRightDrawerOpen, handleToggleLeftDrawer]
+  );
+
+  useEffect(() => {
+    Router.events.on("routeChangeStart", handleCheckout);
+
+    return () => Router.events.off("routeChangeStart", handleCheckout);
+  });
 
   return (
     <>

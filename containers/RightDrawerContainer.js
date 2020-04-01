@@ -19,7 +19,7 @@ export default memo(function RightDrawerContainer({ children, ...props }) {
   const isRightDrawerOpen = useSelector(isRightDrawerOpenSelector);
   const handleToggle = useCallback(
     () => void dispatch(toggleDrawer(DRAWERS.RIGHT)),
-    []
+    [dispatch]
   );
 
   return (

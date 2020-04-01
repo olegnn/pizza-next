@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from "@material-ui/core";
 import { RadioGroup } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
@@ -124,7 +123,7 @@ export default withApollo(injectIntl(({ intl }) => {
           name
         ];
       }),
-    touched
+    touched.concat(dispatch)
   );
 
   const validations = handlers.map(([_, validator, member]) =>
@@ -172,7 +171,7 @@ export default withApollo(injectIntl(({ intl }) => {
   );
 
   const orderId = path(["data", "createOrder", "id"], orderMutation);
-  useEffect(() => orderId && void dispatch(removeAllProducts()), [orderId]);
+  useEffect(() => orderId && void dispatch(removeAllProducts()), [dispatch, orderId]);
 
   let content;
 
@@ -189,7 +188,7 @@ export default withApollo(injectIntl(({ intl }) => {
     const order = orderMutation.data.createOrder;
     content = (
       <Typography variant="h6">
-        Order {order.id} is successfully created at{" "}
+        Order {order.id} was successfully created at{" "}
         {intl.formatTime(order.createdAt)}.
       </Typography>
     );

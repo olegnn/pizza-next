@@ -1,6 +1,6 @@
 import PageContainer from "../containers/PageContainer";
 import ProductListContainer from "../containers/ProductListContainer";
-import withApollo from '../hocs/withApollo';
+import withApollo from "../hocs/withApollo";
 import { Typography } from "@material-ui/core";
 
 export default withApollo(function Soups() {

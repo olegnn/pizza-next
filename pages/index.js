@@ -8,7 +8,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import PageContainer from "../containers/PageContainer";
-import withApollo from '../hocs/withApollo';
+import withApollo from "../hocs/withApollo";
 
 const menuData = [
   {

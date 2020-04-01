@@ -25,14 +25,14 @@ import { injectIntl } from "react-intl";
 import CartContainer from "../containers/CartContainer";
 import { removeAllProducts } from "../app/actions/cart";
 import { timeStringToDate } from "../app/utils";
-import withApollo from '../hocs/withApollo';
-import { getCurrentTimeString } from '../app/utils';
+import withApollo from "../hocs/withApollo";
+import { getCurrentTimeString } from "../app/utils";
 import { CircularProgress } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 
 const StyledTextField = styled(TextField)`
   padding: 2px;
-  margin: 4px;
+  margin: 10px;
   & .MuiTextField-root {
     margin: 4px;
     width: 25ch;
@@ -95,110 +95,113 @@ const StyledCheckout = styled.div`
 `;
 
 const StyledSubmit = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-top: 5px;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  margin-top: 5px !important;
 `;
 
-export default withApollo(injectIntl(({ intl }) => {
-  const dispatch = useDispatch();
-  const details = useSelector(detailsSelector);
-  const total = useSelector(cartTotalSelector);
-  const products = useSelector(cartProductsSelector);
-  const [createOrder, orderMutation] = useMutation(CREATE_ORDER_MUTATION);
-  const [touched, setTouched] = useState(
-    Array.from(FORM_MEMBERS, ([member]) => !!details.get(member))
-  );
+export default withApollo(
+  injectIntl(({ intl }) => {
+    const dispatch = useDispatch();
+    const details = useSelector(detailsSelector);
+    const total = useSelector(cartTotalSelector);
+    const products = useSelector(cartProductsSelector);
+    const [createOrder, orderMutation] = useMutation(CREATE_ORDER_MUTATION);
+    const [touched, setTouched] = useState(
+      Array.from(FORM_MEMBERS, ([member]) => !!details.get(member))
+    );
 
-  const handlers = useMemo(
-    () =>
-      FORM_MEMBERS.map(([name, reg], index) => {
-        return [
-          event =>
-            setTouched(touched.map((v, i) => v || i === index)) ||
-            void dispatch(setDetails(name, event.target.value)),
-          reg ? test.bind(reg) : returnTrue,
-          name
-        ];
-      }),
-    touched.concat(dispatch)
-  );
+    const handlers = useMemo(
+      () =>
+        FORM_MEMBERS.map(([name, reg], index) => {
+          return [
+            event =>
+              setTouched(touched.map((v, i) => v || i === index)) ||
+              void dispatch(setDetails(name, event.target.value)),
+            reg ? test.bind(reg) : returnTrue,
+            name
+          ];
+        }),
+      touched.concat(dispatch)
+    );
 
-  const validations = handlers.map(([_, validator, member]) =>
-    validator(details.get(member))
-  );
+    const validations = handlers.map(([_, validator, member]) =>
+      validator(details.get(member))
+    );
 
-  const handleSubmit = useCallback(
-    event => {
-      event.preventDefault();
-      setTouched(ALL_TOUCHED);
+    const handleSubmit = useCallback(
+      event => {
+        event.preventDefault();
+        setTouched(ALL_TOUCHED);
 
-      if (validations.reduce(and, true)) {
-        createOrder({
-          variables: {
-            name: details.name,
-            products: details.products,
-            email: details.email,
-            phone: details.phone,
-            time: timeStringToDate(details.time || getCurrentTimeString()),
-            address1: details.address1,
-            address2: details.address2,
-            payment: details.payment,
-            products: {
-              create: [...products.values()].map(product => ({
-                product: { connect: { id: product.id } },
-                quantity: product.quantity,
-                configuration: {
-                  connect: { id: product.selectedConfiguration.id }
-                },
-                toppings: {
-                  create: [...product.toppings.entries()].map(
-                    ([id, quantity]) => ({
-                      topping: { connect: { id } },
-                      quantity
-                    })
-                  )
-                }
-              }))
+        if (validations.reduce(and, true)) {
+          createOrder({
+            variables: {
+              name: details.name,
+              products: details.products,
+              email: details.email,
+              phone: details.phone,
+              time: timeStringToDate(details.time || getCurrentTimeString()),
+              address1: details.address1,
+              address2: details.address2,
+              payment: details.payment,
+              products: {
+                create: [...products.values()].map(product => ({
+                  product: { connect: { id: product.id } },
+                  quantity: product.quantity,
+                  configuration: {
+                    connect: { id: product.selectedConfiguration.id }
+                  },
+                  toppings: {
+                    create: [...product.toppings.entries()].map(
+                      ([id, quantity]) => ({
+                        topping: { connect: { id } },
+                        quantity
+                      })
+                    )
+                  }
+                }))
+              }
             }
-          }
-        });
-      }
-    },
-    [validations, products, details]
-  );
-
-  const orderId = path(["data", "createOrder", "id"], orderMutation);
-  useEffect(() => orderId && void dispatch(removeAllProducts()), [dispatch, orderId]);
-
-  let content;
-
-  if (orderMutation.loading) {
-    content = <CircularProgress />;
-  } else if (orderMutation.error) {
-    const error = orderMutation.error.message;
-    content = (
-      <Typography variant="h6">
-        An unexpected error occured: {error}. Please, try again.
-      </Typography>
+          });
+        }
+      },
+      [validations, products, details]
     );
-  } else if (orderMutation.data) {
-    const order = orderMutation.data.createOrder;
-    content = (
-      <Typography variant="h6">
-        Order {order.id} was successfully created at{" "}
-        {intl.formatTime(order.createdAt)}.
-      </Typography>
-    );
-  } else {
-    content = (
-      <StyledCheckout>
-        <form onSubmit={handleSubmit}>
-          <Typography variant="h3">Checkout</Typography>
-          <CartContainer />
-          <div>
+
+    const orderId = path(["data", "createOrder", "id"], orderMutation);
+    useEffect(() => orderId && void dispatch(removeAllProducts()), [
+      dispatch,
+      orderId
+    ]);
+
+    let content;
+
+    if (orderMutation.loading) {
+      content = <CircularProgress />;
+    } else if (orderMutation.error) {
+      const error = orderMutation.error.message;
+      content = (
+        <Typography variant="h6">
+          An unexpected error occured: {error}. Please, try again.
+        </Typography>
+      );
+    } else if (orderMutation.data) {
+      const order = orderMutation.data.createOrder;
+      content = (
+        <Typography variant="h6">
+          Order {order.id} was successfully created at{" "}
+          {intl.formatTime(order.createdAt)}.
+        </Typography>
+      );
+    } else {
+      content = (
+        <StyledCheckout>
+          <form onSubmit={handleSubmit}>
+            <Typography variant="h3">Checkout</Typography>
+            <CartContainer />
             <StyledTextField
               fullWidth
               required
@@ -228,8 +231,6 @@ export default withApollo(injectIntl(({ intl }) => {
               onChange={handlers[2][0]}
               error={touched[2] && !validations[2]}
             />
-          </div>
-          <div>
             <StyledTextField
               required
               fullWidth
@@ -241,8 +242,6 @@ export default withApollo(injectIntl(({ intl }) => {
               onChange={handlers[3][0]}
               error={touched[3] && !validations[3]}
             />
-          </div>
-          <div>
             <StyledTextField
               required
               fullWidth
@@ -254,19 +253,17 @@ export default withApollo(injectIntl(({ intl }) => {
               onChange={handlers[4][0]}
               error={touched[4] && !validations[4]}
             />
-          </div>
-          <RadioGroup
-            required
-            value="cash"
-            label="Payment method"
-            name="payment"
-            value={details.payment}
-            onChange={handlers[5][0]}
-          >
-            <FormControlLabel value="cash" control={<Radio />} label="Cash" />
-            <FormControlLabel value="card" control={<Radio />} label="Card" />
-          </RadioGroup>
-          <div>
+            <RadioGroup
+              required
+              value="cash"
+              label="Payment method"
+              name="payment"
+              value={details.payment}
+              onChange={handlers[5][0]}
+            >
+              <FormControlLabel value="cash" control={<Radio />} label="Cash" />
+              <FormControlLabel value="card" control={<Radio />} label="Card" />
+            </RadioGroup>
             <StyledTextField
               label="Time"
               fullWidth
@@ -276,21 +273,21 @@ export default withApollo(injectIntl(({ intl }) => {
               error={touched[6] && !validations[6]}
               value={details.time}
             />
-          </div>
-          <StyledSubmit>
-            <Button
-              type="submit"
-              color="primary"
-              variant="contained"
-              disabled={!total.amount}
-            >
-              Submit order
-            </Button>
-          </StyledSubmit>
-        </form>
-      </StyledCheckout>
-    );
-  }
+            <StyledSubmit>
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                disabled={!total.amount}
+              >
+                Submit order
+              </Button>
+            </StyledSubmit>
+          </form>
+        </StyledCheckout>
+      );
+    }
 
-  return <PageContainer>{content}</PageContainer>;
-}));
+    return <PageContainer>{content}</PageContainer>;
+  })
+);

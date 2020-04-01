@@ -7,6 +7,6 @@ export const toggleDrawer = assocPath(["payload", "drawer"], __, {
   type: UI_ACTIONS.TOGGLE_DRAWER
 });
 
-export const selectProduct = assocPath(["payload", "id"], __, {
-  type: UI_ACTIONS.SELECT_PRODUCT
+export const selectElement = assocPath(["payload", "id"], __, {
+  type: UI_ACTIONS.SELECT_ELEMENT
 });

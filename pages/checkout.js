@@ -140,7 +140,6 @@ export default withApollo(
           createOrder({
             variables: {
               name: details.name,
-              products: details.products,
               email: details.email,
               phone: details.phone,
               time: timeStringToDate(details.time || getCurrentTimeString()),

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /**
- * Use to fire callback when occcurs click outside of ref and anchorEl.
+ * Use to fire callback when click occurs outside of ref
  */
 export default function useOutsideClickHandler(ref, cb) {
   useEffect(() => {

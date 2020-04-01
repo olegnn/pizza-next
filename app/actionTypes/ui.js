@@ -1,3 +1,3 @@
 export const TOGGLE_DRAWER = "ui/TOGGLE_DRAWER";
 
-export const SELECT_PRODUCT = "ui/SELECT_PRODUCT";
+export const SELECT_ELEMENT = "ui/SELECT_ELEMENT";

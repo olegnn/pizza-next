@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 /**
- * Special component which logs different between nextProps and current props.
+ * Special component which logs difference between nextProps and current props.
  * For development purposes only.
  */
 export default function withPropsChecker(WrappedComponent) {

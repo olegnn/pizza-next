@@ -12,7 +12,7 @@ const handlers = createHandlers({
       drawer === DRAWERS.RIGHT ? "rightDrawerOpen" : "leftDrawerOpen",
       not
     ),
-  [UI_ACTIONS.SELECT_PRODUCT]: (state, { id }) =>
+  [UI_ACTIONS.SELECT_ELEMENT]: (state, { id }) =>
     state.set("selectedElement", id)
 });
 

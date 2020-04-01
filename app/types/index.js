@@ -11,7 +11,7 @@ export const Product = Record(
     id: null,
     quantity: 0,
     toppings: new Map(),
-    selectedConfiguration: ProductConfigurationSelection
+    selectedConfiguration: new ProductConfigurationSelection()
   },
   "Product"
 );

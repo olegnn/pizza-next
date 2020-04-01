@@ -1,7 +1,7 @@
 import uiReducer from "../../app/reducers/ui";
 import { toggleDrawer, DRAWERS } from "../../app/actions/ui";
 import { UI } from "../../app/types";
-import { selectProduct } from "../../app/actions/ui";
+import { selectElement } from "../../app/actions/ui";
 
 describe("ui reducer tests", () => {
   const initialState = uiReducer(void 0, {});
@@ -25,6 +25,6 @@ describe("ui reducer tests", () => {
   });
 
   it("selects product", () => {
-    expect(uiReducer(initialState, selectProduct(25)).selectedElement).toBe(25);
+    expect(uiReducer(initialState, selectElement(25)).selectedElement).toBe(25);
   });
 });

@@ -92,6 +92,7 @@ const StyledCheckout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 10px;
 `;
 
 const StyledSubmit = styled.div`

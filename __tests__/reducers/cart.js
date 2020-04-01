@@ -14,23 +14,6 @@ describe("cart reducer tests", () => {
     );
   });
 
-  it("should add and remove product", () => {
-    expect(initialState.products).toBe(new OrderedMap());
-    const withProduct = cartReducer(
-      initialState,
-      addProduct({ id: "p0", toppings: new Map({ 0: 1 }) }, 10, [
-        { seqId: 0, prices: [{ currency: "USD", amount: 500 }] }
-      ])
-    );
-    expect(withProduct.products.size).toBe(1);
-    expect(
-      cartReducer(
-        withProduct,
-        removeProduct([...withProduct.products.keys()][0])
-      ).products.size
-    ).toBe(0);
-  });
-
   it("should set prices and calculate product price", () => {
     const withTopping = cartReducer(
       initialState,
@@ -52,6 +35,23 @@ describe("cart reducer tests", () => {
         withProduct.prices,
         "USD"
       )
-    ).toEqual(6000);
+    ).toEqual(15000);
+  });
+
+  it("should add and remove product", () => {
+    expect(initialState.products).toBe(new OrderedMap());
+    const withProduct = cartReducer(
+      initialState,
+      addProduct({ id: "p0", toppings: new Map({ 0: 1 }) }, 10, [
+        { seqId: 0, prices: [{ currency: "USD", amount: 500 }] }
+      ])
+    );
+    expect(withProduct.products.size).toBe(1);
+    expect(
+      cartReducer(
+        withProduct,
+        removeProduct([...withProduct.products.keys()][0])
+      ).products.size
+    ).toBe(0);
   });
 });

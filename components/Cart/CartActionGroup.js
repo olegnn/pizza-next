@@ -5,7 +5,7 @@ import { ButtonGroup } from "@material-ui/core";
 import styled from "styled-components";
 
 const StyledButton = styled(Button)`
-  margin: 5px;
+  margin: 5px !important;
 `;
 
 export default memo(function CartActionGroup({
@@ -18,7 +18,7 @@ export default memo(function CartActionGroup({
 }) {
   return show ? (
     <>
-      <Link href="/checkout" passHref>
+      <Link href="/checkout" passHref replace>
         <StyledButton
           component="a"
           variant="contained"

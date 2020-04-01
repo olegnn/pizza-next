@@ -70,8 +70,8 @@ export const productAdditionalCostSelector = createObjectSelector(
       amount = prodConf.toppings
         .entrySeq()
         .reduce(
-          (acc, [id, v]) =>
-            acc + prices.getIn([toPriceKey({ id }), currency]) * v,
+          (acc, [id, amount]) =>
+            acc + prices.getIn([toPriceKey({ id }), currency]) * amount,
           0
         );
     }

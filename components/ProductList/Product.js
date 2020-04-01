@@ -51,7 +51,7 @@ export default memo(function Product({
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {description}
-          {configurations.length < 2 ? <>({configurations[0].attr})</> : null}
+          {configurations.length < 2 ? <> ({configurations[0].attr})</> : null}
         </Typography>
       </CardContent>
       <CardActions>

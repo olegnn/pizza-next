@@ -17,7 +17,7 @@ export default memo(function CartActionGroup({
 }) {
   return show ? (
     <>
-      <Link href="/checkout" passHref replace>
+      <Link href="/checkout" passHref>
         <StyledButton component="a" variant="contained" color="primary">
           {checkoutText}
         </StyledButton>

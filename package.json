@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT",
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production next start -p $PORT",
     "test": "jest ."
   },
   "dependencies": {

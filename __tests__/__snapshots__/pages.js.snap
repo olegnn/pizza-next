@@ -152,7 +152,7 @@ Array [
       }
     >
       <div
-        className="styled.div-root-122 styled.div-root-123"
+        className="LeftDrawer__StyledHead-root-122 LeftDrawer__StyledHead-root-123"
       />
       <hr
         className="MuiDivider-root"
@@ -385,7 +385,12 @@ Array [
       </ul>
     </div>
   </div>,
-  .c0 {
+  .c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+.c0 {
   padding-left: 5px;
 }
 
@@ -407,11 +412,6 @@ Array [
   -ms-flex-align: start;
   align-items: start;
   vertical-align: middle;
-}
-
-.c2 {
-  max-height: 200px;
-  min-height: 40px;
 }
 
 @media only screen and (max-width:600px) {
@@ -719,7 +719,7 @@ Array [
       }
     >
       <div
-        className="styled.div-root-122 styled.div-root-174"
+        className="LeftDrawer__StyledHead-root-122 LeftDrawer__StyledHead-root-174"
       />
       <hr
         className="MuiDivider-root"
@@ -970,7 +970,12 @@ Array [
       </ul>
     </div>
   </div>,
-  .c0 {
+  .c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+.c0 {
   padding-left: 5px;
 }
 
@@ -992,11 +997,6 @@ Array [
   -ms-flex-align: start;
   align-items: start;
   vertical-align: middle;
-}
-
-.c2 {
-  max-height: 200px;
-  min-height: 40px;
 }
 
 @media only screen and (max-width:600px) {
@@ -1301,7 +1301,7 @@ Array [
       }
     >
       <div
-        className="styled.div-root-122 styled.div-root-185"
+        className="LeftDrawer__StyledHead-root-122 LeftDrawer__StyledHead-root-185"
       />
       <hr
         className="MuiDivider-root"
@@ -1534,7 +1534,12 @@ Array [
       </ul>
     </div>
   </div>,
-  .c0 {
+  .c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+.c0 {
   padding-left: 5px;
 }
 
@@ -1556,11 +1561,6 @@ Array [
   -ms-flex-align: start;
   align-items: start;
   vertical-align: middle;
-}
-
-.c2 {
-  max-height: 200px;
-  min-height: 40px;
 }
 
 @media only screen and (max-width:600px) {
@@ -1868,7 +1868,7 @@ Array [
       }
     >
       <div
-        className="styled.div-root-122 styled.div-root-186"
+        className="LeftDrawer__StyledHead-root-122 LeftDrawer__StyledHead-root-186"
       />
       <hr
         className="MuiDivider-root"
@@ -2119,7 +2119,12 @@ Array [
       </ul>
     </div>
   </div>,
-  .c0 {
+  .c2 {
+  max-height: 200px;
+  min-height: 40px;
+}
+
+.c0 {
   padding-left: 5px;
 }
 
@@ -2141,11 +2146,6 @@ Array [
   -ms-flex-align: start;
   align-items: start;
   vertical-align: middle;
-}
-
-.c2 {
-  max-height: 200px;
-  min-height: 40px;
 }
 
 @media only screen and (max-width:600px) {
@@ -2450,7 +2450,7 @@ Array [
       }
     >
       <div
-        className="styled.div-root-122 styled.div-root-187"
+        className="LeftDrawer__StyledHead-root-122 LeftDrawer__StyledHead-root-187"
       />
       <hr
         className="MuiDivider-root"

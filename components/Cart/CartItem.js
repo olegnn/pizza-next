@@ -65,8 +65,7 @@ export default memo(function CartItem({
   price,
   toppings,
   quantity,
-  onChangeQuantity,
-  disabled
+  onChangeQuantity
 }) {
   const configuration = availableConfigurations.find(
     ({ seqId }) => +seqId === +selectedConfiguration.seqId

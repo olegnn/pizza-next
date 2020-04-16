@@ -1,5 +1,5 @@
 import { Map } from "immutable";
-import { always, assoc, curryN, evolve, map, nthArg, pipe } from "ramda";
+import { curryN, map, pipe } from "ramda";
 
 export const createReducer = (initialState, handlers) => (
   state = initialState,

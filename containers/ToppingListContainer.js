@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useMemo, memo } from "react";
 
 import ToppingList from "../components/ToppingList/ToppingList";
+import ResetButton from "../components/ToppingList/ResetButton";
 import withDataLoader from "../hocs/withDataLoader";
 import {
   setProductTopping,
@@ -28,9 +29,6 @@ const TOPPING_LIST_QUERY = gql`
           currency
           amount
         }
-        image {
-          source
-        }
       }
     }
   }
@@ -51,7 +49,7 @@ export default memo(function ToppingListContainer({ selected: productId }) {
 
   return (
     <ConfiguredToppingList
-      onReset={handleReset}
+      actions={<ResetButton onClickReset={handleReset} resetText="Reset" />}
       header="Toppings"
       query={toppingsQuery}
       Item={toppingSliderWithId}

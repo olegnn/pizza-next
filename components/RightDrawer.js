@@ -1,32 +1,23 @@
-import React, { memo } from "react";
-import { List } from "@material-ui/core";
-import { ListItemIcon } from "@material-ui/core";
-import { ListItemText } from "@material-ui/core";
-import { ListItem } from "@material-ui/core";
-import { Divider } from "@material-ui/core";
-import { IconButton } from "@material-ui/core";
-import { Drawer } from "@material-ui/core";
-import { ButtonGroup } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import {
-  ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon
-} from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { ChevronRight as ChevronRightIcon } from "@material-ui/icons";
+import { Drawer, IconButton } from "@material-ui/core";
+import { memo } from "react";
 import styled from "styled-components";
 
 const StyledDrawer = styled(Drawer)`
-  min-width: ${props => props.width};
-  @media only screen and (max-width: 600px) {
+  min-width: ${props => props.theme.rightDrawerWidth}px;
+  @media only screen and (max-width: ${props =>
+      props.theme.rightDrawerWidth}px) {
     min-width: 100vw;
+    max-width: 100vw;
   }
 `;
 
 const StyledDrawerHeader = styled.div`
-  min-width: ${props => props.width};
-  @media only screen and (max-width: 600px) {
+  min-width: ${props => props.theme.rightDrawerWidth}px;
+  @media only screen and (max-width: ${props =>
+      props.theme.rightDrawerWidth}px) {
     min-width: 100vw;
+    max-width: 100vw;
   }
 `;
 
@@ -38,7 +29,6 @@ export default memo(function RightDrawer({
 }) {
   return (
     <StyledDrawer
-      width={width}
       className=""
       variant="persistent"
       anchor="right"
@@ -47,7 +37,7 @@ export default memo(function RightDrawer({
         paper: ""
       }}
     >
-      <StyledDrawerHeader width={width}>
+      <StyledDrawerHeader>
         <IconButton onClick={onClickToggle}>
           <ChevronRightIcon />
         </IconButton>

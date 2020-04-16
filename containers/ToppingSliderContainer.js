@@ -1,6 +1,7 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import ToppingItem from "../components/ToppingList/ToppingItem";
 import { overlaySelector } from "../app/selectors";
-import { useSelector, useDispatch } from "react-redux";
 import { useCallback, memo } from "react";
 import { setProductTopping } from "../app/actions/overlay";
 

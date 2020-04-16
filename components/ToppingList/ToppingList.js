@@ -1,16 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Slider, Typography, Paper } from "@material-ui/core";
-
-import { useQuery } from "@apollo/react-hooks";
 import { memo } from "react";
-import { Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 export default memo(function ToppingList({
   header,
   toppings,
   Item,
-  onReset,
-  ...props
+  onClickReset,
+  actions
 }) {
   return (
     <div>
@@ -18,9 +14,7 @@ export default memo(function ToppingList({
       {toppings.map(itemProps => (
         <Item key={itemProps.id} {...itemProps} />
       ))}
-      <Button onClick={onReset} color="secondary">
-        Reset
-      </Button>
+      {actions}
     </div>
   );
 });

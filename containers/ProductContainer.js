@@ -17,13 +17,12 @@ import { formatPrice } from "../app/formatters";
 import { ProductConfigurationSelection } from "../app/types";
 
 export default memo(
-  injectIntl(function ProductContainer({ intl, ...props }) {
+  injectIntl(function ProductContainer({ intl, id, ...props }) {
     const dispatch = useDispatch();
     const configuration = useSelector(overlaySelector);
     const currency = useSelector(cartCurrencySelector);
 
-    const productId = props.id;
-    const prodConfiguration = configuration.get(productId);
+    const prodConfiguration = configuration.get(id);
     const choosenProductConfiguration =
       (prodConfiguration &&
         props.configurations.find(
@@ -36,7 +35,7 @@ export default memo(
         void dispatch(
           addProduct(
             {
-              id: props.id,
+              id,
               toppings: prodConfiguration && prodConfiguration.toppings,
               quantity: 1,
               selectedConfiguration: ProductConfigurationSelection(
@@ -51,16 +50,15 @@ export default memo(
         ),
       [
         dispatch,
-        productId,
+        id,
         prodConfiguration,
         choosenProductConfiguration,
         props.configurations
       ]
     );
     const handleSelectConfiguration = useCallback(
-      event =>
-        void dispatch(setProductConfiguration(productId, +event.target.value)),
-      [productId, dispatch]
+      event => void dispatch(setProductConfiguration(id, +event.target.value)),
+      [id, dispatch]
     );
     const getAdditionalCost = useSelector(productAdditionalCostSelector);
 
@@ -74,7 +72,7 @@ export default memo(
 
     return (
       <Product
-        {...props}
+        id={id}
         addToCartText="Add to cart"
         customizeProductText="Customize toppings"
         customizable={!!props.toppings.length}
@@ -84,6 +82,7 @@ export default memo(
         }
         onAddProduct={handleAddProduct}
         onSelectConfiguration={handleSelectConfiguration}
+        {...props}
       />
     );
   })

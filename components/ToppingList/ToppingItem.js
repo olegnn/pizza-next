@@ -1,7 +1,6 @@
 import { memo } from "react";
-import { Slider } from "@material-ui/core";
 import styled from "styled-components";
-import { Typography } from "@material-ui/core";
+import { Slider, Typography } from "@material-ui/core";
 
 const ToppingSlider = styled(Slider)`
   min-width: 300px;

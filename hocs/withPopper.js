@@ -26,6 +26,7 @@ export default function withPopper(Component, PopperComponent) {
 
     const handleClick = useCallback(
       (event, value) => {
+        console.log(event);
         setSelected(value);
         setAnchorEl(event.currentTarget);
       },

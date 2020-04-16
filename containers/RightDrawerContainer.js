@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
-import React, { useCallback } from "react";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Cart from "../components/Cart/Cart";
@@ -24,7 +22,6 @@ export default memo(function RightDrawerContainer({ children, ...props }) {
 
   return (
     <RightDrawer
-      width="600px"
       open={isRightDrawerOpen}
       onClickToggle={handleToggle}
       {...props}

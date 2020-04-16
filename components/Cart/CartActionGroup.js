@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { memo } from "react";
 import { Button } from "@material-ui/core";
-import { ButtonGroup } from "@material-ui/core";
 import styled from "styled-components";
 
 const StyledButton = styled(Button)`
-  margin: 5px !important;
+  min-height: 40px;
+  margin: 10px !important;
 `;
 
 export default memo(function CartActionGroup({
@@ -13,7 +13,7 @@ export default memo(function CartActionGroup({
   checkoutText,
   clearText,
   checkoutHref,
-  onClear
+  onClickClear
 }) {
   return show ? (
     <>
@@ -22,7 +22,11 @@ export default memo(function CartActionGroup({
           {checkoutText}
         </StyledButton>
       </Link>
-      <StyledButton variant="contained" onClick={onClear} color="secondary">
+      <StyledButton
+        variant="contained"
+        onClick={onClickClear}
+        color="secondary"
+      >
         {clearText}
       </StyledButton>
     </>

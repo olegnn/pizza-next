@@ -24,7 +24,6 @@ const GET_PRODUCT_QUERY = gql`
       }
       toppings {
         id
-        name
         image {
           source
         }
@@ -51,7 +50,7 @@ export default memo(
             deleteIfZero
           )
         ),
-      [dispatch]
+      [dispatch, productKey]
     );
     const price = formatPrice(
       intl,
@@ -60,10 +59,10 @@ export default memo(
 
     return (
       <CartItemWithDataLoader
+        {...props}
         query={productQuery}
         price={price}
         onChangeQuantity={handleChangeQuantity}
-        {...props}
       />
     );
   })

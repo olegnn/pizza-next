@@ -11,11 +11,21 @@ import withApollo from "../hocs/withApollo";
 
 const isClient = hasWindow();
 
+if (isClient && process.env.NODE_ENV === "development") {
+  console.log(1);
+  const { registerObserver } = require("react-perf-devtool");
+  registerObserver();
+}
+
 const { store, persistor } = isClient
   ? createClientStore()
   : createServerStore();
 
-const theme = {};
+const theme = {
+  rightDrawerWidth: 650,
+  containerWidth: 500,
+  leftDrawerWidth: 200
+};
 
 export default class extends App {
   componentDidMount() {

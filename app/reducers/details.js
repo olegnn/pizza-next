@@ -5,7 +5,7 @@ import * as DETAILS_ACTIONS from "../actionTypes/details";
 import { Details } from "../types";
 import { createHandlers, createReducer } from "../utils";
 
-const initialState = Details();
+const initialState = new Details();
 
 const handlers = createHandlers({
   [DETAILS_ACTIONS.SET]: (state, { key, value }) => state.set(key, value),

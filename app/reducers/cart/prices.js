@@ -1,8 +1,4 @@
-import {
-  createReducer,
-  createHandlers,
-  toPriceKey
-} from "../../utils";
+import { createReducer, createHandlers, toPriceKey } from "../../utils";
 import { Map } from "immutable";
 import { fromPairs, always } from "ramda";
 import * as CART_ACTIONS from "../../actionTypes/cart";
@@ -32,7 +28,7 @@ const handlers = createHandlers({
   [OVERLAY_ACTIONS.SET_PRODUCT_TOPPING]: (state, { id, prices }) =>
     setProductConfigurationPrices(state, id, [{ seqId: 0, prices }]),
   [CART_ACTIONS.SET_PRICES]: (state, { id, configurations }) =>
-    setProductConfigurationPrices(state, id, configurations),
+    setProductConfigurationPrices(state, id, configurations)
 });
 
 export default createReducer(initialState, handlers);

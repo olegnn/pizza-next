@@ -1,10 +1,12 @@
-import Router from "next/router";
-import { useCallback, memo, useEffect } from "react";
+import { Typography, CircularProgress } from "@material-ui/core";
+import { propEq, path } from "ramda";
+import gql from "graphql-tag";
+import { memo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { injectIntl } from "react-intl";
-import { propEq } from "ramda";
-import CartActionGroup from "../components/Cart/CartActionGroup";
+import { useQuery } from "@apollo/react-hooks";
 
+import CartActionGroup from "../components/Cart/CartActionGroup";
 import Cart from "../components/Cart/Cart";
 import RightDrawer from "../components/RightDrawer";
 import { toggleDrawer, DRAWERS } from "../app/actions/ui";
@@ -16,13 +18,9 @@ import {
 import CartItemContainer from "./CartItemContainer";
 import { removeAllProducts } from "../app/actions/cart";
 import withDataLoader from "../hocs/withDataLoader";
-import { path } from "ramda";
-import gql from "graphql-tag";
 import CurrencySwitcherContainer from "./CurrencySwitcherContainer";
 import { formatPrice } from "../app/formatters";
 import { addPrices } from "../app/utils";
-import { Typography, CircularProgress } from "@material-ui/core";
-import { useQuery } from "@apollo/react-hooks";
 
 const DELIVERY_STATE_QUERY = gql`
   query State {
@@ -36,7 +34,7 @@ const DELIVERY_STATE_QUERY = gql`
 `;
 
 export default memo(
-  injectIntl(function CartContainer({ delivery, intl, showActions, ...props }) {
+  injectIntl(function CartContainer({ intl, showActions, ...props }) {
     const dispatch = useDispatch();
     const products = useSelector(cartProductsSelector);
     const deliveryStateQuery = useQuery(DELIVERY_STATE_QUERY);
@@ -73,20 +71,20 @@ export default memo(
       return (
         <Cart
           total={totalPlusDelivery}
-          {...props}
           products={products}
           Item={CartItemContainer}
           actions={
             showActions && (
               <CartActionGroup
                 show={total.amount}
-                onClear={clearCart}
+                onClickClear={clearCart}
                 checkoutUrl="/checkout"
                 checkoutText="Checkout"
                 clearText="Clear"
               />
             )
           }
+          {...props}
         >
           <CurrencySwitcherContainer />
         </Cart>

@@ -1,13 +1,4 @@
-import {
-  __,
-  assocPath,
-  pipe,
-  assoc,
-  zipObj,
-  always,
-  propSatisfies,
-  fromPairs
-} from "ramda";
+import { __, assocPath, always } from "ramda";
 import { Record } from "immutable";
 import * as CART_ACTIONS from "../actionTypes/cart";
 import { Product } from "../types";

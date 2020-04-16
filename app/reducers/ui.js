@@ -4,7 +4,7 @@ import { DRAWERS } from "../actions/ui";
 import { not } from "ramda";
 import { UI } from "../types";
 
-const initialState = UI();
+const initialState = new UI();
 
 const handlers = createHandlers({
   [UI_ACTIONS.TOGGLE_DRAWER]: (state, { drawer }) =>

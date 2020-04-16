@@ -1,17 +1,15 @@
-import { Button } from "@material-ui/core";
-import { CardActions } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import { CardMedia } from "@material-ui/core";
-import { CardActionArea } from "@material-ui/core";
-import { Card } from "@material-ui/core";
-import { Radio } from "@material-ui/core";
-import { RadioGroup } from "@material-ui/core";
-import { FormControlLabel } from "@material-ui/core";
-import { CardContent } from "@material-ui/core";
-import { memo } from "react";
-import { injectIntl } from "react-intl";
-import { formatPrice } from "../../app/formatters";
-import { useCallback } from "react";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Typography
+} from "@material-ui/core";
+import { memo, useCallback } from "react";
 
 export default memo(function Product({
   id,
@@ -38,7 +36,7 @@ export default memo(function Product({
     <Card raised={selected}>
       <CardMedia
         component="img"
-        alt={description}
+        alt={images[0].alt || description}
         height="140"
         image={images[0].source}
         title={name}

@@ -4,14 +4,26 @@ import { persistReducer, persistStore } from "redux-persist";
 import immutableTransform from "redux-persist-transform-immutable";
 
 import rootReducer from "./reducers";
-import { Details, Product, ProductConfiguration, ProductConfigurationSelection } from "./types";
+import {
+  Details,
+  Product,
+  ProductConfiguration,
+  ProductConfigurationSelection
+} from "./types";
 import { hasWindow } from "./utils";
 import { toggleDrawer, DRAWERS } from "./actions/ui";
 
 export const createClientStore = () => {
   const persistConfig = {
     transforms: [
-      immutableTransform({ records: [Product, Details, ProductConfiguration, ProductConfigurationSelection] })
+      immutableTransform({
+        records: [
+          Product,
+          Details,
+          ProductConfiguration,
+          ProductConfigurationSelection
+        ]
+      })
     ],
     blacklist: ["ui"],
     key: "root",
@@ -22,7 +34,8 @@ export const createClientStore = () => {
 
   const store = createStore(
     persistedReducer,
-    hasWindow() && process.env.NODE_ENV !== 'production' &&
+    hasWindow() &&
+      process.env.NODE_ENV !== "production" &&
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__()
   );

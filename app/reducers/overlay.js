@@ -1,5 +1,4 @@
 import { Map } from "immutable";
-import { always } from "ramda";
 import * as OVERLAY_ACTIONS from "../actionTypes/overlay";
 import { createReducer, createHandlers, toNaturalNum } from "../utils";
 import { ProductConfiguration } from "../types";

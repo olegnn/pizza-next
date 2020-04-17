@@ -22,7 +22,7 @@ const { store, persistor } = isClient
   : createServerStore();
 
 const theme = {
-  rightDrawerWidth: 650,
+  rightDrawerWidth: 700,
   containerWidth: 500,
   leftDrawerWidth: 200
 };

@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { FormControlLabel, RadioGroup, Radio } from "@material-ui/core";
+import { memo } from 'react';
+import { FormControlLabel, RadioGroup, Radio } from '@material-ui/core';
 
 export default memo(function CurrencySwitcher({ options, value, onChange }) {
   return (

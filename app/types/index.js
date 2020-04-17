@@ -1,9 +1,8 @@
-import { Map, Record } from "immutable";
-import { getCurrentTimeString } from "../utils";
+import { Map, Record } from 'immutable';
 
 export const ProductConfigurationSelection = Record(
   { seqId: 0, id: null },
-  "ProductConfigurationSelection"
+  'ProductConfigurationSelection'
 );
 
 export const Product = Record(
@@ -13,28 +12,28 @@ export const Product = Record(
     toppings: new Map(),
     selectedConfiguration: new ProductConfigurationSelection()
   },
-  "Product"
+  'Product'
 );
 
 export const Details = Record(
   {
-    name: "",
-    email: "",
-    phone: "",
-    payment: "cash",
-    address1: "",
-    address2: "",
-    time: ""
+    name: '',
+    email: '',
+    phone: '',
+    payment: 'cash',
+    address1: '',
+    address2: '',
+    time: ''
   },
-  "Details"
+  'Details'
 );
 
 export const UI = Record(
   { leftDrawerOpen: false, rightDrawerOpen: false, selectedElement: null },
-  "UI"
+  'UI'
 );
 
 export const ProductConfiguration = Record(
   { toppings: new Map(), selectedConfiguration: 0 },
-  "ProductConfiguration"
+  'ProductConfiguration'
 );

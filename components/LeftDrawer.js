@@ -1,7 +1,7 @@
-import { styled as styledJss } from "@material-ui/core/styles";
-import { memo } from "react";
-import styled from "styled-components";
-import Link from "next/link";
+import { styled as styledJss } from '@material-ui/core/styles';
+import { memo } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 import {
   Drawer,
   Divider,
@@ -9,7 +9,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 const StyledDrawer = styled(Drawer)`
   width: ${props => props.theme.rightDrawerWidth}px;

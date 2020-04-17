@@ -1,5 +1,5 @@
-import * as DETAILS_ACTIONS from "../actionTypes/details";
-import { always } from "ramda";
+import { always } from 'ramda';
+import * as DETAILS_ACTIONS from '../actionTypes/details';
 
 export const setDetails = (key, value) => ({
   type: DETAILS_ACTIONS.SET,

@@ -1,9 +1,8 @@
-import { Record } from "immutable";
-import { always } from "ramda";
+import { always } from 'ramda';
 
-import * as DETAILS_ACTIONS from "../actionTypes/details";
-import { Details } from "../types";
-import { createHandlers, createReducer } from "../utils";
+import * as DETAILS_ACTIONS from '../actionTypes/details';
+import { Details } from '../types';
+import { createHandlers, createReducer } from '../utils';
 
 const initialState = new Details();
 

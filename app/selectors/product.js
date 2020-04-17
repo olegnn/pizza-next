@@ -1,6 +1,6 @@
-import memoize from "fun-memoize";
-import { curry, transduce, map, prop, add, propEq } from "ramda";
-import { toPriceKey } from "../utils";
+import memoize from 'fun-memoize';
+import { curry, transduce, pluck, add, propEq } from 'ramda';
+import { toPriceKey } from '../utils';
 
 export const calcProductPrice = curry(
   memoize(
@@ -17,8 +17,8 @@ export const calcProductPrice = curry(
   )
 );
 
-export const sumQuantity = transduce(map(prop("quantity")), add, 0);
+export const sumQuantity = transduce(pluck('quantity'), add, 0);
 
 export const getProductQuantityById = memoize((state, productId) =>
-  sumQuantity(state.filter(propEq("id", productId)).values())
+  sumQuantity(state.filter(propEq('id', productId)).values())
 );

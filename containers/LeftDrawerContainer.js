@@ -1,10 +1,10 @@
-import { memo, useMemo } from "react";
-import styled from "styled-components";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { memo, useMemo } from 'react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
-import LeftDrawer from "../components/LeftDrawer";
-import { isLeftDrawerOpenSelector } from "../app/selectors";
+import LeftDrawer from '../components/LeftDrawer';
+import { isLeftDrawerOpenSelector } from '../app/selectors';
 
 const StyledMenuIcon = styled.img`
   max-height: 30px;
@@ -13,34 +13,34 @@ const StyledMenuIcon = styled.img`
 
 const MENU_ITEMS = [
   {
-    name: "Menu",
+    name: 'Menu',
     icon: <StyledMenuIcon src="/icons/icons8-restaurant-menu-96.png" />,
-    path: "/"
+    path: '/'
   },
   {
-    name: "Pizza",
+    name: 'Pizza',
     icon: <StyledMenuIcon src="/icons/icons8-pizza-96.png" />,
-    path: "/pizza"
+    path: '/pizza'
   },
   {
-    name: "Soups",
+    name: 'Soups',
     icon: <StyledMenuIcon src="/icons/icons8-soup-plate-96.png" />,
-    path: "/soups"
+    path: '/soups'
   },
   {
-    name: "Drinks",
+    name: 'Drinks',
     icon: <StyledMenuIcon src="/icons/icons8-soda-bottle-96.png" />,
-    path: "/drinks"
+    path: '/drinks'
   },
   {
-    name: "Desserts",
+    name: 'Desserts',
     icon: <StyledMenuIcon src="/icons/icons8-pancake-96.png" />,
-    path: "/desserts"
+    path: '/desserts'
   },
   {
-    name: "Checkout",
+    name: 'Checkout',
     icon: <StyledMenuIcon src="/icons/icons8-checkout-96.png" />,
-    path: "/checkout"
+    path: '/checkout'
   }
 ];
 

@@ -8,8 +8,8 @@ import {
   Radio,
   RadioGroup,
   Typography
-} from "@material-ui/core";
-import { memo, useCallback } from "react";
+} from '@material-ui/core';
+import { memo, useCallback } from 'react';
 
 export default memo(function Product({
   id,

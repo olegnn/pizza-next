@@ -1,13 +1,16 @@
-import { ListItem } from "@material-ui/core";
-import { ListItemText } from "@material-ui/core";
-import { ListItemIcon } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import { FormControlLabel } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
-import { memo } from "react";
-import styled from "styled-components";
+import {
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Typography,
+  FormControlLabel,
+  TextField
+} from '@material-ui/core';
 
-import ProductIcon from "../ProductIcon";
+import { memo } from 'react';
+import styled from 'styled-components';
+
+import ProductIcon from '../ProductIcon';
 
 const StyledToppingIcon = styled.img`
   max-height: 30px;
@@ -53,14 +56,12 @@ const QuantityInput = styled(TextField)`
 
 export default memo(function CartItem({
   product: {
-    id,
     name,
     category,
-    description,
     configurations: availableConfigurations,
     toppings: availableToppings,
     maxQuantity
-  } = {},
+  },
   selectedConfiguration,
   price,
   toppings,
@@ -104,8 +105,8 @@ export default memo(function CartItem({
         />
       </StyledListItemText>
       {[...toppings.entries()].map(([toppingId, quantity]) => (
-        <>
-          <StyledListItemIcon key={toppingId}>
+        <span key={toppingId}>
+          <StyledListItemIcon>
             <StyledToppingIcon
               src={
                 availableToppings.find(({ id }) => id === toppingId).image
@@ -113,8 +114,8 @@ export default memo(function CartItem({
               }
             />
           </StyledListItemIcon>
-          <Typography key={toppingId + quantity}> x {quantity} </Typography>
-        </>
+          <Typography> x {quantity} </Typography>
+        </span>
       ))}
       <PriceC variant="h6"> = {price}</PriceC>
     </StyledListItem>

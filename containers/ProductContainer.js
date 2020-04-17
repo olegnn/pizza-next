@@ -1,20 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useCallback, memo } from "react";
-import { injectIntl } from "react-intl";
+import { useSelector, useDispatch } from 'react-redux';
+import { useCallback, memo } from 'react';
+import { injectIntl } from 'react-intl';
+import { propEq } from 'ramda';
 import {
   overlaySelector,
-  selectedElementSelector,
   productAdditionalCostSelector,
   cartCurrencySelector
-} from "../app/selectors";
-import Product from "../components/ProductList/Product";
-import { addProduct } from "../app/actions/cart";
-import { Map } from "immutable";
-import { setProductConfiguration } from "../app/actions/overlay";
-import { pick, propEq } from "ramda";
-import { addPrices } from "../app/utils";
-import { formatPrice } from "../app/formatters";
-import { ProductConfigurationSelection } from "../app/types";
+} from '../app/selectors';
+import Product from '../components/ProductList/Product';
+import { addProduct } from '../app/actions/cart';
+import { setProductConfiguration } from '../app/actions/overlay';
+import { addPrices } from '../app/utils';
+import { formatPrice } from '../app/formatters';
+import { ProductConfigurationSelection } from '../app/types';
 
 export default memo(
   injectIntl(function ProductContainer({ intl, id, ...props }) {
@@ -60,18 +58,19 @@ export default memo(
       event => void dispatch(setProductConfiguration(id, +event.target.value)),
       [id, dispatch]
     );
-    const getAdditionalCost = useSelector(productAdditionalCostSelector);
+    const additionalCost = useSelector(productAdditionalCostSelector(id));
 
     const price = formatPrice(
       intl,
       addPrices(
-        choosenProductConfiguration.prices.find(propEq("currency", currency)),
-        getAdditionalCost(props.id)
+        choosenProductConfiguration.prices.find(propEq('currency', currency)),
+        additionalCost
       )
     );
 
     return (
       <Product
+        {...props}
         id={id}
         addToCartText="Add to cart"
         customizeProductText="Customize toppings"
@@ -82,7 +81,6 @@ export default memo(
         }
         onAddProduct={handleAddProduct}
         onSelectConfiguration={handleSelectConfiguration}
-        {...props}
       />
     );
   })

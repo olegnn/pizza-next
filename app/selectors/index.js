@@ -1,43 +1,45 @@
-import { createObjectSelector } from "fun-memoize";
-import { prop, pipe, transduce, add, map, __ } from "ramda";
-import { calcProductPrice, sumQuantity } from "./product";
-import { toPriceKey } from "../utils";
+import { createMemoizedSelector } from 'fun-memoize';
+import { prop, pipe, transduce, add, map, __, flip, curryN } from 'ramda';
+import { calcProductPrice, sumQuantity } from './product';
+import { toPriceKey } from '../utils';
 
-export const overlaySelector = prop("overlay");
+const curry2 = curryN(2);
 
-export const cartSelector = prop("cart");
+export const overlaySelector = prop('overlay');
 
-export const uiSelector = prop("ui");
+export const cartSelector = prop('cart');
 
-export const detailsSelector = prop("details");
+export const uiSelector = prop('ui');
 
-export const cartProductsSelector = pipe(cartSelector, prop("products"));
+export const detailsSelector = prop('details');
 
-export const cartPricesSelector = pipe(cartSelector, prop("prices"));
+export const cartProductsSelector = pipe(cartSelector, prop('products'));
 
-export const cartCurrencySelector = pipe(cartSelector, prop("currency"));
+export const cartPricesSelector = pipe(cartSelector, prop('prices'));
+
+export const cartCurrencySelector = pipe(cartSelector, prop('currency'));
 
 export const selectedElementSelector = pipe(
   uiSelector,
-  prop("selectedElement")
+  prop('selectedElement')
 );
 
 export const isLeftDrawerOpenSelector = pipe(
   uiSelector,
-  prop("leftDrawerOpen")
+  prop('leftDrawerOpen')
 );
 
 export const isRightDrawerOpenSelector = pipe(
   uiSelector,
-  prop("rightDrawerOpen")
+  prop('rightDrawerOpen')
 );
 
-export const productInCartCountSelector = createObjectSelector(
+export const productInCartCountSelector = createMemoizedSelector(
   cartProductsSelector,
   pipe(v => v.values(), sumQuantity)
 );
 
-export const cartTotalSelector = createObjectSelector(
+export const cartTotalSelector = createMemoizedSelector(
   [cartProductsSelector, cartPricesSelector, cartCurrencySelector],
   (products, prices, currency) => ({
     currency,
@@ -50,35 +52,53 @@ export const cartTotalSelector = createObjectSelector(
   })
 );
 
-export const productPriceSelector = createObjectSelector(
-  [cartProductsSelector, cartPricesSelector, cartCurrencySelector],
-  (products, prices, currency) => productKey => ({
-    currency,
-    amount: calcProductPrice(products.get(productKey), prices, currency)
-  })
+export const productPriceSelector = flip(
+  curry2(
+    createMemoizedSelector(
+      [
+        cartProductsSelector,
+        cartPricesSelector,
+        cartCurrencySelector,
+        (_, productKey) => productKey
+      ],
+      (products, prices, currency, productKey) => ({
+        currency,
+        amount: calcProductPrice(products.get(productKey), prices, currency)
+      })
+    )
+  )
 );
 
-export const productAdditionalCostSelector = createObjectSelector(
-  [overlaySelector, cartPricesSelector, cartCurrencySelector],
-  (overlay, prices, currency) => id => {
-    const prodConf = overlay.get(id);
-    let amount;
+export const productAdditionalCostSelector = flip(
+  curry2(
+    createMemoizedSelector(
+      [
+        overlaySelector,
+        cartPricesSelector,
+        cartCurrencySelector,
+        (_, id) => id
+      ],
+      (overlay, prices, currency, id) => {
+        const prodConf = overlay.get(id);
 
-    if (!prodConf) {
-      amount = 0;
-    } else {
-      amount = prodConf.toppings
-        .entrySeq()
-        .reduce(
-          (acc, [id, amount]) =>
-            acc + prices.getIn([toPriceKey({ id }), currency]) * amount,
-          0
-        );
-    }
+        let amount;
+        if (!prodConf) {
+          amount = 0;
+        } else {
+          amount = prodConf.toppings
+            .entrySeq()
+            .reduce(
+              (acc, [id, amount]) =>
+                acc + prices.getIn([toPriceKey({ id }), currency]) * amount,
+              0
+            );
+        }
 
-    return {
-      currency,
-      amount
-    };
-  }
+        return {
+          currency,
+          amount
+        };
+      }
+    )
+  )
 );

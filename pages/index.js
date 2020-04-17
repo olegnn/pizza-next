@@ -1,39 +1,38 @@
-import { Typography, ButtonBase } from "@material-ui/core";
-import { ListSubheader } from "@material-ui/core";
-import { IconButton } from "@material-ui/core";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import Link from "next/link";
-import styled from "styled-components";
+import { Typography, ButtonBase } from '@material-ui/core';
 
-import PageContainer from "../containers/PageContainer";
-import withApollo from "../hocs/withApollo";
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import Link from 'next/link';
+import styled from 'styled-components';
+
+import PageContainer from '../containers/PageContainer';
+import withApollo from '../hocs/withApollo';
 
 const menuData = [
   {
-    name: "Pizza",
-    description: "",
-    route: "/pizza",
-    img: "/pizza.jpg"
+    name: 'Pizza',
+    description: '',
+    route: '/pizza',
+    img: '/pizza.jpg'
   },
   {
-    name: "Soups",
-    description: "",
-    route: "/soups",
-    img: "/soup.jpg"
+    name: 'Soups',
+    description: '',
+    route: '/soups',
+    img: '/soup.jpg'
   },
   {
-    name: "Desserts",
-    description: "",
-    route: "/desserts",
-    img: "/dessert.jpg"
+    name: 'Desserts',
+    description: '',
+    route: '/desserts',
+    img: '/dessert.jpg'
   },
   {
-    name: "Drinks",
-    description: "",
-    route: "/drinks",
-    img: "/drinks.jpg"
+    name: 'Drinks',
+    description: '',
+    route: '/drinks',
+    img: '/drinks.jpg'
   }
 ];
 
@@ -52,7 +51,7 @@ export default withApollo(function Index() {
   return (
     <PageContainer>
       <GridList cellHeight={360} className="">
-        <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <Typography variant="h3">Menu</Typography>
         </GridListTile>
         {menuData.map(item => {

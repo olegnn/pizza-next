@@ -1,14 +1,14 @@
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import { useCallback, memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { injectIntl } from "react-intl";
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import { useCallback, memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { injectIntl } from 'react-intl';
 
-import CartItem from "../components/Cart/CartItem";
-import withDataLoader from "../hocs/withDataLoader";
-import { changeProductQuantity } from "../app/actions/cart";
-import { cartProductsSelector, productPriceSelector } from "../app/selectors";
-import { formatPrice } from "../app/formatters";
+import CartItem from '../components/Cart/CartItem';
+import withDataLoader from '../hocs/withDataLoader';
+import { changeProductQuantity } from '../app/actions/cart';
+import { productPriceSelector } from '../app/selectors';
+import { formatPrice } from '../app/formatters';
 
 const GET_PRODUCT_QUERY = gql`
   query Product($id: ID!) {
@@ -52,9 +52,10 @@ export default memo(
         ),
       [dispatch, productKey]
     );
+
     const price = formatPrice(
       intl,
-      useSelector(productPriceSelector)(productKey)
+      useSelector(productPriceSelector(productKey))
     );
 
     return (

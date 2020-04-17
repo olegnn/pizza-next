@@ -1,6 +1,6 @@
-import { __, assoc, assocPath } from "ramda";
+import { __, assocPath } from 'ramda';
 
-import * as OVERLAY_ACTIONS from "../actionTypes/overlay";
+import * as OVERLAY_ACTIONS from '../actionTypes/overlay';
 
 export const setProductTopping = (productId, id, amount, prices) => ({
   type: OVERLAY_ACTIONS.SET_PRODUCT_TOPPING,
@@ -21,7 +21,7 @@ export const setProductConfiguration = (productId, seqId) => ({
 });
 
 export const resetProductConfiguration = assocPath(
-  ["payload", "productId"],
+  ['payload', 'productId'],
   __,
   {
     type: OVERLAY_ACTIONS.RESET_PRODUCT_CONFIGURATION
@@ -29,7 +29,7 @@ export const resetProductConfiguration = assocPath(
 );
 
 export const removeAllProductToppings = assocPath(
-  ["payload", "productId"],
+  ['payload', 'productId'],
   __,
   {
     type: OVERLAY_ACTIONS.REMOVE_ALL_PRODUCT_TOPPINGS

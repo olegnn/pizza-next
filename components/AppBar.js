@@ -1,19 +1,16 @@
 import {
-  Button,
   IconButton,
   AppBar as MAppBar,
   Toolbar,
   Typography
-} from "@material-ui/core";
-import { omit, pipe } from "ramda";
-import MenuIcon from "@material-ui/icons/Menu";
-import { memo } from "react";
-import styled from "styled-components";
-
-import BadgeCartContainer from "../containers/BadgeCartContainer";
+} from '@material-ui/core';
+import { omit, pipe } from 'ramda';
+import MenuIcon from '@material-ui/icons/Menu';
+import { memo } from 'react';
+import styled from 'styled-components';
 
 const StyledAppBar = styled(
-  pipe(omit(["leftOpen", "rightOpen"]), props => <MAppBar {...props} />)
+  pipe(omit(['leftOpen', 'rightOpen']), props => <MAppBar {...props} />)
 )`
   margin-top: 0px;
   padding-left: ${({ leftOpen, theme }) =>
@@ -22,16 +19,8 @@ const StyledAppBar = styled(
     (rightOpen && theme.rightDrawerWidth) || 0}px;
 `;
 
-const MenuButton = styled(Button)`
-  margin-right: 30rem;
-`;
-
 const Header = styled(Typography)`
   flex-grow: 7;
-`;
-
-const LoginButton = styled(Button)`
-  color: inherit;
 `;
 
 export default memo(function AppBar({
@@ -39,7 +28,8 @@ export default memo(function AppBar({
   leftOpen,
   rightOpen,
   onToggleLeft,
-  onToggleRight
+  onToggleRight,
+  iconBadge
 }) {
   return (
     <StyledAppBar leftOpen={leftOpen} rightOpen={rightOpen} position="fixed">
@@ -55,7 +45,7 @@ export default memo(function AppBar({
         </IconButton>
         <Header variant="h6">{header}</Header>
         <IconButton aria-label="cart" onClick={onToggleRight}>
-          <BadgeCartContainer />
+          {iconBadge}
         </IconButton>
       </Toolbar>
     </StyledAppBar>

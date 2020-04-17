@@ -1,19 +1,18 @@
-import App from "next/app";
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { Provider } from "react-redux";
-import { createClientStore, createServerStore } from "../app/store";
-import { PersistGate } from "redux-persist/integration/react";
-import { IntlProvider } from "react-intl";
-import { hasWindow } from "../app/utils";
-import { CssBaseline } from "@material-ui/core";
-import withApollo from "../hocs/withApollo";
+import App from 'next/app';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { IntlProvider } from 'react-intl';
+import { CssBaseline } from '@material-ui/core';
+import { hasWindow } from '../app/utils';
+import { createClientStore, createServerStore } from '../app/store';
 
 const isClient = hasWindow();
 
-if (isClient && process.env.NODE_ENV === "development") {
-  console.log(1);
-  const { registerObserver } = require("react-perf-devtool");
+if (isClient && process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line
+  const { registerObserver } = require('react-perf-devtool');
   registerObserver();
 }
 
@@ -29,7 +28,7 @@ const theme = {
 
 export default class extends App {
   componentDidMount() {
-    const jssStyles = document.querySelector("#jss-server-side");
+    const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles && jssStyles.parentNode)
       jssStyles.parentNode.removeChild(jssStyles);
   }

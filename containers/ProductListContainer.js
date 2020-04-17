@@ -1,16 +1,13 @@
-import { always } from "ramda";
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import { Record } from "immutable";
-import { useCallback, memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { always } from 'ramda';
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import { memo } from 'react';
 
-import ToppingsListContainer from "./ToppingListContainer";
-import ProductList from "../components/ProductList/ProductList";
-import withDataLoader from "../hocs/withDataLoader";
-import withPopper from "../hocs/withPopper";
-import { addProduct } from "../app/actions/cart";
-import ProductContainer from "./ProductContainer";
+import ToppingsListContainer from './ToppingListContainer';
+import ProductList from '../components/ProductList/ProductList';
+import withDataLoader from '../hocs/withDataLoader';
+import withPopper from '../hocs/withPopper';
+import ProductContainer from './ProductContainer';
 
 const GET_PRODUCT_LIST = gql`
   query Products($category: Category) {

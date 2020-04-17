@@ -1,5 +1,9 @@
 This's a demo pizza project based on ReactJS (Next.js) and GraphQL.
 
+## Preview
+
+https://radiant-stream-15023.herokuapp.com/
+
 ## Getting Started
 
 First, install dependencies

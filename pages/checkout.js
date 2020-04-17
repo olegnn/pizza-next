@@ -1,34 +1,32 @@
-import { Button } from "@material-ui/core";
-import { RadioGroup } from "@material-ui/core";
-import { FormControlLabel } from "@material-ui/core";
-import { Radio } from "@material-ui/core";
-import { TextField } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
-import { InputLabel } from "@material-ui/core";
-import { Input } from "@material-ui/core";
-import { always, path, and } from "ramda";
-import { useMemo, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import gql from "graphql-tag";
-import { useEffect } from "react";
+import {
+  Button,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  TextField,
+  Typography,
+  CircularProgress
+} from '@material-ui/core';
 
-import PageContainer from "../containers/PageContainer";
-import { setDetails } from "../app/actions/details";
+import { always, path, and } from 'ramda';
+import { useMemo, useState, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import gql from 'graphql-tag';
+
+import { injectIntl } from 'react-intl';
+import { useMutation } from '@apollo/react-hooks';
+import PageContainer from '../containers/PageContainer';
+import { setDetails } from '../app/actions/details';
 import {
   detailsSelector,
   cartTotalSelector,
   cartProductsSelector
-} from "../app/selectors";
-import { injectIntl } from "react-intl";
-import CartContainer from "../containers/CartContainer";
-import { removeAllProducts } from "../app/actions/cart";
-import { timeStringToDate } from "../app/utils";
-import withApollo from "../hocs/withApollo";
-import { getCurrentTimeString } from "../app/utils";
-import { CircularProgress } from "@material-ui/core";
-import { useMutation } from "@apollo/react-hooks";
+} from '../app/selectors';
+import CartContainer from '../containers/CartContainer';
+import { removeAllProducts } from '../app/actions/cart';
+import { timeStringToDate, getCurrentTimeString } from '../app/utils';
+import withApollo from '../hocs/withApollo';
 
 const StyledTextField = styled(TextField)`
   padding: 2px;
@@ -39,18 +37,22 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
+/* eslint-disable no-control-regex */
+/* eslint-disable no-useless-escape */
 const FORM_MEMBERS = [
-  ["name", /^\s*(?:[a-z]+\s?){1,4}$/i],
-  ["phone", /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/],
+  ['name', /^\s*(?:[a-z]+\s?){1,4}$/i],
+  ['phone', /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/],
   [
-    "email",
+    'email',
     /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/i
   ],
-  ["address1", /^(?:[\w0-9,\.]+\s?)+$/],
-  ["address2", /^(?:[\w0-9,\.]+\s?)+$/],
-  ["payment"],
-  ["time"]
+  ['address1', /^(?:[\w0-9,\.]+\s?)+$/],
+  ['address2', /^(?:[\w0-9,\.]+\s?)+$/],
+  ['payment'],
+  ['time']
 ];
+/* eslint-enable no-control-regex */
+/* eslint-enable no-useless-escape */
 
 const CREATE_ORDER_MUTATION = gql`
   mutation CreateOrder(
@@ -127,7 +129,7 @@ export default withApollo(
       touched.concat(dispatch)
     );
 
-    const validations = handlers.map(([_, validator, member]) =>
+    const validations = handlers.map(([, validator, member]) =>
       validator(details.get(member))
     );
 
@@ -170,7 +172,7 @@ export default withApollo(
       [validations, products, details]
     );
 
-    const orderId = path(["data", "createOrder", "id"], orderMutation);
+    const orderId = path(['data', 'createOrder', 'id'], orderMutation);
     useEffect(() => orderId && void dispatch(removeAllProducts()), [
       dispatch,
       orderId
@@ -191,7 +193,7 @@ export default withApollo(
       const order = orderMutation.data.createOrder;
       content = (
         <Typography variant="h6">
-          Order {order.id} was successfully created at{" "}
+          Order {order.id} was successfully created at{' '}
           {intl.formatTime(order.createdAt)}.
         </Typography>
       );
@@ -254,7 +256,6 @@ export default withApollo(
             />
             <RadioGroup
               required
-              value="cash"
               label="Payment method"
               name="payment"
               value={details.payment}

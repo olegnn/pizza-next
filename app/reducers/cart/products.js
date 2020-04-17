@@ -1,14 +1,13 @@
-import { OrderedMap } from "immutable";
-import { add, curry, __, pipe, always, dec, propEq } from "ramda";
-import * as CART_ACTIONS from "../../actionTypes/cart";
+import { OrderedMap } from 'immutable';
+import { add, __, pipe, always, dec } from 'ramda';
+import * as CART_ACTIONS from '../../actionTypes/cart';
 import {
   createReducer,
   toProductKey,
   createHandlers,
-  toNaturalNum,
-  toProductKeyPrefix
-} from "../../utils";
-import { getProductQuantityById } from "../../selectors/product";
+  toNaturalNum
+} from '../../utils';
+import { getProductQuantityById } from '../../selectors/product';
 
 const initialState = new OrderedMap();
 
@@ -19,8 +18,8 @@ const handlers = createHandlers({
   ) => {
     const updatedState = state.update(productKey, cartProduct =>
       cartProduct
-        ? cartProduct.update("quantity", add(toNaturalNum(product.quantity)))
-        : product.update("quantity", toNaturalNum)
+        ? cartProduct.update('quantity', add(toNaturalNum(product.quantity)))
+        : product.update('quantity', toNaturalNum)
     );
     if (maxQuantity != null) {
       const productQuantity = getProductQuantityById(updatedState, product.id);
@@ -35,31 +34,30 @@ const handlers = createHandlers({
     state,
     { productKey, quantity, maxQuantity, deleteIfZero = false }
   ) => {
-    if (typeof quantity !== "number") return state;
-    else {
-      let deleteProduct = false,
-        productId = null;
-      const updatedState = state.update(productKey, product => {
-        quantity = toNaturalNum(quantity);
-        if (product) {
-          productId = product.id;
-          product = product.set("quantity", quantity);
-          deleteProduct = product.quantity < 1;
-          return product;
-        }
-      });
-      if (maxQuantity != null && productId != null) {
-        const productQuantity = getProductQuantityById(updatedState, productId);
+    if (typeof quantity !== 'number') return state;
 
-        if (productQuantity > maxQuantity) {
-          return state;
-        }
+    let deleteProduct = false;
+    let productId = null;
+    const updatedState = state.update(productKey, product => {
+      quantity = toNaturalNum(quantity);
+      if (product) {
+        productId = product.id;
+        product = product.set('quantity', quantity);
+        deleteProduct = product.quantity < 1;
+        return product;
       }
+    });
+    if (maxQuantity != null && productId != null) {
+      const productQuantity = getProductQuantityById(updatedState, productId);
 
-      return deleteIfZero && deleteProduct
-        ? updatedState.delete(productKey)
-        : updatedState;
+      if (productQuantity > maxQuantity) {
+        return state;
+      }
     }
+
+    return deleteIfZero && deleteProduct
+      ? updatedState.delete(productKey)
+      : updatedState;
   },
   [CART_ACTIONS.REMOVE_PRODUCT]: (state, { productKey, quantity }) => {
     if (quantity != null) {
@@ -68,7 +66,7 @@ const handlers = createHandlers({
       let deleteProduct = false;
       state = state.update(productKey, product => {
         if (product) {
-          product = product.update("quantity", dec(quantity));
+          product = product.update('quantity', dec(quantity));
           deleteProduct = product.quantity < 1;
           return product;
         }
@@ -86,9 +84,8 @@ const handlers = createHandlers({
         handlers[CART_ACTIONS.REMOVE_PRODUCT](__, { productKey }),
         handlers[CART_ACTIONS.ADD_PRODUCT](__, { product, productKey })
       )(state);
-    } else {
-      return state.update(productKey, v => v.merge(product));
     }
+    return state.update(productKey, v => v.merge(product));
   },
   [CART_ACTIONS.REMOVE_ALL_PRODUCTS]: always(initialState)
 });

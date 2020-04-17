@@ -1,7 +1,7 @@
-import { ChevronRight as ChevronRightIcon } from "@material-ui/icons";
-import { Drawer, IconButton } from "@material-ui/core";
-import { memo } from "react";
-import styled from "styled-components";
+import { ChevronRight as ChevronRightIcon } from '@material-ui/icons';
+import { Drawer, IconButton } from '@material-ui/core';
+import { memo } from 'react';
+import styled from 'styled-components';
 
 const StyledDrawer = styled(Drawer)`
   min-width: ${props => props.theme.rightDrawerWidth}px;
@@ -21,12 +21,7 @@ const StyledDrawerHeader = styled.div`
   }
 `;
 
-export default memo(function RightDrawer({
-  open,
-  children,
-  onClickToggle,
-  width
-}) {
+export default memo(function RightDrawer({ open, children, onClickToggle }) {
   return (
     <StyledDrawer
       className=""
@@ -34,7 +29,7 @@ export default memo(function RightDrawer({
       anchor="right"
       open={open}
       classes={{
-        paper: ""
+        paper: ''
       }}
     >
       <StyledDrawerHeader>

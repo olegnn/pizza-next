@@ -1,17 +1,16 @@
-import storage from "localforage";
-import { createStore } from "redux";
-import { persistReducer, persistStore } from "redux-persist";
-import immutableTransform from "redux-persist-transform-immutable";
+import storage from 'localforage';
+import { createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import immutableTransform from 'redux-persist-transform-immutable';
 
-import rootReducer from "./reducers";
+import rootReducer from './reducers';
 import {
   Details,
   Product,
   ProductConfiguration,
   ProductConfigurationSelection
-} from "./types";
-import { hasWindow } from "./utils";
-import { toggleDrawer, DRAWERS } from "./actions/ui";
+} from './types';
+import { hasWindow } from './utils';
 
 export const createClientStore = () => {
   const persistConfig = {
@@ -25,8 +24,8 @@ export const createClientStore = () => {
         ]
       })
     ],
-    blacklist: ["ui"],
-    key: "root",
+    blacklist: ['ui'],
+    key: 'root',
     storage
   };
 
@@ -35,7 +34,8 @@ export const createClientStore = () => {
   const store = createStore(
     persistedReducer,
     hasWindow() &&
-      process.env.NODE_ENV !== "production" &&
+      // eslint-disable-next-line no-undef
+      process.env.NODE_ENV !== 'production' &&
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
       window.__REDUX_DEVTOOLS_EXTENSION__()
   );
@@ -50,6 +50,7 @@ export const createClientStore = () => {
   // store.dispatch(toggleDrawer(DRAWERS.LEFT));
   */
 
+  // eslint-disable-next-line no-undef
   process.env.CLEAR_PERSISTOR && persistor.purge();
 
   return { store, persistor };

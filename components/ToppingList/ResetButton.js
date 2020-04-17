@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { Button } from "@material-ui/core";
+import { memo } from 'react';
+import { Button } from '@material-ui/core';
 
 export default memo(function ResetButton({ onClickReset, resetText }) {
   return (

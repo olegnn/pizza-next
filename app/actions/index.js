@@ -1,7 +1,4 @@
-export * from "./cart";
-
-export * from "./details";
-
-export * from "./overlay";
-
-export * from "./ui";
+export * from './cart';
+export * from './details';
+export * from './overlay';
+export * from './ui';

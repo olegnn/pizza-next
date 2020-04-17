@@ -1,13 +1,7 @@
-import { memo } from "react";
-import { Typography } from "@material-ui/core";
+import { memo } from 'react';
+import { Typography } from '@material-ui/core';
 
-export default memo(function ToppingList({
-  header,
-  toppings,
-  Item,
-  onClickReset,
-  actions
-}) {
+export default memo(function ToppingList({ header, toppings, Item, actions }) {
   return (
     <div>
       <Typography variant="h6">{header}</Typography>

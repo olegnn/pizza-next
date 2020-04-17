@@ -1,9 +1,9 @@
-import { createReducer, createHandlers, toPriceKey } from "../../utils";
-import { Map } from "immutable";
-import { fromPairs, always } from "ramda";
-import * as CART_ACTIONS from "../../actionTypes/cart";
-import * as OVERLAY_ACTIONS from "../../actionTypes/overlay";
-import { Product } from "../../types";
+import { Map } from 'immutable';
+import { fromPairs } from 'ramda';
+import { createReducer, createHandlers, toPriceKey } from '../../utils';
+import * as CART_ACTIONS from '../../actionTypes/cart';
+import * as OVERLAY_ACTIONS from '../../actionTypes/overlay';
+import { Product } from '../../types';
 
 const initialState = new Map();
 

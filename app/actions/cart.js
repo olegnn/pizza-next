@@ -1,7 +1,6 @@
-import { __, assocPath, always } from "ramda";
-import { Record } from "immutable";
-import * as CART_ACTIONS from "../actionTypes/cart";
-import { Product } from "../types";
+import { __, assocPath, always } from 'ramda';
+import * as CART_ACTIONS from '../actionTypes/cart';
+import { Product } from '../types';
 
 export const addProduct = (product, maxQuantity, configurations) => ({
   type: CART_ACTIONS.ADD_PRODUCT,
@@ -12,7 +11,7 @@ export const addProduct = (product, maxQuantity, configurations) => ({
   }
 });
 
-export const removeProduct = assocPath(["payload", "productKey"], __, {
+export const removeProduct = assocPath(['payload', 'productKey'], __, {
   type: CART_ACTIONS.REMOVE_PRODUCT
 });
 
@@ -35,6 +34,6 @@ export const removeAllProducts = always({
   type: CART_ACTIONS.REMOVE_ALL_PRODUCTS
 });
 
-export const setCurrency = assocPath(["payload", "currency"], __, {
+export const setCurrency = assocPath(['payload', 'currency'], __, {
   type: CART_ACTIONS.SET_CURRENCY
 });

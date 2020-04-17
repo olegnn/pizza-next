@@ -1,13 +1,12 @@
-import { memo } from "react";
-import styled from "styled-components";
-import { Slider, Typography } from "@material-ui/core";
+import { memo } from 'react';
+import styled from 'styled-components';
+import { Slider, Typography } from '@material-ui/core';
 
 const ToppingSlider = styled(Slider)`
   min-width: 300px;
 `;
 
 export default memo(function ToppingItem({
-  id,
   name,
   amount,
   onChangeAmount,

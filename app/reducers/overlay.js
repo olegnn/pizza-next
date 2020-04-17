@@ -1,7 +1,7 @@
-import { Map } from "immutable";
-import * as OVERLAY_ACTIONS from "../actionTypes/overlay";
-import { createReducer, createHandlers, toNaturalNum } from "../utils";
-import { ProductConfiguration } from "../types";
+import { Map } from 'immutable';
+import * as OVERLAY_ACTIONS from '../actionTypes/overlay';
+import { createReducer, createHandlers, toNaturalNum } from '../utils';
+import { ProductConfiguration } from '../types';
 
 const initialState = new Map();
 
@@ -10,14 +10,14 @@ const handlers = createHandlers({
     amount = toNaturalNum(amount);
     return state.update(productId, new ProductConfiguration(), config =>
       amount
-        ? config.setIn(["toppings", id], amount)
-        : config.deleteIn(["toppings", id])
+        ? config.setIn(['toppings', id], amount)
+        : config.deleteIn(['toppings', id])
     );
   },
 
   [OVERLAY_ACTIONS.SET_PRODUCT_CONFIGURATION]: (state, { productId, seqId }) =>
     state.update(productId, new ProductConfiguration(), config =>
-      config.set("selectedConfiguration", seqId)
+      config.set('selectedConfiguration', seqId)
     ),
 
   [OVERLAY_ACTIONS.RESET_PRODUCT_CONFIGURATION]: (state, { productId }) =>
@@ -29,7 +29,7 @@ const handlers = createHandlers({
   [OVERLAY_ACTIONS.REMOVE_ALL_PRODUCT_TOPPINGS]: (state, { productId }) =>
     state.update(
       productId,
-      value => value && value.set("toppings", initialState)
+      value => value && value.set('toppings', initialState)
     )
 });
 

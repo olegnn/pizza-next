@@ -1,6 +1,6 @@
-import { Grid } from "@material-ui/core";
-import { memo } from "react";
-import styled from "styled-components";
+import { Grid } from '@material-ui/core';
+import { memo } from 'react';
+import styled from 'styled-components';
 
 const StyledGrid = styled(Grid)`
   margin-top: 10px;
@@ -21,6 +21,7 @@ export default memo(function ProductList({
       alignItems="flex-start"
       justify="center"
       spacing={3}
+      {...props}
     >
       {products.map(prod => (
         <Grid item sm={6} md={3} xs={12} key={prod.id}>

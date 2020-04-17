@@ -1,20 +1,17 @@
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import { path } from "ramda";
-import { useDispatch, useSelector } from "react-redux";
-import { useMemo, memo } from "react";
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import { path } from 'ramda';
+import { useDispatch } from 'react-redux';
+import { useMemo, memo } from 'react';
 
-import ToppingList from "../components/ToppingList/ToppingList";
-import ResetButton from "../components/ToppingList/ResetButton";
-import withDataLoader from "../hocs/withDataLoader";
-import {
-  setProductTopping,
-  removeAllProductToppings
-} from "../app/actions/overlay";
-import ToppingSliderContainer from "./ToppingSliderContainer";
+import ToppingList from '../components/ToppingList/ToppingList';
+import ResetButton from '../components/ToppingList/ResetButton';
+import withDataLoader from '../hocs/withDataLoader';
+import { removeAllProductToppings } from '../app/actions/overlay';
+import ToppingSliderContainer from './ToppingSliderContainer';
 
 const ConfiguredToppingList = withDataLoader(ToppingList, {
-  mapQueryToProps: path(["data", "product"])
+  mapQueryToProps: path(['data', 'product'])
 });
 
 const TOPPING_LIST_QUERY = gql`

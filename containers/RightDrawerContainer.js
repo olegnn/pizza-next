@@ -1,16 +1,9 @@
-import { memo, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Cart from "../components/Cart/Cart";
-import RightDrawer from "../components/RightDrawer";
-import { toggleDrawer, DRAWERS } from "../app/actions/ui";
-import {
-  cartProductsSelector,
-  cartTotalSelector,
-  isRightDrawerOpenSelector
-} from "../app/selectors";
-import CartItemContainer from "./CartItemContainer";
-import { removeAllProducts } from "../app/actions/cart";
+import RightDrawer from '../components/RightDrawer';
+import { toggleDrawer, DRAWERS } from '../app/actions/ui';
+import { isRightDrawerOpenSelector } from '../app/selectors';
 
 export default memo(function RightDrawerContainer({ children, ...props }) {
   const dispatch = useDispatch();

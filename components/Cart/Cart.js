@@ -1,9 +1,6 @@
-import { memo } from "react";
-import { Typography, List } from "@material-ui/core";
-import styled from "styled-components";
-
-import { addPrices } from "../../app/utils";
-import { formatPrice } from "../../app/formatters";
+import { memo } from 'react';
+import { Typography, List } from '@material-ui/core';
+import styled from 'styled-components';
 
 const StyledTotal = styled(Typography)`
   margin: 10px;
@@ -30,8 +27,6 @@ const StyledList = styled(List)`
 `;
 
 export default memo(function Cart({
-  open,
-  width,
   total,
   products,
   Item,
